@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<annotations>
+  <version>1.1</version>
+  <meta>
+    <job>
+      <id>3668500</id>
+      <size>1</size>
+      <mode>annotation</mode>
+      <overlap>0</overlap>
+      <bugtracker></bugtracker>
+      <created>2026-02-24 11:25:39.548582+00:00</created>
+      <updated>2026-02-24 11:30:33.613733+00:00</updated>
+      <subset>default</subset>
+      <start_frame>0</start_frame>
+      <stop_frame>0</stop_frame>
+      <frame_filter></frame_filter>
+      <segments>
+        <segment>
+          <id>3668119</id>
+          <start>0</start>
+          <stop>0</stop>
+          <url>https://app.cvat.ai/api/jobs/3668500/dataset/export/api/jobs/3668500</url>
+        </segment>
+      </segments>
+      <owner>
+        <username>jayant9</username>
+        <email>jayantpatel3308@gmail.com</email>
+      </owner>
+      <assignee></assignee>
+      <labels>
+        <label>
+          <name>head</name>
+          <color>#ba9109</color>
+          <type>points</type>
+          <attributes>
+          </attributes>
+        </label>
+      </labels>
+    </job>
+    <dumped>2026-02-24 11:32:45.650050+00:00</dumped>
+  </meta>
+  <image id="0" name="getty_458478465.jpg" width="612" height="408">
+    <points label="head" source="manual" occluded="0" points="103.04,187.20" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="200.66,123.24" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="315.79,137.37" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="380.42,124.58" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="410.72,102.36" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="412.74,85.53" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="464.58,93.61" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="486.13,133.33" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="580.38,113.14" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="329.26,80.82" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="346.76,80.82" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="301.65,92.27" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="314.44,78.80" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="278.76,84.86" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="281.45,91.59" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="247.12,96.98" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="136.70,102.36" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="116.50,105.73" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="80.82,113.14" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="42.44,101.02" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="67.35,79.47" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="109.10,86.21" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="171.04,86.21" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="179.12,99.67" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="210.76,87.55" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="376.38,82.17" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="434.29,94.96" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="432.94,55.24" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="601.26,96.98" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="574.46,76.58" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="570.97,57.40" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="551.78,84.14" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="490.15,78.91" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="497.71,88.79" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="152.34,79.49" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="51.17,82.40" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="8.15,121.35" z_order="0">
+    </points>
+  </image>
+</annotations>

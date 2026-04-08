@@ -1,0 +1,3724 @@
+<?xml version="1.0" encoding="utf-8"?>
+<annotations>
+  <version>1.1</version>
+  <meta>
+    <job>
+      <id>3674868</id>
+      <size>7</size>
+      <mode>annotation</mode>
+      <overlap>0</overlap>
+      <bugtracker></bugtracker>
+      <created>2026-02-25 17:25:31.906460+00:00</created>
+      <updated>2026-02-25 19:38:57.615315+00:00</updated>
+      <subset>default</subset>
+      <start_frame>0</start_frame>
+      <stop_frame>6</stop_frame>
+      <frame_filter></frame_filter>
+      <segments>
+        <segment>
+          <id>3674461</id>
+          <start>0</start>
+          <stop>6</stop>
+          <url>https://app.cvat.ai/api/jobs/3674868/dataset/export/api/jobs/3674868</url>
+        </segment>
+      </segments>
+      <owner>
+        <username>0801cs231057</username>
+        <email>0801cs231057@sgsits.ac.in</email>
+      </owner>
+      <assignee></assignee>
+      <labels>
+        <label>
+          <name>head</name>
+          <color>#ba9109</color>
+          <type>points</type>
+          <attributes>
+          </attributes>
+        </label>
+      </labels>
+    </job>
+    <dumped>2026-02-25 19:40:47.051716+00:00</dumped>
+  </meta>
+  <image id="0" name="2025_2image_11_01_231850798y.jpg" width="640" height="420">
+    <points label="head" source="manual" occluded="0" points="25.08,216.23" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="59.04,221.08" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="130.42,219.00" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="108.94,216.23" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="83.99,184.35" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="100.62,183.65" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="142.21,178.80" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="129.73,163.55" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="223.30,207.91" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="190.03,196.82" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="283.59,213.46" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="320.33,252.96" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="397.95,227.32" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="357.75,198.21" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="506.07,235.63" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="555.28,216.23" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="508.84,194.05" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="526.17,216.23" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="581.55,197.23" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="567.28,174.29" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="572.32,163.94" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="525.32,169.53" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="495.38,164.22" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="506.85,165.06" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="504.05,174.85" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="444.46,167.29" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="460.96,165.90" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="426.83,207.03" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="404.73,193.88" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="394.93,179.33" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="409.76,174.01" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="398.29,162.54" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="366.11,158.06" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="47.71,169.36" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="54.76,166.58" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="169.85,160.17" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="151.91,170.21" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="292.54,175.14" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="269.95,174.91" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="295.08,141.47" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="299.00,131.56" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="305.92,121.18" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="342.35,130.41" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="335.20,128.33" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="320.90,124.41" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="329.67,142.40" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="342.58,141.01" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="137.13,162.99" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="146.56,160.43" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="158.40,160.70" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="155.31,164.88" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="244.50,176.87" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="239.08,177.82" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="596.23,169.09" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="587.29,170.47" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="451.72,158.42" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="318.56,198.34" z_order="0">
+    </points>
+  </image>
+  <image id="1" name="Mahakumbh-15-770x431.avif" width="770" height="431">
+    <points label="head" source="manual" occluded="0" points="23.90,12.14" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="13.92,45.41" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="27.23,67.59" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2.83,87.56" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2.83,73.14" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="76.02,72.03" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="86.00,67.59" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="92.66,78.68" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="81.57,97.54" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="63.82,103.08" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="61.61,118.61" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="74.91,121.94" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="52.73,154.10" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="115.95,105.30" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="62.04,135.73" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="107.59,38.13" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="129.37,20.84" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="122.66,49.36" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="58.92,10.78" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="68.14,10.78" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="79.05,9.10" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="134.40,68.65" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="121.82,75.36" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="123.50,92.97" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="159.56,95.49" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="153.69,77.03" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="167.95,56.07" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="172.98,80.39" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="194.79,30.07" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="161.24,20.00" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="220.79,30.90" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="210.73,56.91" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="198.15,59.42" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="204.86,82.91" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="219.95,73.68" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="235.05,59.42" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="243.44,81.23" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="264.40,51.87" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="242.60,20.84" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="225.82,19.16" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="282.86,32.58" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="284.53,53.55" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="275.31,86.26" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="271.95,96.33" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="241.76,93.81" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="256.02,109.74" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="236.73,110.58" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="222.47,98.00" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="200.66,97.16" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="209.05,111.42" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="184.73,109.74" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="192.27,125.68" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="167.11,113.94" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="139.44,108.07" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="147.82,136.58" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="112.60,127.36" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="104.21,139.94" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="136.08,157.55" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="147.82,172.65" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="121.82,168.46" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="81.56,172.65" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="63.95,181.04" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="60.60,199.49" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="48.85,216.26" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="117.63,191.94" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="91.63,236.39" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="139.44,211.23" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="171.31,186.91" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="160.40,186.91" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="168.79,207.04" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="188.08,191.94" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="180.53,166.78" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="198.98,170.97" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="182.21,139.10" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="214.92,160.07" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="238.40,149.16" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="271.95,134.91" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="277.82,116.45" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="274.47,154.20" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="258.53,170.97" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="235.89,184.39" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="254.34,196.97" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="225.82,201.17" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="208.21,183.55" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="191.44,215.42" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="181.37,229.68" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="155.37,222.13" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="204.86,212.07" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="246.79,220.46" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="256.86,230.52" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="248.47,243.10" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="260.21,215.42" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="269.44,203.68" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="278.66,193.62" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="298.79,214.58" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="279.50,227.17" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="313.89,222.97" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="315.57,197.81" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="323.95,211.23" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="313.89,165.94" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="307.18,148.33" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="281.18,174.33" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="322.28,156.71" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="321.44,140.78" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="309.70,126.52" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="295.44,125.68" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="295.44,141.62" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="313.89,108.07" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="319.76,90.45" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="333.18,82.07" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="353.31,30.07" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="335.70,22.52" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="316.41,4.07" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="367.57,78.71" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="391.89,38.45" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="379.31,127.36" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="390.21,123.16" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="392.73,136.58" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="412.86,122.33" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="448.92,98.00" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="480.79,97.16" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="446.41,121.49" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="451.44,130.71" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="458.99,134.91" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="422.08,147.49" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="400.28,147.49" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="361.70,137.42" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="362.54,161.75" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="362.54,184.39" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="369.25,211.23" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="399.44,176.00" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="425.44,188.58" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="447.25,167.62" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="452.28,153.36" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="468.21,153.36" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="487.50,148.33" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="507.63,120.65" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="532.80,134.91" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="542.02,121.49" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="552.92,142.45" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="526.92,167.62" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="501.76,172.65" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="518.54,191.94" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="512.67,199.49" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="548.73,187.75" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="552.92,203.68" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="590.67,182.71" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="573.89,218.78" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="610.80,207.88" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="627.57,171.81" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="632.60,211.23" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="413.70,213.75" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="403.63,230.52" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="421.25,233.88" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="436.34,242.26" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="443.89,223.81" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="460.67,202.00" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="467.38,190.26" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="725.29,352.04" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="701.82,320.04" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="674.08,306.53" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="702.53,284.48" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="652.75,294.43" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="632.83,332.13" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="595.85,333.55" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="689.02,386.89" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="676.93,342.80" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="604.38,382.63" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="536.82,347.06" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="552.46,328.57" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="573.09,306.53" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="593.00,289.46" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="576.65,265.27" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="534.68,285.19" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="514.06,302.97" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="504.81,319.33" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="489.17,293.01" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="511.21,262.43" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="526.86,263.85" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="535.40,234.69" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="518.33,241.09" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="499.83,236.83" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="496.99,226.16" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="484.90,250.34" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="693.29,204.82" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="768.68,241.80" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="422.37,249.59" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="389.01,278.09" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="377.89,248.90" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="468.23,248.90" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="463.37,233.61" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="397.93,339.82" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="400.31,389.73" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="390.80,406.37" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="346.83,420.63" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="263.64,399.24" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="230.36,352.89" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="282.65,317.24" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="309.99,337.44" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="295.72,266.13" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="273.14,250.68" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="318.30,241.18" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="348.01,217.41" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="434.96,15.67" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="417.99,3.40" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="407.03,6.53" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="188.33,307.77" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="194.72,258.20" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="89.19,290.18" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="70.00,256.60" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="28.43,242.21" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="25.23,267.79" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="41.22,267.79" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="50.82,282.18" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="52.42,309.37" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="121.17,346.14" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="148.35,381.32" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="105.18,394.11" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="105.18,374.92" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="6.17,318.26" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="753.69,421.43" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="48.82,400.41" z_order="0">
+    </points>
+  </image>
+  <image id="3" name="Simhastha_Kumbh_Mela_at_Nashik_in_Maharashtra_state.jpg" width="6016" height="4016">
+    <points label="head" source="manual" occluded="0" points="86.92,3819.53" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="201.57,3523.87" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="135.19,3342.85" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="334.31,3219.15" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="358.45,3415.25" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="445.94,3538.95" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="557.57,3502.75" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="521.37,3780.31" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="370.52,3931.16" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="717.47,3656.61" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1076.49,3409.22" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="989.00,3722.99" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1085.54,3834.62" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="759.71,3493.70" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="711.44,3321.73" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="841.17,3312.68" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="976.93,3291.56" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="611.88,3240.27" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="494.21,3029.08" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="129.16,2890.30" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="150.28,2787.72" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="77.87,2673.08" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="376.55,2630.84" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="41.67,3207.08" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="98.99,3231.22" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="62.79,3258.37" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="663.17,3044.17" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="771.78,2772.64" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="916.59,2757.55" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1001.07,2700.23" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="982.96,2621.79" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1302.76,3192.00" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1212.26,3167.86" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1351.04,3291.56" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1275.61,3442.41" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1411.38,3460.51" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1351.04,3641.53" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1504.90,3768.24" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1390.26,3894.95" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1269.58,3904.01" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1719.11,3722.99" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1604.46,3602.31" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1628.60,3460.51" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1589.38,3195.01" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1743.24,3291.56" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1803.58,3412.24" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1978.57,3433.36" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2277.25,3623.43" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2292.33,3738.07" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2120.37,3940.21" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2485.42,3864.79" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2657.39,3873.84" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2660.41,3578.17" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2766.00,3722.99" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2778.07,3424.31" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2678.51,3279.49" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2829.36,3213.12" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2762.98,3086.40" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2895.73,2902.37" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2723.76,2899.35" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2569.90,2989.86" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2464.30,2977.79" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2331.56,2983.83" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2247.08,3104.51" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2135.45,3035.12" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2219.93,3228.20" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2159.59,3330.78" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2084.16,3243.29" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1918.23,3086.40" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1860.91,3204.07" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1749.28,3167.86" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1749.28,3038.13" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1532.06,2908.40" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1532.06,3083.39" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1498.87,3146.74" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1402.33,3122.61" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1833.75,2736.43" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1580.33,2742.47" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1628.60,2664.03" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1749.28,2603.69" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1912.20,2549.38" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2038.91,2531.28" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2259.15,2603.69" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2228.98,2796.77" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2606.10,2754.54" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2603.08,2594.64" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2838.41,2736.43" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3052.73,3738.51" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2753.76,3988.17" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3095.57,3963.51" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3212.70,3649.13" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3089.41,3633.72" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3422.59,3516.60" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3706.15,3532.01" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3745.91,3365.57" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3539.71,3926.52" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3551.73,3818.65" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3767.48,3923.44" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3132.56,3208.38" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3034.24,3288.52" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3280.50,3186.80" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3305.16,2955.64" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3154.44,2961.81" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3268.48,2776.88" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3366.80,2832.36" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3536.32,2977.22" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3499.64,2705.99" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3684.57,2536.47" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3721.25,2653.59" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3896.93,2656.67" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3967.82,2779.96" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3866.42,2918.66" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3703.07,2964.89" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3582.55,3063.52" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3567.45,3211.46" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3820.19,3177.56" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3930.84,3266.94" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4140.73,3319.34" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4119.16,3519.68" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4060.29,3590.57" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4029.78,3945.02" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4264.02,3824.81" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4408.57,3544.34" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4498.26,3735.43" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4467.44,3945.02" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4787.68,3735.43" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4599.67,3784.74" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4747.92,3901.87" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4852.40,3985.08" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5025.31,3797.07" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5176.03,3605.98" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5114.70,3445.71" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5176.03,3254.61" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5071.55,3134.41" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5262.64,2977.22" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5028.40,2853.93" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5065.38,2767.63" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5019.15,2712.15" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4910.96,2558.04" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4828.05,2699.82" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4683.19,2628.93" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4732.20,2496.40" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4609.22,2524.14" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4550.35,2487.15" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4439.40,2591.95" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4356.49,2607.36" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4319.19,2521.06" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4177.41,2542.63" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4079.09,2607.36" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4060.29,2690.58" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4119.16,2742.97" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4183.58,2650.51" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3906.18,2521.06" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3832.21,2440.92" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4008.20,2434.76" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4143.82,2447.09" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4143.82,2370.03" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4282.51,2391.61" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4202.07,2453.25" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4334.91,2425.51" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3644.20,2360.79" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2707.53,2471.74" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2636.64,2391.61" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2501.02,2376.20" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2183.25,2419.35" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1797.98,2447.09" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2192.50,2505.65" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2420.58,2588.87" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4436.31,3051.19" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4732.20,3045.03" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4855.49,2952.56" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4029.78,3045.03" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4017.14,2952.56" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4076.01,2897.08" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4131.18,3100.50" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4103.75,3214.54" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4910.96,3575.16" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5250.31,2419.35" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5105.45,2434.76" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5188.36,2625.85" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4966.75,2363.87" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4751.00,2394.69" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5633.01,3715.51" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5471.06,3626.70" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5309.11,3574.46" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5408.37,3804.32" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5421.43,3908.80" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5951.68,3668.49" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5841.97,3705.06" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5888.99,3469.98" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5794.95,3409.90" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5672.19,3245.34" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5622.56,3289.75" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5591.21,3362.88" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5591.21,3496.10" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5403.15,3357.66" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5290.83,3399.45" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5512.85,3119.96" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5599.05,3020.71" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5737.49,3025.93" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5800.18,2900.55" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5954.29,3065.11" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5888.99,3151.31" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="6003.92,3185.26" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5768.83,2749.05" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5518.08,2806.52" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5348.29,2788.23" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5277.77,2869.21" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5403.15,2931.90" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4375.89,2139.70" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4430.27,2209.61" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4357.76,2287.29" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4259.37,2232.92" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4210.17,2160.41" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4096.24,2168.18" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4036.68,2137.11" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3953.82,2199.25" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3899.44,2157.82" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3855.42,2080.14" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3746.67,2116.39" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3487.73,2087.91" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3412.64,2043.89" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3311.65,2020.59" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3337.55,2106.04" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3257.28,2098.27" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3205.49,2188.90" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3233.97,2271.76" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3394.51,2191.49" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3477.37,2194.07" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3254.69,1888.53" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3342.73,1862.63" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3280.58,1818.61" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3280.58,1722.81" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3290.94,1608.87" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3402.28,1691.73" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3337.55,1694.32" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3386.75,1917.01" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3679.35,1888.53" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3694.88,1836.74" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3666.40,2069.78" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3622.38,2137.11" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3565.41,2217.38" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3749.26,2248.45" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3953.82,2059.43" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3852.83,1999.87" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4005.61,1981.75" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4088.47,1989.51" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4005.61,1924.78" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3984.89,1847.10" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3956.41,1816.02" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3839.89,1870.40" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3715.60,1743.52" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3780.33,1738.34" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3767.38,1634.77" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3769.97,1577.80" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3795.87,1463.87" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3798.46,1391.37" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3821.76,1355.11" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3863.19,1305.92" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3883.91,1360.29" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3961.59,1329.22" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3933.11,1396.54" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3938.28,1450.92" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3914.98,1526.01" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4031.50,1544.14" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4000.43,1463.87" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3995.25,1412.08" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4047.04,1365.47" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4023.73,1318.86" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4111.77,1349.93" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4101.42,1437.97" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4119.54,1401.72" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4083.29,1601.11" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4039.27,1647.71" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4080.70,1751.29" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4083.29,1813.43" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4072.93,1847.10" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4119.54,1852.28" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4173.92,1823.79" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4217.94,1826.38" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4207.58,1764.24" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4269.73,1816.02" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4305.98,1914.42" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4243.83,1914.42" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4186.87,1948.08" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4272.32,2030.94" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4199.81,2033.53" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4132.49,2051.66" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4080.70,2077.55" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4140.26,2126.75" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4197.22,2093.09" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4316.33,2106.04" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4378.48,2064.61" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4409.55,1940.31" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4388.84,1885.94" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4487.23,2054.25" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4515.72,2002.46" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4572.68,1911.83" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4528.66,1782.36" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4487.23,1681.38" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4430.27,1816.02" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4357.76,1678.79" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4295.62,1691.73" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4233.47,1627.00" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4197.22,1655.48" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4142.85,1629.59" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4215.35,1497.53" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4318.92,1479.40" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4469.11,1531.19" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4406.96,1588.16" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4634.83,1598.52" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4702.15,1474.23" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4640.01,1471.64" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4756.53,1598.52" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4554.56,1453.51" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4476.88,1414.67" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4381.07,1393.95" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4305.98,1409.49" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4316.33,1290.38" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4709.92,2038.71" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4937.79,2080.14" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5113.87,2015.41" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4999.93,2230.33" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4823.85,2251.04" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4725.46,2217.38" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4673.67,2217.38" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4606.35,2331.31" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5194.14,2263.99" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5313.25,2139.70" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5419.41,2251.04" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5403.88,2175.95" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5450.48,1992.10" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5372.80,1909.24" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5308.07,1917.01" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5248.51,1878.17" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5168.24,1891.12" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5100.92,1800.49" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5054.31,1722.81" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4932.61,1774.59" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4831.62,1823.79" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4860.11,1880.76" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4893.77,1950.67" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5266.64,1743.52" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5321.02,1828.97" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5432.36,1699.50" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5388.34,1683.97" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5313.25,1681.38" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5318.43,1536.37" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5362.45,1469.05" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5437.54,1536.37" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5121.63,1456.10" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5100.92,1505.30" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5093.15,1557.09" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5144.94,1647.71" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4945.55,1564.85" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4857.52,1546.73" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4906.71,1479.40" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4847.16,1396.54" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4748.76,1404.31" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4686.62,1334.40" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4725.46,1334.40" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4539.02,1311.09" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4911.89,1339.58" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4875.64,1321.45" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4974.04,1373.24" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4950.73,1308.50" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4994.75,1318.86" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5186.37,1391.37" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5157.88,1365.47" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5297.71,1391.37" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5297.71,1331.81" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5212.26,1298.15" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5476.38,1313.68" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3435.94,1624.41" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3498.09,1668.43" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3529.16,1632.18" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3531.75,1523.42" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3482.55,1432.79" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3516.21,1388.78" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3366.03,1479.40" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3366.03,1404.31" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3412.64,1526.01" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3350.49,1614.05" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2468.52,2172.87" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2561.50,2271.33" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2577.92,2140.05" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2509.54,2088.08" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2706.46,1997.83" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2761.16,2044.32" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2408.35,2109.96" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2266.13,2230.30" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2167.67,2246.71" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2096.56,2129.11" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1932.46,2104.49" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1929.73,2230.30" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2178.61,2082.61" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2178.61,2175.60" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1481.20,2298.68" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1505.81,2358.84" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1538.63,2479.18" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1669.91,2525.68" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1514.02,2596.79" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1459.32,2607.73" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1328.04,2577.64" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1421.03,2394.40" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1284.28,2336.96" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1407.35,2224.83" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1448.38,2271.33" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1265.13,2194.75" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1163.94,2402.60" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1002.58,2216.63" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3001.83,2260.39" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3075.68,2183.81" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2941.67,2189.28" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3059.27,2066.20" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2917.05,2030.65" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3023.71,2520.21" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3081.15,2673.37" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3313.62,2667.90" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3160.46,2583.11" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3196.02,2777.29" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2791.24,2326.03" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2772.10,2268.59" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3447.63,2364.31" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3425.75,2271.33" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3152.26,2066.20" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5661.83,2256.41" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5796.85,2208.59" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5695.58,2079.19" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5554.93,1958.24" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5526.80,1862.59" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5920.62,1958.24" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5929.06,1795.08" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5844.67,1741.63" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5771.53,1755.70" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5689.96,1761.33" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5650.57,1685.38" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5529.62,1612.24" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5619.63,1499.72" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5602.75,1406.89" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5732.15,1440.64" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5791.22,1519.41" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5957.19,1553.16" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5974.07,1600.98" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5307.39,1238.11" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5118.92,1271.86" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5009.21,1240.92" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="114.15,1569.20" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="254.16,1828.47" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="293.05,1890.70" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="150.45,2022.93" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="238.60,2105.90" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="306.01,2056.63" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="352.68,2170.71" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="469.36,2012.56" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="544.55,2077.38" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="593.81,2131.82" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="591.22,2243.31" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="643.07,2396.28" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="736.41,2297.76" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="251.57,2398.88" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="41.55,2118.86" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="67.48,1763.65" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="90.82,1984.04" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="505.73,1142.79" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="448.17,1181.17" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="431.38,1322.69" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="393.00,1370.66" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="416.99,1423.43" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="457.76,1440.22" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="443.37,1526.56" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="563.30,1433.02" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="467.36,960.50" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="505.73,883.75" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="563.30,991.68" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="541.71,965.30" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="563.30,938.92" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="409.79,967.70" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3000.24,845.37" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="144.54,1432.56" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="88.11,1334.21" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="13.95,1451.90" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="34.91,1595.39" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="645.75,1696.76" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="647.93,1744.59" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="565.31,1766.33" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="497.91,1801.12" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="689.56,1760.89" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2982.47,393.32" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2600.14,404.70" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3296.53,406.98" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3428.52,420.63" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3410.32,272.71" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3303.35,227.19" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3000.68,284.08" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2891.44,381.94" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3481.93,1232.70" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4780.70,1253.08" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4830.16,1259.01" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4816.31,1288.69" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4792.57,1336.17" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4913.26,1245.16" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4938.98,1209.55" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4950.85,1260.99" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4893.47,1187.79" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4780.70,1183.83" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4768.83,1158.11" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4725.30,1134.37" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4703.54,1179.87" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4673.86,1164.04" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4600.66,1162.07" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4600.74,1114.73" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4565.28,1120.10" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4490.06,1136.22" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4531.97,1187.80" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4470.72,1097.53" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4414.84,1127.62" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4414.84,1204.99" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4320.27,1134.07" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4341.76,1120.10" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4353.58,1055.62" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4310.60,1041.65" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4281.59,1020.16" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4332.09,996.52" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4349.29,990.07" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4389.05,995.45" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4432.03,1004.04" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4440.63,969.66" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4496.51,1008.34" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4479.31,910.55" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4512.63,904.10" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4591.07,938.49" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4621.16,895.51" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4631.91,932.04" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4660.92,981.48" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4712.50,968.58" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4698.53,923.45" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4671.67,899.81" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4735.07,846.08" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4882.29,943.86" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4865.10,978.25" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4816.74,976.10" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4815.66,1000.82" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4850.05,1061.00" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4827.49,1091.09" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4949.99,1070.67" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4922.05,1044.88" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4972.56,1051.33" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4994.05,1077.12" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5045.63,1088.94" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5114.40,1115.80" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5149.87,1179.20" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5080.02,961.06" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5037.03,978.25" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5153.09,907.33" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5063.90,886.91" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5086.46,838.55" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5055.30,796.64" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5001.57,780.52" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4989.75,761.18" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4896.26,779.45" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4810.29,773.00" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4793.10,797.72" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4772.80,854.60" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4788.90,857.37" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4922.12,844.05" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4989.29,876.25" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4991.51,920.10" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4919.90,892.34" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4840.53,930.64" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4908.25,929.53" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4802.78,887.35" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4705.08,885.68" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4090.97,1219.19" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4127.61,1189.88" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4104.16,1144.45" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4152.52,1113.68" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4095.37,1085.84" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4019.17,1063.86" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3966.42,1075.58" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3975.21,1123.94" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3997.19,1138.59" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4025.03,1157.64" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4187.79,1052.89" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4148.49,975.86" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4123.33,975.86" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4060.46,977.43" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4025.87,938.13" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3841.95,906.69" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3903.25,953.85" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3868.67,966.43" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3914.26,919.27" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3947.27,916.12" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3964.56,927.12" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3967.71,870.53" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3947.27,831.23" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3925.26,850.10" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3931.55,769.92" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3992.86,749.49" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3974.34,726.60" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3943.36,663.90" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3989.09,685.29" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3767.16,833.66" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3737.95,913.11" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4059.24,777.58" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4051.07,723.84" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4019.52,742.53" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3900.35,710.98" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3919.04,716.83" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3847.77,703.97" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3825.57,703.97" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3788.19,664.25" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3844.27,651.40" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3817.40,667.75" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3802.21,644.39" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3755.47,637.38" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3680.70,635.04" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3712.24,608.17" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3692.38,610.51" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4122.34,590.64" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4081.44,607.00" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4127.01,651.40" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4101.31,663.08" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4073.26,663.08" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4063.92,633.87" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4040.55,650.23" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4019.52,640.88" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3996.15,621.02" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3880.49,564.94" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3879.73,601.40" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3868.07,632.00" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3908.87,648.04" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3913.97,624.72" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3758.04,594.11" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3786.46,560.60" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3906.69,464.41" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3916.16,513.96" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4064.81,564.97" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4031.29,555.50" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4051.69,586.10" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4003.55,1248.86" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4015.05,1201.42" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3969.05,1211.48" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3905.80,1245.98" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3849.75,1222.98" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3842.56,1132.42" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3865.56,1110.86" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3872.74,1079.24" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3934.55,1151.11" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3946.05,1115.17" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3900.05,1026.05" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3963.30,991.55" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="3865.56,1033.24" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4250.79,1211.48" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4222.04,1181.30" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4354.28,1294.85" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4490.84,1256.04" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4585.71,1286.23" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4648.96,1284.79" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4728.02,1264.67" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5018.38,1274.73" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4930.69,1126.67" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4959.44,1110.86" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4697.89,1074.12" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4733.92,1097.39" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4553.79,981.05" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4535.77,1062.86" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4103.93,899.24" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4080.23,883.65" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4029.47,854.75" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4014.67,825.84" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4136.63,806.10" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4099.26,834.30" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4126.76,888.59" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4153.54,892.11" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4194.43,880.13" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4218.40,882.24" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4243.78,902.69" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4324.15,897.04" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4297.36,831.48" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4245.90,834.30" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4270.57,819.50" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4219.11,797.64" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4180.33,808.22" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4192.32,755.34" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4185.27,732.79" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4185.27,691.19" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4185.27,668.63" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4190.20,653.12" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4255.06,706.00" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4277.62,720.80" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4313.58,769.44" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4279.74,775.08" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4336.84,837.12" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4339.66,862.50" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4377.02,839.24" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4410.16,818.79" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4351.64,815.27" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4469.38,859.68" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4429.90,858.98" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4422.14,893.52" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4389.71,906.92" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4404.52,930.88" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4348.12,918.90" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4845.81,721.80" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4877.59,690.02" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4832.57,672.81" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4856.41,663.54" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4979.55,656.92" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4984.39,625.94" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5076.33,625.25" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5011.55,598.08" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5008.77,586.94" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4984.39,555.59" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4935.63,581.37" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4923.09,596.69" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4918.22,577.88" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4918.22,564.65" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4903.59,559.08" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4891.75,576.49" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4877.82,593.90" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4871.55,620.37" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4916.82,620.37" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4845.08,625.25" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4812.34,620.37" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4769.85,675.40" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4786.57,741.57" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4797.02,717.89" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4691.84,673.31" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4698.81,653.11" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4680.70,586.24" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4670.95,637.09" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4662.59,659.38" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4633.33,644.05" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4613.13,607.14" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4595.02,566.74" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4657.02,570.92" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4667.46,540.27" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4705.08,520.07" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4739.21,502.66" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4755.92,520.77" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4743.39,553.50" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4775.43,568.83" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4723.19,561.17" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4781.00,545.15" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4806.07,550.02" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4818.61,583.46" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4833.24,607.14" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4787.96,592.51" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4751.05,593.21" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4875.73,524.95" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4871.55,550.72" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4854.13,593.21" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4927.27,500.57" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4903.59,477.58" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4892.45,479.67" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5001.11,503.35" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5009.46,484.55" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5023.39,504.75" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5052.65,511.71" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5056.83,524.25" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5042.20,547.24" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5050.56,562.56" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5077.03,575.79" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5111.85,546.54" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5093.05,543.06" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5154.34,540.27" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5179.42,556.99" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5176.63,384.25" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5139.71,403.75" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4923.09,428.82" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4914.73,419.77" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5171.76,370.31" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4899.41,377.98" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4817.22,377.28" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4682.09,375.19" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4535.82,403.05" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4569.25,486.64" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4616.62,692.12" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4630.55,678.88" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4656.32,702.56" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4650.75,726.25" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4647.26,751.32" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4565.77,727.64" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4583.18,680.97" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4567.16,664.95" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4579.70,756.20" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4505.87,599.48" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4488.45,526.34" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4554.62,550.72" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4552.53,577.88" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4480.94,637.52" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4486.00,659.46" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4516.94,689.28" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4477.00,733.72" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4528.20,732.04" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4518.63,712.91" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4414.55,638.65" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4321.16,625.71" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4312.73,633.02" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4309.91,666.78" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4258.24,604.63" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4279.78,628.56" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4294.13,590.27" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4270.21,566.34" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4243.88,523.27" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4272.60,532.84" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4324.05,529.25" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4346.78,532.84" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4349.17,577.11" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4340.80,599.84" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4368.31,613.00" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4426.94,542.41" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4534.62,510.11" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4513.36,457.70" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4482.87,467.52" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4453.92,451.50" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4406.89,461.83" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4413.09,492.84" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4441.00,520.75" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4392.93,490.78" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4370.71,512.49" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4350.04,498.53" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4320.57,492.84" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4289.56,482.51" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4270.44,434.44" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4249.77,440.13" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4242.53,432.89" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4216.17,445.29" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4216.17,416.35" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4231.16,497.50" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4246.15,496.98" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4213.58,505.25" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4210.48,489.23" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4215.14,527.47" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4222.37,545.05" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4205.83,552.28" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4215.65,568.82" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4161.90,587.95" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4167.07,568.31" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4173.79,527.99" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4146.39,540.91" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4162.93,513.00" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4127.79,505.77" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4104.53,548.67" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4097.29,570.89" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4081.79,518.69" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4073.00,544.01" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4072.48,507.83" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4055.43,501.11" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4064.36,422.54" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4073.42,400.12" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4051.66,445.40" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4046.49,467.94" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4110.36,474.52" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4084.06,477.80" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4231.98,310.63" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4216.49,313.44" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4249.36,295.13" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4278.47,279.63" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4358.40,414.88" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4362.01,449.19" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4382.48,440.17" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4406.56,425.72" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4421.61,421.50" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4446.89,413.68" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4428.23,457.02" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4506.49,407.06" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4496.25,393.21" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4545.01,434.15" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4551.03,418.49" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4584.74,438.96" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4597.39,459.43" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4625.08,476.89" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4639.53,439.56" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4616.65,451.60" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4620.86,411.87" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4594.38,403.44" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4594.98,424.51" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4598.59,360.10" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4570.30,333.61" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4570.30,370.33" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4522.74,348.66" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4510.70,305.92" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4472.17,306.52" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4427.62,329.40" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4365.62,358.90" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4381.27,337.22" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4349.97,313.75" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4380.07,277.03" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4418.60,277.03" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4478.79,284.25" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4584.14,296.29" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4590.76,279.43" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4638.32,275.22" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4861.37,359.89" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4843.51,324.94" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4807.79,256.61" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4848.17,300.10" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4883.89,286.12" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4891.65,273.69" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4906.41,265.15" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4872.24,232.54" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4802.36,204.58" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4774.40,199.93" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4761.98,199.93" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4716.94,194.49" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4724.71,187.50" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4737.91,186.73" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4737.13,237.20" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4679.67,255.06" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4723.15,334.26" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4749.55,331.93" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4696.75,347.46" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4699.86,420.45" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4684.33,423.56" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4650.94,424.34" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4671.13,467.04" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4556.20,467.82" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4654.82,488.79" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4678.12,501.99" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4701.41,454.62" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4713.06,479.47" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4750.33,478.69" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4772.07,476.36" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4768.97,502.76" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4783.72,510.53" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4793.81,494.22" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4805.46,482.57" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4820.22,484.90" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4827.21,499.66" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4848.95,500.43" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4836.52,531.49" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4942.13,335.82" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5017.45,316.40" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4961.54,258.94" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4921.94,255.06" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4910.29,310.97" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4782.17,151.78" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4738.68,159.55" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5016.67,255.06" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5047.73,277.58" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4987.94,210.80" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4959.99,229.43" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4943.68,228.66" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4949.12,209.24" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4957.66,180.51" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5001.14,172.75" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4970.29,150.17" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5001.25,152.24" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4831.29,148.79" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4810.65,147.76" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4682.30,224.39" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4667.25,228.45" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4607.29,249.23" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4626.03,255.36" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4650.16,177.31" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4622.65,189.67" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4596.27,148.12" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4637.81,148.12" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4651.29,134.65" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4655.78,119.49" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4669.81,119.49" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4665.32,102.65" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4682.73,142.51" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4727.08,130.16" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4728.76,111.07" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4714.73,105.45" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4774.24,90.29" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4752.90,87.49" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4754.59,115.00" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4772.55,118.93" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4753.46,149.24" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4812.41,91.98" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4805.11,121.17" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4811.85,132.96" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4865.19,134.65" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4871.36,110.51" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4877.54,148.12" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4856.76,207.07" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4898.87,188.54" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4925.26,132.40" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4917.96,121.17" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4940.98,100.96" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4935.36,91.98" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4954.45,103.21" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4969.05,120.61" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="4995.43,120.61" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5047.08,132.40" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5021.82,135.77" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5022.38,190.79" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5045.40,190.23" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5046.52,156.54" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5082.45,182.37" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5093.68,141.38" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5138.03,125.66" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5130.17,168.33" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5138.59,185.17" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5123.44,253.67" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5103.79,255.91" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5103.22,239.63" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5044.84,242.44" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5022.38,244.68" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5077.96,298.02" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5090.88,278.37" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5136.35,294.09" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5131.30,100.96" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5049.89,103.21" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5034.17,89.73" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5013.96,95.35" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5301.07,129.10" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5199.93,129.96" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5176.15,129.10" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5224.13,223.32" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5197.33,232.83" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5219.38,258.33" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5235.80,266.11" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5292.42,266.11" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5273.84,255.74" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5318.36,183.12" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5330.89,143.79" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5222.83,116.13" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5238.39,129.96" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5448.80,104.87" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5419.95,110.16" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5399.74,143.35" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5429.56,185.67" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5383.87,193.85" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5352.13,216.46" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5316.53,229.44" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5356.94,197.22" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5372.33,221.75" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5393.49,217.42" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5441.11,213.09" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5481.51,197.22" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5490.17,185.19" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5511.33,107.27" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5426.68,134.21" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5451.69,162.10" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5213.36,477.37" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5213.36,518.00" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5391.51,332.03" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5636.31,181.80" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5657.63,184.71" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5589.30,191.49" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5548.60,197.31" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5520.97,166.29" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5523.40,186.16" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5706.09,211.36" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5726.93,222.99" z_order="0">
+    </points>
+  </image>
+  <image id="4" name="hindu-devotees-kumh-mela-festival-allahabad-india-february-thousands-come-to-confluence-ganges-yamuna-69540290.webp" width="800" height="534">
+    <points label="head" source="manual" occluded="0" points="555.50,313.71" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="625.12,317.23" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="581.94,314.59" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="510.56,350.72" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="581.06,236.16" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="632.17,231.76" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="667.42,232.64" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="677.99,268.77" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="688.56,300.49" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="648.03,324.28" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="722.05,334.85" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="780.21,352.48" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="791.66,296.08" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="768.75,247.62" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="723.81,238.80" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="695.61,200.91" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="662.13,178.00" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="738.79,179.77" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="783.73,189.46" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="756.42,172.72" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="773.16,163.02" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="706.19,141.87" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="670.94,123.37" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="663.01,158.62" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="647.15,160.38" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="628.64,190.34" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="551.10,212.37" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="526.42,178.88" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="507.92,214.13" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="480.60,176.24" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="504.40,157.74" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="459.45,193.86" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="441.83,218.54" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="426.85,192.10" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="388.08,178.00" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="404.82,169.19" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="415.40,147.16" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="431.26,128.66" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="408.35,133.94" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="391.60,123.37" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="396.01,111.91" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="373.98,91.65" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="406.58,88.12" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="443.59,76.67" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="468.27,89.88" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="491.18,91.65" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="498.23,112.79" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="515.85,130.42" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="571.37,130.42" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="547.57,109.27" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="539.64,91.65" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="526.42,69.62" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="515.85,61.69" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="580.18,90.77" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="581.86,106.54" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="645.88,75.29" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="605.49,96.63" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="656.56,101.21" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="678.28,84.82" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="691.62,84.06" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="725.15,92.06" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="337.95,109.97" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="371.87,137.79" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="360.82,196.86" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="317.75,197.24" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="320.80,147.32" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="304.03,157.23" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="288.79,141.98" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="296.79,128.26" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="298.31,105.78" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="331.85,80.62" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="300.60,70.72" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="315.46,76.43" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="363.86,79.48" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="372.25,65.76" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="389.40,75.29" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="300.56,228.56" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="362.22,290.64" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="281.71,197.75" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="282.59,166.78" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="252.95,141.12" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="252.95,111.04" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="281.26,107.06" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="238.80,211.46" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="242.34,185.80" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="224.20,161.03" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="194.12,199.07" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="189.70,231.81" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="177.31,238.44" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="213.58,231.37" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="178.19,123.87" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="180.41,160.15" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="196.33,129.18" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="216.24,144.22" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="235.26,124.76" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="209.16,101.75" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="180.85,98.21" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="217.56,83.62" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="238.35,96.45" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="248.97,78.75" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="264.01,88.48" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="265.34,106.62" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="291.88,93.79" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="72.59,241.16" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="107.38,255.99" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="91.98,222.92" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="148.44,212.08" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="102.25,161.33" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="99.40,143.08" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="91.41,158.47" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="73.16,148.21" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="58.91,145.36" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="55.48,171.59" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="41.80,114.56" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="19.56,113.99" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="7.58,97.46" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="26.97,159.04" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="34.95,203.53" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="7.58,225.20" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="70.31,129.39" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="97.11,111.71" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="121.64,135.66" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="138.17,161.33" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="126.20,165.32" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="133.61,129.96" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="122.21,110.57" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="111.94,84.91" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="77.72,84.91" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="54.91,76.93" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="46.93,98.60" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="145.59,89.47" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="11.81,16.75" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="36.48,54.64" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="35.60,70.50" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="65.56,62.57" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="54.99,62.57" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="6.52,47.59" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="143.11,62.57" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="134.30,71.38" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="111.38,58.16" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="135.18,51.11" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="120.20,44.06" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="129.89,38.78" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="100.81,37.89" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="93.76,46.71" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="81.42,71.38" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="65.56,44.94" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="164.26,47.59" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="201.27,32.61" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="215.37,68.74" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="204.79,74.90" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="189.81,74.90" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="262.95,68.74" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="245.33,60.80" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="238.28,72.26" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="255.90,47.59" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="314.94,38.78" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="306.13,54.64" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="340.49,51.99" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="362.45,50.14" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="358.79,30.92" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="375.26,37.32" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="414.61,43.73" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="420.10,33.66" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="396.31,35.49" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="461.28,69.35" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="494.22,57.46" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="482.32,69.35" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="466.77,42.81" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="447.55,45.56" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="453.96,29.09" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="463.11,19.02" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="443.89,13.53" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="761.74,66.26" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="748.35,92.03" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="757.62,104.91" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="780.29,117.79" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="754.01,43.60" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="741.13,42.57" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="746.28,32.26" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="733.92,33.29" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="717.43,41.54" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="697.34,62.14" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="699.40,50.29" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="662.82,55.45" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="637.58,49.26" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="618.00,45.66" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="579.87,35.35" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="594.81,32.26" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="733.92,60.60" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="766.71,11.59" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="683.91,11.59" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="640.37,18.95" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="650.79,18.95" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="550.82,34.28" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="540.39,46.55" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="555.11,72.31" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="569.22,49.00" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="585.78,61.27" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="575.35,72.92" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="594.37,52.07" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="615.83,74.76" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="626.26,76.60" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="326.34,29.37" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="445.33,168.60" z_order="0">
+    </points>
+  </image>
+  <image id="5" name="istockphoto-458680253-612x612.jpg" width="408" height="612">
+    <points label="head" source="manual" occluded="0" points="398.19,476.82" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="351.83,465.82" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="387.98,433.20" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="363.62,427.31" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="322.36,457.96" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="293.28,457.17" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="314.89,423.77" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="250.06,402.95" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="224.92,421.02" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="180.52,386.84" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="223.74,363.66" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="252.03,379.77" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="277.17,349.51" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="294.46,395.09" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="303.11,362.08" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="347.90,371.12" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="336.90,344.80" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="316.47,331.83" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="299.57,320.04" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="300.36,307.08" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="339.65,314.54" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="374.62,316.11" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="381.69,300.79" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="404.87,320.04" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="395.84,355.80" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="396.62,382.52" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="368.33,377.41" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="355.76,328.29" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="372.26,336.15" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="342.40,296.07" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="308.61,286.25" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="268.53,312.97" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="235.13,340.47" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="209.59,327.11" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="201.34,310.22" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="201.73,290.18" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="217.45,298.04" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="164.41,374.26" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="387.99,287.13" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="371.06,278.83" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="355.10,282.66" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="338.50,260.95" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="357.34,255.84" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="380.00,237.64" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="363.40,223.92" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="389.58,212.10" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="401.08,222.32" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="406.50,241.16" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="406.18,195.82" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="382.88,194.86" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="389.58,180.81" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="379.05,187.52" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="379.37,172.19" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="397.24,163.89" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="399.16,173.79" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="398.84,143.78" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="367.55,137.71" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="369.79,150.80" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="354.46,161.34" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="352.87,172.51" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="355.42,182.41" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="352.55,191.99" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="351.91,199.65" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="341.37,194.22" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="326.37,189.43" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="326.69,195.82" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="321.90,205.40" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="331.79,213.38" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="346.48,224.24" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="336.58,238.92" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="327.01,253.61" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="313.28,247.22" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="297.00,216.25" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="297.00,205.40" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="279.75,206.36" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="267.62,196.78" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="265.07,178.58" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="279.12,173.79" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="300.83,167.72" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="305.62,182.09" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="295.08,154.63" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="281.67,140.27" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="259.00,135.48" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="221.01,130.69" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="220.37,193.27" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="215.58,182.41" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="216.86,172.83" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="244.96,170.92" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="241.12,182.09" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="248.15,192.63" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="244.64,200.61" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="237.61,208.27" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="228.23,216.73" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="159.71,222.32" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="159.07,237.64" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="160.03,252.97" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="180.14,252.01" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="186.21,258.08" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="192.28,267.02" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="205.05,275.32" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="191.96,226.47" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="220.69,239.56" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="189.08,202.84" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="188.13,195.18" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="178.55,195.18" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="174.72,189.12" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="168.01,181.77" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="166.42,176.34" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="156.52,180.81" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="288.38,263.50" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="271.45,265.10" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="285.50,252.65" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="282.31,239.24" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="298.27,243.71" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="286.14,217.21" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="259.96,228.07" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="251.98,222.96" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="266.03,219.45" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="239.21,241.16" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="244.96,253.29" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="251.02,271.17" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="228.99,296.39" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="261.24,299.90" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="270.50,292.24" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="264.11,279.15" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="262.51,259.99" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="298.84,270.27" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="124.97,340.61" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="74.96,261.73" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="152.61,322.72" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="161.56,332.47" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="151.39,341.83" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="154.24,348.74" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="151.80,361.75" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="204.25,356.05" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="149.36,272.30" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="151.39,254.82" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="260.76,346.70" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="146.92,178.56" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="135.88,195.26" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="152.86,202.62" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="139.28,215.64" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="131.92,229.51" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="144.94,238.00" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="106.16,205.45" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="90.31,201.77" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="101.07,176.58" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="116.63,172.62" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="125.12,176.87" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="138.71,170.92" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="113.24,159.03" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="107.58,166.11" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="93.42,143.75" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="191.07,138.94" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="199.85,127.33" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="205.51,134.41" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="195.04,91.10" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="309.67,108.93" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="326.93,100.44" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="354.11,100.16" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="391.19,99.03" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="403.92,93.37" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="47.26,210.52" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="64.31,208.42" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="75.52,188.34" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="79.02,172.23" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="92.33,175.26" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="69.68,163.59" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="62.91,155.88" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="53.33,170.59" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="39.33,170.12" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="31.39,161.02" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="46.10,151.45" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="26.72,140.24" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="14.11,143.97" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5.47,151.21" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="5.24,162.65" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="17.14,195.58" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="15.28,181.33" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="7.34,181.33" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="23.45,168.26" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="22.98,161.02" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="12.94,164.52" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="1.03,203.51" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="38.62,198.14" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="54.50,196.04" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="58.00,188.57" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="62.21,175.96" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="55.90,114.99" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="66.39,120.07" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="66.39,133.96" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="72.15,114.32" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="75.88,122.10" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="81.30,128.54" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="78.92,144.12" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="99.24,129.89" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="129.05,127.86" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="121.60,135.99" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="123.29,150.55" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="133.11,138.36" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="137.17,86.21" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="179.17,88.24" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="11.19,85.53" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2.73,83.16" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="6.11,130.57" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="12.89,105.85" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="32.87,89.25" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="24.74,83.50" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="44.72,85.19" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="41.33,113.98" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="31.51,130.23" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="107.26,91.06" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="385.06,85.88" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="387.86,91.79" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="402.78,79.67" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="404.65,85.57" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="342.78,71.89" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="328.17,74.07" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="308.58,73.76" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="297.08,77.49" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="286.82,75.31" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="279.67,86.51" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="273.45,84.64" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="262.57,88.99" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="247.64,84.33" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="237.70,95.83" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="238.63,36.14" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="251.69,31.17" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="301.43,34.28" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="301.43,45.78" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="389.41,31.48" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="363.92,51.06" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="363.30,76.87" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="350.24,60.70" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="339.05,65.05" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="335.63,57.90" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="326.61,62.57" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="317.60,55.11" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="305.47,57.59" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="294.59,62.88" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="264.12,54.80" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="277.18,44.23" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="317.60,11.27" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="281.53,17.49" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="283.40,26.82" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="275.94,33.65" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="269.72,31.48" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="264.74,15.00" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="275.94,18.73" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="328.98,37.65" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="326.28,43.73" z_order="0">
+    </points>
+  </image>
+  <image id="6" name="pbvt1pt_kumbh-mela-2025_625x300_04_December_24.webp" width="545" height="307">
+    <points label="head" source="manual" occluded="0" points="25.96,7.69" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="46.39,28.71" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="48.15,53.81" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="44.06,105.18" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="96.60,128.53" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="122.87,113.35" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="107.11,69.57" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="88.42,24.62" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="177.16,38.05" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="188.83,119.19" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="168.40,158.89" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="76.75,173.48" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="283.52,158.37" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="427.19,167.48" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="472.12,116.74" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="495.55,60.33" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="456.06,54.26" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="459.97,83.77" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="393.14,68.58" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="385.77,30.39" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="319.81,17.81" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="339.34,13.47" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="272.95,34.30" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="221.75,47.32" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="241.28,98.08" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="316.34,115.88" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="275.55,133.67" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="352.36,150.15" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="389.24,130.63" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="492.56,187.78" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="541.79,192.19" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="543.26,148.10" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="534.44,83.44" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="537.38,12.90" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="442.60,13.64" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="229.51,218.64" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="369.85,237.01" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="480.07,229.66" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="412.47,221.58" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="139.14,217.17" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="75.95,239.95" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="301.91,271.98" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="360.09,264.54" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="300.52,298.51" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="190.67,300.38" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="460.62,299.91" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="322.10,60.78" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="19.86,261.43" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="2.78,205.62" z_order="0">
+    </points>
+    <points label="head" source="manual" occluded="0" points="240.59,16.58" z_order="0">
+    </points>
+  </image>
+</annotations>
