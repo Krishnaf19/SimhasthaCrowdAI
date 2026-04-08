@@ -1,0 +1,29 @@
+image_name,status,head_count,source_xml,width,height,split_assignment
+2025_2image_11_01_231850798y.jpg,Labeled,57,annotations 5.xml,640,420,Train
+getty_1226547316.jpg,Unlabeled,0,,Unknown,Unknown,Inference
+getty_1226558357.jpg,Labeled,66,annotations 2.xml,612,408,Test
+getty_135850564.jpg,Labeled,240,annotations.xml,612,408,Train
+getty_135850650.jpg,Labeled,312,annotations.xml,612,408,Train
+getty_161444103.jpg,Unlabeled,0,,Unknown,Unknown,Inference
+getty_169160029.jpg,Labeled,190,annotations.xml,612,408,Test
+getty_186484157.jpg,Labeled,92,annotations.xml,612,409,Train
+getty_2191462538.jpg,Labeled,38,annotations 2.xml,612,408,Test
+getty_2191462582.jpg,Labeled,38,annotations 2.xml,612,409,Test
+getty_2191479457.jpg,Labeled,56,annotations 2.xml,612,453,Train
+getty_2191677551.jpg,Unlabeled,0,,Unknown,Unknown,Inference
+getty_2193286769.jpg,Labeled,72,annotations 2.xml,612,408,Test
+getty_3455585.jpg,Labeled,142,annotations.xml,612,407,Train
+getty_458478465.jpg,Labeled,37,annotations 4.xml,612,408,Train
+getty_458693811.jpg,Labeled,27,annotations 2.xml,612,408,Train
+getty_488041932.jpg,Labeled,201,annotations 2.xml,612,363,Train
+getty_51955544.jpg,Labeled,101,annotations.xml,612,378,Train
+getty_541369488.jpg,Unlabeled,0,,Unknown,Unknown,Inference
+images (1).jpg,Labeled,16,annotations 2.xml,253,199,Train
+images (3).jpg,Labeled,9,annotations 2.xml,276,182,Train
+images.jpg,Labeled,22,annotations 2.xml,275,183,Train
+istockphoto-2190261033-612x612.jpg,Labeled,50,annotations 2.xml,612,408,Train
+istockphoto-458680253-612x612.jpg,Labeled,251,annotations 5.xml,408,612,Train
+pexels-ravi-mittal-10743516-1-scaled-1.jpg,Labeled,239,annotations 2.xml,1450,1087,Train
+Procession-of-Sadhus_Kumbh-Mela.jpg,Labeled,37,annotations 2.xml,911,683,Train
+Simhastha_Kumbh_Mela_at_Nashik_in_Maharashtra_state.jpg,Labeled,1050,annotations 5.xml,6016,4016,Train
+_methode_times_prod_web_bin_9b854a77-ea0c-4445-a0ca-a03a8b16f018.jpg,Labeled,21,annotations 2.xml,3963,2642,Train
