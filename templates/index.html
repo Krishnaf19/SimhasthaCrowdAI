@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crowd Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="nav-container">
+      <a href="{{ url_for('index') }}" class="nav-brand">CROWD MANAGEMENT</a>
+      <ul class="nav-links">
+        <li><a href="{{ url_for('index') }}" class="active">Dashboard</a></li>
+        <li><a href="{{ url_for('upload') }}">Upload & Test</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="dashboard">
+    <header>
+      <h1>Crowd Count Dashboard</h1>
+      <p class="subtitle">Real-time head count analysis for Simhastha crowd monitoring</p>
+      <div class="info-row">
+        <div><strong>Model:</strong> CSRNet with SE blocks (MAE: 9.86)</div>
+        <div><strong>Dataset:</strong> 63 labeled images</div>
+        <div><strong>Framework:</strong> PyTorch</div>
+      </div>
+    </header>
+
+    <section class="control-panel card">
+      <form method="post">
+        <div class="button-row">
+          <button type="submit" name="action" value="refresh">Refresh Dashboard</button>
+        </div>
+      </form>
+    </section>
+
+    {% if message %}
+      <div class="message-card card">{{ message }}</div>
+    {% endif %}
+
+    {% if result %}
+      <section class="result-card card">
+        <h2>Inference Result</h2>
+        <div class="result-grid">
+          <div>
+            <div class="metric">
+              <span>Image</span>
+              <strong>{{ result.image }}</strong>
+            </div>
+            <div class="metric">
+              <span>Head Count</span>
+              <strong style="font-size: 2rem; color: #2c5aa0;">{{ result.count | round(1) }}</strong>
+            </div>
+            <div class="metric" style="margin-bottom: 0;">
+              <span>Safety Zone</span>
+              <div class="status status-{{ result.zone|lower }}" style="margin-top: 6px;">
+                {{ result.zone }}
+              </div>
+            </div>
+          </div>
+          <div class="preview">
+            <strong>Density Map Visualization</strong>
+            <img src="{{ result.url }}" alt="Inference preview">
+          </div>
+        </div>
+      </section>
+    {% endif %}
+
+    {% if dashboard_results %}
+      <section class="batch-card card">
+        <h2>Dataset Analysis</h2>
+        <div class="summary-row">
+          <div>
+            <strong style="font-size: 1.3rem; color: #2c5aa0;">{{ dashboard_results.total_images }}</strong>
+            <div style="color: #888; font-size: 0.85rem; margin-top: 4px;">Images Processed</div>
+          </div>
+          <div>
+            <strong style="font-size: 1.3rem; color: #28a745;">{{ dashboard_results.safe_count }}</strong>
+            <div style="color: #888; font-size: 0.85rem; margin-top: 4px;">Safe Zone</div>
+          </div>
+          <div>
+            <strong style="font-size: 1.3rem; color: #ff9800;">{{ dashboard_results.normal_count }}</strong>
+            <div style="color: #888; font-size: 0.85rem; margin-top: 4px;">Normal Zone</div>
+          </div>
+          <div>
+            <strong style="font-size: 1.3rem; color: #dc3545;">{{ dashboard_results.critical_count }}</strong>
+            <div style="color: #888; font-size: 0.85rem; margin-top: 4px;">Critical Zone</div>
+          </div>
+        </div>
+
+        <h3 style="margin: 28px 0 16px;">Dataset Results</h3>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Head Count</th>
+                <th>Safety Zone</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for row in dashboard_results.results %}
+                <tr>
+                  <td style="font-weight: 500;">{{ row.image }}</td>
+                  <td><strong>{{ row.count | round(1) }}</strong></td>
+                  <td><span class="status status-{{ row.zone|lower }}">{{ row.zone }}</span></td>
+                  <td><a href="{{ row.url }}" target="_blank">View Map</a></td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    {% endif %}
+
+    <footer>
+      <p><strong>SATARK</strong> - Simhastha Crowd AI Research Kit</p>
+      <p>Advanced head counting for public safety</p>
+    </footer>
+  </div>
+</body>
+</html>

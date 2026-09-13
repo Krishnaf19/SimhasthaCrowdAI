@@ -71,4 +71,4 @@ df['split_assignment'] = df.apply(assign_split, axis=1)
 df.to_csv('simhastha_master_index.csv', index=False)
 
 print("\nCSV updated with stratified splits.")
-print("Now run: python step2_generate_data.py && python step7_fine_tune.py")
+print("Now run: python 03_generate_heatmaps.py && python 06_fine_tune.py")
