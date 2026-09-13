@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SATARK — Model guide</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="{{ url_for('index') }}" class="nav-brand">SATARK</a>
+      <ul class="nav-links">
+        <li><a href="{{ url_for('index') }}">Dashboard</a></li>
+        <li><a href="{{ url_for('upload') }}">Analyze image</a></li>
+        <li><a href="{{ url_for('model_info') }}" class="active">Model guide</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="dashboard model-page">
+    <header>
+      <div>
+        <h1>How SATARK reads a crowd.</h1>
+        <p class="subtitle">A practical guide to the model, what its results mean, and how to use them responsibly for crowd monitoring.</p>
+      </div>
+      <div class="info-row">
+        <div><strong>Architecture</strong><br>CSRNet + SE blocks</div>
+        <div><strong>Training set</strong><br>63 labelled images</div>
+        <div><strong>Output</strong><br>Count + density map</div>
+      </div>
+    </header>
+
+    <section class="card model-intro">
+      <p class="eyebrow">The model</p>
+      <h2>Crowd density estimation, designed for real scenes.</h2>
+      <p>SATARK uses CSRNet, a convolutional neural network built for estimating the number of people in crowded images. It creates a density map rather than trying to draw a box around every individual, which makes it more useful when people overlap or are far from the camera.</p>
+    </section>
+
+    <section class="model-grid">
+      <article class="card"><p class="eyebrow">01 — Input</p><h2>Upload a crowd image</h2><p>Use a clear JPG, PNG, WEBP, AVIF, or other supported image. The image is prepared at an adaptive size so the model can preserve useful scene detail.</p></article>
+      <article class="card"><p class="eyebrow">02 — Analysis</p><h2>Estimate density</h2><p>The VGG16-based network extracts visual features. Squeeze-and-Excitation blocks help it emphasize useful crowd patterns across areas with varied clothing, lighting, and headwear.</p></article>
+      <article class="card"><p class="eyebrow">03 — Result</p><h2>Review the scene</h2><p>The density values are summed into an estimated head count. You receive the count, a visual density map, and a safety classification for faster review.</p></article>
+    </section>
+
+    <section class="card model-details">
+      <div><p class="eyebrow">What you receive</p><h2>Results at a glance</h2></div>
+      <dl><div><dt>Head count</dt><dd>An estimated total number of people visible in the image.</dd></div><div><dt>Density map</dt><dd>A visual layer showing where the model sees more or fewer people.</dd></div><div><dt>Safety zone</dt><dd>A simple classification derived from the estimated crowd density.</dd></div></dl>
+    </section>
+
+    <section class="card model-details">
+      <div><p class="eyebrow">Accuracy and care</p><h2>Use the estimate with context.</h2></div>
+      <dl><div><dt>MAE</dt><dd>The model's mean absolute error is approximately 9.86 people on its evaluation data.</dd></div><div><dt>Best results</dt><dd>Use well-lit images where the crowd is visible and not heavily obstructed.</dd></div><div><dt>Important</dt><dd>Use the result as decision support. Confirm critical operational decisions with an on-site assessment.</dd></div></dl>
+    </section>
+    <footer><p><strong>SATARK</strong> — Simhastha Crowd AI Research Kit</p><p>Advanced crowd counting for public safety.</p></footer>
+  </main>
+</body>
+</html>

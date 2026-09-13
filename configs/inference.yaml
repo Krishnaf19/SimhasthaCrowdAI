@@ -1,0 +1,27 @@
+# ── SATARK Inference Configuration ──────────────────────────────────────
+# Used by app/main.py and satark/utils/inference.py
+
+model:
+  checkpoint: checkpoints/satark_best.pth
+
+preprocessing:
+  max_side_px: 1000
+  mean: [0.485, 0.456, 0.406]
+  std:  [0.229, 0.224, 0.225]
+
+thresholds:
+  safe_below:   50      # count <= 50  -> SAFE   (green)
+  normal_below: 150     # count <= 150 -> NORMAL (yellow)
+                        # count >  150 -> CRITICAL (red)
+
+output:
+  dir: outputs/inference
+  dpi: 150
+  heatmap_alpha: 0.55
+  colormap: jet
+
+classes:
+  - head
+  - turban
+  - veil
+  - cap

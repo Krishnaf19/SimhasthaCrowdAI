@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SATARK — Analyze an image</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="{{ url_for('index') }}" class="nav-brand">SATARK</a>
+      <ul class="nav-links">
+        <li><a href="{{ url_for('index') }}">Dashboard</a></li>
+        <li><a href="{{ url_for('upload') }}" class="active">Analyze image</a></li>
+        <li><a href="{{ url_for('model_info') }}">Model guide</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="dashboard">
+    <header>
+      <div>
+        <h1>Bring any crowd image into focus.</h1>
+        <p class="subtitle">Upload a scene and receive a density map, estimated head count, and clear safety assessment in one place.</p>
+      </div>
+      <div class="info-row">
+        <div><strong>Accepted files</strong><br>{{ allowed_extensions }}</div>
+        <div><strong>Maximum size</strong><br>{{ max_file_size|round(1) }} MB</div>
+      </div>
+    </header>
+
+    <section class="upload-section card">
+      <div class="tabs">
+        <button type="button" class="tab-btn active" data-tab="upload">Upload image</button>
+        <button type="button" class="tab-btn" data-tab="info">Model details</button>
+      </div>
+
+      <div id="upload" class="tab-content active">
+        <div class="headgear-info">
+          <h4>Built for varied gathering conditions</h4>
+          <p>The model accounts for common religious and cultural headwear in Simhastha crowd scenes.</p>
+          <ol class="headgear-list"><li>Saffron turbans</li><li>Religious veils</li><li>Traditional caps</li><li>Cloth coverings</li><li>Bare heads</li><li>Mixed crowds</li></ol>
+        </div>
+
+        {% if message %}
+          <div class="message-card {{ 'alert-success' if 'Analyzed!' in message else 'alert-error' }}">{{ message }}</div>
+        {% endif %}
+
+        <form method="post" enctype="multipart/form-data">
+          <div class="upload-area" id="uploadArea" role="button" tabindex="0">
+            <h3>Drop an image here, or click to browse</h3>
+            <p>PNG, JPG, WEBP, AVIF and other supported image formats</p>
+            <input type="file" id="fileInput" name="file" class="file-input" accept="image/*">
+            <p class="file-list" id="fileName"></p>
+          </div>
+          <div class="upload-action-row">
+            <button type="submit" class="upload-btn" id="submitBtn" disabled>Analyze image</button>
+            <a class="model-guide-button" href="{{ url_for('model_info') }}">How the model works</a>
+            <p class="model-note"><span>Powered by</span><strong>CSRNet + SE blocks</strong><br>Density estimation · MAE 9.86</p>
+          </div>
+        </form>
+      </div>
+
+      <div id="info" class="tab-content">
+        <div class="info-box">
+          <h3>Model architecture</h3>
+          <ul><li><strong>Model:</strong> CSRNet crowd scene recognition network</li><li><strong>Backbone:</strong> ImageNet pre-trained VGG16</li><li><strong>Enhancement:</strong> Squeeze-and-Excitation blocks</li><li><strong>Output:</strong> Density map and head count</li></ul>
+          <h3>Performance</h3>
+          <ul><li><strong>Mean absolute error:</strong> ~9.86 people</li><li><strong>RMSE:</strong> ~15 people</li><li><strong>Inference speed:</strong> ~67 FPS on RTX 3080</li><li><strong>Training data:</strong> 63 labeled images</li></ul>
+        </div>
+      </div>
+    </section>
+
+    {% if result %}
+      <section class="result-card card">
+        <h2>Analysis complete</h2>
+        <div class="result-grid">
+          <div>
+            <div class="metric"><span>Uploaded image</span><strong>{{ result.image }}</strong></div>
+            <div class="metric"><span>Detected heads</span><strong>{{ result.count | round(1) }}</strong></div>
+            <div class="metric"><span>Safety assessment</span><div class="status status-{{ result.zone|lower }}">{{ result.zone }} zone</div></div>
+            <div class="metric"><span>Model confidence</span><strong>{{ ((result.count / (result.count + 5)) * 100) | round(1) }}%</strong></div>
+          </div>
+          <div class="preview">
+            {% if uploaded_image_url %}<div><strong>Original image</strong><img src="{{ uploaded_image_url }}" alt="Uploaded image"></div>{% endif %}
+            <div><strong>Density map and prediction</strong><img src="{{ result.url }}" alt="Analysis result"></div>
+          </div>
+        </div>
+      </section>
+    {% endif %}
+    <footer><p><strong>SATARK</strong> — Simhastha Crowd AI Research Kit</p><p>Advanced crowd counting for public safety.</p></footer>
+  </main>
+  <script>
+    const uploadArea = document.getElementById('uploadArea');
+    const fileInput = document.getElementById('fileInput');
+    const fileName = document.getElementById('fileName');
+    const submitBtn = document.getElementById('submitBtn');
+    const chooseFile = () => fileInput.click();
+    uploadArea.addEventListener('click', chooseFile);
+    uploadArea.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); chooseFile(); } });
+    fileInput.addEventListener('change', function () { if (this.files.length) { const file = this.files[0]; fileName.textContent = `${file.name} · ${(file.size / 1024 / 1024).toFixed(2)} MB`; submitBtn.disabled = false; } });
+    uploadArea.addEventListener('dragover', e => { e.preventDefault(); uploadArea.classList.add('drag-over'); });
+    uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('drag-over'));
+    uploadArea.addEventListener('drop', e => { e.preventDefault(); uploadArea.classList.remove('drag-over'); fileInput.files = e.dataTransfer.files; fileInput.dispatchEvent(new Event('change', { bubbles: true })); });
+    document.querySelectorAll('.tab-btn').forEach(button => button.addEventListener('click', () => { document.querySelectorAll('.tab-btn,.tab-content').forEach(item => item.classList.remove('active')); button.classList.add('active'); document.getElementById(button.dataset.tab).classList.add('active'); }));
+  </script>
+</body>
+</html>

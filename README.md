@@ -1,148 +1,202 @@
-# SATARK Crowd Monitoring
+# SATARK — Headgear-Aware Crowd Counting System
+SATARK is an AI crowd-counter that accurately counts people at large cultural gatherings by recognizing turbans, veils, caps, and bare heads as separate classes instead of missing them like standard models do.
+---
 
-A lightweight crowd density estimation and alert system built for large public gatherings such as the Simhastha festival. The project combines a CSRNet-style density estimation model with a Flask dashboard for inference, alerting, and image analysis.
+##  Executive Summary
 
-## Overview
+Modern deep learning crowd counting models (e.g., standard CSRNet, MCNN, DM-Count) are trained on Western or urban benchmarks like **ShanghaiTech**, **UCF-QNRF**, and **WorldExpo**. These datasets predominantly depict crowds with bare heads or standard caps.
 
-This application is designed to:
+During massive cultural and religious gatherings such as **Simhastha Kumbh Mela**, over **60% to 70%** of attendees wear traditional headgear:
+- **Turbans (Pagri, Dastar)**
+- **Veils (Dupatta, Ghoonghat, Hijab)**
+- **Saffron caps / Religious cloths**
+- **Upward-folded hair buns (Jataa)**
 
-- estimate crowd density from images
-- classify scenes as Safe, Normal, or Critical
-- visualize density heatmaps and predictions
-- support batch processing and single-image inference
-- provide a simple web UI for uploading and reviewing results
+###  Why Today's Models Fail
+1. **Geometric Mismatch:** Traditional models look for circular/oval skin/hair geometries. Turbans and drapery distort standard contours into irregular, wide shapes.
+2. **Texture Absence:** Fabric textures lack characteristic hair gradient signatures, causing standard models to drop heads as background artifacts.
+3. **Severe Undercounting:** Modern models underestimate crowd numbers by **40% to 65%** in religious events, directly blinding public safety alert systems and triggering stampede risks.
 
-## Key Features
+###  What SATARK Solves
+SATARK introduces **4-Class Simultaneous Density Estimation**:
+- **`head`**: Bare or short-hair heads
+- **`turban`**: Turbans, saffron hats, coiled top-knot hair (Jataa)
+- **`veil`**: Dupattas, shawls, hijabs, and head coverings
+- **`cap`**: Modern caps and brimmed hats
 
-- Crowd counting using a deep learning density map model
-- Zone-based alert logic for crowd intensity
-- Heatmap and prediction visualization
-- Batch inference for multiple images
-- Flask-based dashboard and upload interface
-- Training, evaluation, and fine-tuning pipeline
+Instead of a single density map, SATARK outputs **4 specialized density channels**, capturing unique spatial textures for each group. The sum across all 4 channels delivers **robust, reliable total headcount accuracy**.
 
-## Project Structure
+---
+
+##  End-to-End Model Working Flow
+
+```mermaid
+flowchart TD
+    A[Raw Input Image\nCultural Crowd Scene] --> B[Preprocessing & Standardization\nResize max 1000px, ImageNet Normalization]
+    B --> C[VGG-16 Backbone\nFirst 13 Conv Layers - Shallow & Mid Features]
+    C --> D[Dilated Conv Backend\n6 Dilated Layers - Expanded Receptive Field]
+    D --> E[Squeeze-and-Excitation SE Block\nChannel Recalibration & Feature Attention]
+    E --> F[Output 1x1 Convolution\nConv2d: 64 channels to 4 channels]
+    
+    F --> G1[Channel 0: Head Density Map]
+    F --> G2[Channel 1: Turban Density Map]
+    F --> G3[Channel 2: Veil Density Map]
+    F --> G4[Channel 3: Cap Density Map]
+    
+    G1 & G2 & G3 & G4 --> H[Integral Summation\nsum over spatial grid & channels]
+    
+    H --> I[Detailed Breakdown Output\nHead: N1 | Turban: N2 | Veil: N3 | Cap: N4]
+    H --> J[Total Crowd Count\nTotal = N1 + N2 + N3 + N4]
+    
+    J --> K{Safety Zone Evaluator}
+    K -->|Count <= 50| L1[ SAFE Zone]
+    K -->|51 to 150| L2[ NORMAL Zone]
+    K -->|Count > 150| L3[ CRITICAL Zone Alert]
+```
+
+---
+
+##  Step-by-Step Architecture Breakdown
 
 ```text
-.
-├── app.py                        # Flask dashboard and upload app
-├── 01_build_master_index.py      # Build dataset index from images and annotations
-├── 02_stratified_train_test_split.py
-├── 03_generate_heatmaps.py
-├── 04_visualize_heatmaps.py
-├── 05_evaluate_baseline.py
-├── 06_fine_tune.py
-├── 07_evaluate_finetuned_model.py
-├── 08_visualize_predictions.py
-├── 09_batch_inference.py
-├── 10_alert_inference.py
-├── generate_dataset_csv.py
-├── inference_config.py
-├── tune_config.py
-├── requirements.txt
-├── checkpoints/                 # trained model weights
-├── data/                        # dataset and annotation files
-├── Images/                      # source image dataset
-├── outputs/                     # generated inference and alert outputs
-├── templates/                   # Flask HTML templates
-├── static/                      # CSS and static assets
-├── uploads/                     # uploaded user images
-├── src/                         # model, dataset, training, inference code
+Input Image (H × W × 3)
+      │
+      ▼
+[ VGG-16 Feature Extractor ]
+├── First 13 Conv layers (pretrained ImageNet)
+└── Frozen during initial warmup, unfrozen at epoch 15
+      │
+      ▼
+[ Dilated Conv Backend ]
+├── 6 dilated convolutional layers (dilation rate = 2)
+└── Quadruples receptive field without reducing spatial resolution
+      │
+      ▼
+[ Squeeze-and-Excitation (SE) Attention ]
+├── Adaptive channel-wise feature recalibration
+└── Enhances fabric/turban patterns, suppresses noisy backgrounds
+      │
+      ▼
+[ Multi-Channel Output Head ]
+└── Conv2d(64 → 4, kernel_size=1)
+      │
+      ▼
+4 Density Maps (H/8 × W/8) ───► Total Count = Head + Turban + Veil + Cap
+```
+
+### 1. Feature Extraction (VGG-16 Frontend)
+- Takes input image tensor `(B, 3, H, W)`.
+- Pretrained weights extract fine-grained edge and textural cues.
+- Frozen during initial epochs to protect pretrained representations, then fine-tuned.
+
+### 2. Context Aggregation (Dilated Backend)
+- Uses dilation rate $d=2$ without downsampling pooling.
+- Enlarges receptive field exponentially without sacrificing spatial resolution (critical for dense, overlapping crowds).
+
+### 3. Cultural Channel Attention (SE Block)
+- Squeeze-and-Excitation layer adaptively weights feature channels.
+- Enhances channels capturing textile folds, fabrics, and turban contours while suppressing background clutter.
+
+### 4. 4-Channel Density Generation
+- Final $1 \times 1$ convolution projects 64 feature maps into 4 separate density channels: `(B, 4, H/8, W/8)`.
+- Supervised using **Density-Weighted MSE Loss**, placing a 3x higher penalty on ultra-dense crowd regions.
+
+$$\text{Total Crowd Count} = \sum_{c=0}^{3} \sum_{h=1}^{H/8} \sum_{w=1}^{W/8} D_{c}(h, w)$$
+
+---
+
+##  Project Directory Structure
+
+```text
+SimhasthaCrowdAI/
+├── satark/                      # Core Python Package
+│   ├── data/
+│   │   ├── builder.py          # CVAT XML annotation parser & indexer
+│   │   ├── dataset.py          # PyTorch multi-channel Dataset loader
+│   │   └── heatmap.py          # KDTree adaptive-sigma density map generator
+│   ├── models/
+│   │   └── csrnet.py           # 4-Channel CSRNet with SE Attention
+│   ├── engine/
+│   │   ├── trainer.py          # Training loop with Density-Weighted MSE
+│   │   └── evaluator.py        # Validation, MAE, and RMSE metrics
+│   └── utils/
+│       ├── common.py           # Constants, classes, and path utilities
+│       └── inference.py        # Inference pipeline & zone classification
+├── scripts/                    # Command-Line Entry Points
+│   ├── build_dataset.py        # Dataset preparation & heatmap builder
+│   ├── train.py                # Model training script
+│   └── evaluate.py             # Evaluation on test splits
+├── app/                        # Production Web Dashboard
+│   ├── main.py                 # Flask server & inference endpoints
+│   ├── templates/              # Web UI templates
+│   └── static/                 # Stylesheets & assets
+├── configs/                    # Declarative YAML Configurations
+│   ├── train.yaml              # Training hyper-parameters
+│   └── inference.yaml          # Inference thresholds & visual settings
+├── data/                       # Data Directory (gitignored)
+│   ├── raw/                    # Original images & XML annotations
+│   ├── processed/              # Formatted images, JSONs, and .npy heatmaps
+│   └── splits/                 # Train / Test splits
+├── checkpoints/                # Model weights (.pth)
+├── outputs/                    # Visual predictions & heatmaps
+├── requirements.txt            # Dependency list
+├── setup.py                    # Package installer
 └── README.md
 ```
 
-## Tech Stack
+---
 
-- Python
-- PyTorch
-- TorchVision
-- OpenCV
-- NumPy / Pandas
-- Matplotlib
-- Flask
+##  Quick Start Guide
 
-## Setup
-
-1. Clone the repository.
-2. Create and activate a virtual environment.
-3. Install dependencies:
-
+### 1. Installation & Environment Setup
 ```bash
+# Clone repository
+git clone https://github.com/your-org/SimhasthaCrowdAI.git
+cd SimhasthaCrowdAI
+
+# Create and activate virtual environment
+python -m venv .venv
+.venv\Scripts\activate          # On Windows
+# source .venv/bin/activate     # On Linux / macOS
+
+# Install dependencies
 pip install -r requirements.txt
+pip install -e .
 ```
 
-## Run the Web App
-
-Start the dashboard locally:
-
+### 2. Prepare Data & Generate Heatmaps
+Place raw images in `data/raw/images/` and CVAT XML annotations in `data/raw/annotations/`. Then run:
 ```bash
-python app.py
+python scripts/build_dataset.py --gen-heatmaps --split-data
 ```
 
-Then open the app in your browser:
-
-```text
-http://localhost:5000
+### 3. Train the Model
+```bash
+python scripts/train.py --epochs 80 --lr 5e-5 --batch-size 1
 ```
 
-You can use the dashboard to:
+### 4. Evaluate Performance
+```bash
+python scripts/evaluate.py --split test
+```
 
-- browse available images
-- run inference on selected images
-- refresh dataset results
-- upload a new image for analysis
+### 5. Launch Web Dashboard
+```bash
+python app/main.py
+```
+Open **`http://localhost:5000`** in your browser to inspect images, upload new crowd photos, and view real-time per-class breakdowns and alert levels.
 
-## Training Pipeline
+---
 
-The workflow is organized as a sequence of scripts:
+##  Evaluation Metrics
 
-1. Build the dataset index
-   ```bash
-   python 01_build_master_index.py
-   ```
+| Metric | Purpose |
+|---|---|
+| **MAE (Mean Absolute Error)** | Measures average headcount discrepancy per frame. |
+| **RMSE (Root Mean Square Error)** | Penalizes large estimation errors and crowd burst anomalies. |
+| **Within 10% Accuracy** | % of test frames where headcount error is within $\pm 10\%$. |
 
-2. Split data into train/test sets
-   ```bash
-   python 02_stratified_train_test_split.py
-   ```
+---
 
-3. Generate density heatmaps
-   ```bash
-   python 03_generate_heatmaps.py
-   ```
-
-4. Train or fine-tune the model
-   ```bash
-   python 06_fine_tune.py
-   ```
-
-5. Evaluate the trained model
-   ```bash
-   python 05_evaluate_baseline.py
-   python 07_evaluate_finetuned_model.py
-   ```
-
-6. Run batch or alert inference
-   ```bash
-   python 09_batch_inference.py
-   python 10_alert_inference.py
-   ```
-
-## Model Output
-
-The project stores trained checkpoints in the `checkpoints/` directory and outputs visual results in the `outputs/` directory, including:
-
-- inference images
-- density heatmaps
-- alert summaries
-- processed prediction results
-
-## Notes
-
-- The project is tuned for crowd-heavy scenes and public event monitoring.
-- You can adjust thresholds and configurations in the config files such as `inference_config.py` and `tune_config.py`.
-- Model performance depends on image quality, dataset consistency, and annotation accuracy.
-
-## License
-
-This project is intended for academic and research use. Please check your local usage requirements before deploying in production or public systems.
+##  License & Intended Use
+Developed for research and public-safety operations during large-scale mass gatherings. Please ensure compliance with local privacy and surveillance guidelines prior to production deployment.

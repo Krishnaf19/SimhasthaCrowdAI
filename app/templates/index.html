@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SATARK — Crowd intelligence</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="nav-container">
+      <a href="{{ url_for('index') }}" class="nav-brand">SATARK</a>
+      <ul class="nav-links">
+        <li><a href="{{ url_for('index') }}" class="active">Dashboard</a></li>
+        <li><a href="{{ url_for('upload') }}">Analyze image</a></li>
+        <li><a href="{{ url_for('model_info') }}">Model guide</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="dashboard">
+    <header>
+      <div>
+      <h1>Crowd Count Dashboard</h1>
+      <p class="subtitle">Track crowd density and estimated head counts across Simhastha monitoring scenes.</p>
+      <a class="header-model-button" href="{{ url_for('model_info') }}">Visit model page <span aria-hidden="true">&#8594;</span></a>
+      </div>
+      <div class="info-row">
+        <div><strong>Model</strong><br>CSRNet + SE blocks</div>
+        <div><strong>Accuracy</strong><br>MAE of 9.86 people</div>
+        <div><strong>Dataset</strong><br>63 labeled images</div>
+      </div>
+    </header>
+
+    <section class="control-panel card">
+      <form method="post">
+        <div class="button-row">
+          <button type="submit" name="action" value="refresh">Refresh Dashboard</button>
+          <a class="model-guide-button" href="{{ url_for('model_info') }}">View model guide</a>
+        </div>
+      </form>
+    </section>
+
+    {% if message %}
+      <div class="message-card card">{{ message }}</div>
+    {% endif %}
+
+    {% if result %}
+      <section class="result-card card">
+        <h2>Latest analysis</h2>
+        <div class="result-grid">
+          <div>
+            <div class="metric">
+              <span>Image</span>
+              <strong>{{ result.image }}</strong>
+            </div>
+            <div class="metric">
+              <span>Head Count</span>
+              <strong>{{ result.count | round(1) }}</strong>
+            </div>
+            <div class="metric" style="margin-bottom: 0;">
+              <span>Safety Zone</span>
+              <div class="status status-{{ result.zone|lower }}" style="margin-top: 6px;">
+                {{ result.zone }}
+              </div>
+            </div>
+          </div>
+          <div class="preview">
+            <strong>Density Map Visualization</strong>
+            <img src="{{ result.url }}" alt="Inference preview">
+          </div>
+        </div>
+      </section>
+    {% endif %}
+
+    {% if dashboard_results %}
+      <section class="batch-card card">
+        <h2>Dataset overview</h2>
+        <div class="summary-row">
+          <div>
+            <strong>{{ dashboard_results.total_images }}</strong>
+            <div>Images processed</div>
+          </div>
+          <div>
+            <strong>{{ dashboard_results.safe_count }}</strong>
+            <div>Safe zone</div>
+          </div>
+          <div>
+            <strong>{{ dashboard_results.normal_count }}</strong>
+            <div>Normal zone</div>
+          </div>
+          <div>
+            <strong>{{ dashboard_results.critical_count }}</strong>
+            <div>Critical zone</div>
+          </div>
+        </div>
+
+        <h3>Dataset results</h3>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Head Count</th>
+                <th>Safety Zone</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for row in dashboard_results.results %}
+                <tr>
+                  <td style="font-weight: 500;">{{ row.image }}</td>
+                  <td><strong>{{ row.count | round(1) }}</strong></td>
+                  <td><span class="status status-{{ row.zone|lower }}">{{ row.zone }}</span></td>
+                  <td><a href="{{ row.url }}" target="_blank">View Map</a></td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    {% endif %}
+
+    <footer>
+      <p><strong>SATARK</strong> - Simhastha Crowd AI Research Kit</p>
+      <p>Advanced head counting for public safety</p>
+    </footer>
+  </div>
+</body>
+</html>

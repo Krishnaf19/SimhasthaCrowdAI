@@ -1,0 +1,36 @@
+# ── SATARK Training Configuration ───────────────────────────────────────
+# Run:  python scripts/train.py   (overrides via CLI flags)
+
+data:
+  root: data
+  train_split: train
+  val_split: all
+  crop_size: 512
+  downsample: 8
+
+model:
+  use_se: true
+  load_pretrained_vgg: true
+
+training:
+  epochs: 80
+  batch_size: 1
+  learning_rate: 5.0e-5
+  weight_decay: 1.0e-4
+  grad_clip: 1.0
+  unfreeze_after_epoch: 15
+  early_stopping_patience: 15
+  save_every_n_epochs: 10
+
+loss:
+  density_threshold: 150.0
+  dense_penalty: 3.0
+
+scheduler:
+  patience: 3
+  factor: 0.5
+  min_lr: 1.0e-7
+
+paths:
+  weights:     checkpoints/baseline_weights.pth
+  checkpoint_dir: checkpoints
