@@ -142,15 +142,17 @@ def index():
                 if result:
                     result['url'] = url_for('output_image', filename=os.path.basename(result['path']))
         elif action == 'refresh':
-            refresh = True
-            message = 'Refreshing dashboard results from the image dataset.'
+            message = 'Dashboard refreshed. Your existing dataset results have not been changed.'
         else:
             message = 'Dashboard updated automatically. Use refresh to recompute results.'
 
     dashboard_results = compute_dashboard_results(force_refresh=refresh)
     if dashboard_results and 'results' in dashboard_results:
-        for row in dashboard_results['results']:
-            row['url'] = url_for('output_image', filename=os.path.basename(row['path']))
+        for index, row in enumerate(dashboard_results['results'], start=1):
+            output_filename = os.path.basename(row['path'])
+            row['url'] = url_for('output_image', filename=output_filename)
+            row['display_name'] = f'Simhastha Crowd Scene {index:02d}'
+            row['view_url'] = url_for('analysis_view', filename=output_filename, scene=index)
 
     return render_template(
         'index.html',
@@ -232,6 +234,21 @@ def model_info():
 def output_image(filename):
     """Serve inference output images."""
     return send_from_directory(str(OUTPUT_DIR), filename)
+
+
+@app.route('/analysis/<path:filename>')
+def analysis_view(filename):
+    """Show an inference density map within the SATARK interface."""
+    safe_filename = os.path.basename(filename)
+    if not (OUTPUT_DIR / safe_filename).is_file():
+        return 'Analysis image not found.', 404
+    scene = request.args.get('scene', type=int)
+    scene_name = f'Simhastha Crowd Scene {scene:02d}' if scene else 'Crowd Density Analysis'
+    return render_template(
+        'analysis.html',
+        scene_name=scene_name,
+        image_url=url_for('output_image', filename=safe_filename),
+    )
 
 
 @app.route('/uploads/<path:filename>')

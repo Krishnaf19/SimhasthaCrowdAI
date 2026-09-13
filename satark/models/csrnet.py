@@ -33,12 +33,15 @@ class CSRNet(nn.Module):
     FRONTEND_CFG = [64, 64, 'M', 128, 128, 'M', 256, 256, 256, 'M', 512, 512, 512]
     BACKEND_CFG  = [512, 512, 512, 256, 128, 64]
 
-    def __init__(self, load_weights=True, freeze_frontend=True, use_se=True):
+    def __init__(self, load_weights=True, freeze_frontend=True, use_se=True,
+                 output_channels=None):
         super().__init__()
         self.frontend = self._make_layers(self.FRONTEND_CFG, in_channels=3, dilation=False)
         self.backend  = self._make_layers(self.BACKEND_CFG,  in_channels=512, dilation=True)
         self.se            = SELayer(64) if use_se else nn.Identity()
-        self.output_layer  = nn.Conv2d(64, len(CLASSES), kernel_size=1)
+        self.output_layer  = nn.Conv2d(
+            64, output_channels if output_channels is not None else len(CLASSES), kernel_size=1
+        )
         if load_weights: self._load_vgg16_weights()
         else:            self._init_backend_weights()
         if freeze_frontend: self._freeze_frontend()

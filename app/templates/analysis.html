@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ scene_name }} — SATARK</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='analysis.css') }}">
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="{{ url_for('index') }}" class="nav-brand">SATARK</a>
+      <ul class="nav-links">
+        <li><a href="{{ url_for('index') }}">Dashboard</a></li>
+        <li><a href="{{ url_for('upload') }}">Analyze image</a></li>
+        <li><a href="{{ url_for('model_info') }}">Model guide</a></li>
+      </ul>
+    </div>
+  </nav>
+  <main class="dashboard analysis-page">
+    <header>
+      <div>
+        <p class="eyebrow">Density map result</p>
+        <h1>{{ scene_name }}</h1>
+        <p class="subtitle">The density visualization highlights areas where the model estimates a greater concentration of people.</p>
+      </div>
+      <div class="info-row">
+        <div><strong>Analysis type</strong><br>Crowd density map</div>
+        <div><strong>Model</strong><br>CSRNet + SE blocks</div>
+      </div>
+    </header>
+    <section class="card analysis-map-card">
+      <div class="analysis-map-heading"><h2>Density map visualization</h2><a href="{{ url_for('index') }}">← Back to dashboard</a></div>
+      <img src="{{ image_url }}" alt="Density map for {{ scene_name }}">
+    </section>
+    <footer><p><strong>SATARK</strong> — Simhastha Crowd AI Research Kit</p><p>Advanced crowd counting for public safety.</p></footer>
+  </main>
+</body>
+</html>

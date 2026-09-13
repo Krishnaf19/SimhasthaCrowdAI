@@ -35,11 +35,29 @@ def _preprocess(img, device):
     return t.unsqueeze(0).to(device)
 
 
+def _checkpoint_output_channels(model_path, device):
+    """Read the density-head width so legacy single-channel models can load."""
+    try:
+        try:
+            checkpoint = torch.load(model_path, map_location=device, weights_only=True)
+        except Exception:
+            checkpoint = torch.load(model_path, map_location=device, weights_only=False)
+        if isinstance(checkpoint, dict):
+            for key in ('state_dict', 'model_state_dict', 'model', 'net'):
+                if key in checkpoint:
+                    checkpoint = checkpoint[key]
+                    break
+        return int(checkpoint['output_layer.weight'].shape[0])
+    except (KeyError, TypeError, OSError, RuntimeError):
+        return len(CLASSES)
+
+
 def _save_result(img_raw, density_np, img_name, count, per_class_counts, output_dir):
     zone = get_zone(count)
     fig, axes = plt.subplots(1, 2, figsize=(16, 7))
+    labels = CLASSES if len(per_class_counts) == len(CLASSES) else ['head count']
     info = '  |  '.join(cls + ': ' + str(int(round(c)))
-                        for cls, c in zip(CLASSES, per_class_counts))
+                        for cls, c in zip(labels, per_class_counts))
     fig.suptitle('SATARK  Zone: ' + zone + '  |  Count: ' + str(int(round(count))) + '  |  ' + info,
                  fontsize=11, fontweight='bold')
     axes[0].imshow(np.array(img_raw)); axes[0].set_title(img_name); axes[0].axis('off')
@@ -58,19 +76,22 @@ def infer_image(img_path, model_path='checkpoints/satark_best.pth',
     ensure_dir(output_dir)
     if device is None: device = get_device()
     if model is None:
-        model = CSRNet(load_weights=False, freeze_frontend=False).to(device)
+        output_channels = _checkpoint_output_channels(model_path, device)
+        model = CSRNet(load_weights=False, freeze_frontend=False,
+                       output_channels=output_channels).to(device)
         if not load_checkpoint(model_path, model, device): return {}
     img_rgb = Image.open(img_path).convert('RGB')
     resized = _resize(img_rgb)
     with torch.no_grad():
         output = model(_preprocess(resized, device))
-    per_class_counts = [output[0, c].sum().item() for c in range(len(CLASSES))]
+    per_class_counts = [output[0, c].sum().item() for c in range(output.shape[1])]
     count     = sum(per_class_counts)
     density_np = output[0].sum(dim=0).cpu().numpy()
     save_path  = _save_result(resized, density_np, os.path.basename(img_path),
                                count, per_class_counts, output_dir)
     return {'image': os.path.basename(img_path), 'count': count, 'zone': get_zone(count),
-            'path': save_path, 'per_class': dict(zip(CLASSES, per_class_counts))}
+            'path': save_path,
+            'per_class': dict(zip(CLASSES if len(per_class_counts) == len(CLASSES) else ['head count'], per_class_counts))}
 
 
 def infer_images(model_path='checkpoints/satark_best.pth',
@@ -78,7 +99,9 @@ def infer_images(model_path='checkpoints/satark_best.pth',
                  output_dir='outputs/inference'):
     ensure_dir(output_dir)
     device = get_device(); clear_device_cache(device)
-    model = CSRNet(load_weights=False, freeze_frontend=False).to(device)
+    output_channels = _checkpoint_output_channels(model_path, device)
+    model = CSRNet(load_weights=False, freeze_frontend=False,
+                   output_channels=output_channels).to(device)
     if not load_checkpoint(model_path, model, device): return {}
     if not os.path.exists(inference_dir):
         raise FileNotFoundError('Inference dir not found: ' + inference_dir)
