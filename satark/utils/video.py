@@ -4,34 +4,49 @@ import time
 from collections import deque
 import cv2
 import numpy as np
+from PIL import Image
+import torchvision.transforms.functional as TF
 import torch
 
 from ..engine.evaluator import load_checkpoint
 from ..models.csrnet import CSRNet, get_device, clear_device_cache
 from ..utils.common import ensure_dir, CLASSES
-from .inference import _checkpoint_output_channels, get_zone, MEAN, STD, MAX_SIDE_PX
+from .inference import (
+    _checkpoint_output_channels,
+    get_zone,
+    _resize,
+    _preprocess,
+    _save_result,
+    MEAN,
+    STD,
+    MAX_SIDE_PX,
+)
 
 _MEAN_TENSOR = torch.tensor(MEAN, dtype=torch.float32).view(1, 3, 1, 1)
 _STD_TENSOR = torch.tensor(STD, dtype=torch.float32).view(1, 3, 1, 1)
 
 
-def _preprocess_frame(frame_bgr, device, max_dim=640):
-    """Resize and normalize a BGR OpenCV frame for CSRNet inference with direct tensor conversion."""
-    h, w = frame_bgr.shape[:2]
-    longest = max(h, w)
-    if longest > max_dim:
-        scale = max_dim / longest
-        new_w, new_h = int(w * scale), int(h * scale)
-        frame_resized = cv2.resize(frame_bgr, (new_w, new_h), interpolation=cv2.INTER_AREA)
-    else:
-        frame_resized = frame_bgr
+def _frame_to_pil(frame_bgr):
+    """Convert OpenCV BGR frame to a standard PIL RGB Image."""
+    return Image.fromarray(cv2.cvtColor(frame_bgr, cv2.COLOR_BGR2RGB))
 
-    frame_rgb = cv2.cvtColor(frame_resized, cv2.COLOR_BGR2RGB)
-    tensor = torch.from_numpy(frame_rgb).permute(2, 0, 1).unsqueeze(0).float().div_(255.0)
-    mean = _MEAN_TENSOR.to(device)
-    std = _STD_TENSOR.to(device)
-    tensor = tensor.to(device).sub_(mean).div_(std)
-    return tensor, frame_resized.shape[:2]
+
+def _preprocess_frame_image(pil_img, device, max_dim=MAX_SIDE_PX):
+    """Resize and normalize an extracted frame using the exact rules as infer_image.
+
+    Matches infer_image in satark.utils.inference by using PIL Lanczos downsampling
+    and torchvision tensor normalization to ensure identical receptive-field scaling
+    and accurate head counts.
+    """
+    w, h = pil_img.size
+    longest = max(w, h)
+    if longest <= max_dim:
+        resized = pil_img
+    else:
+        scale = max_dim / longest
+        resized = pil_img.resize((int(w * scale), int(h * scale)), Image.LANCZOS)
+    tensor = _preprocess(resized, device)
+    return tensor, resized
 
 
 def _temporal_median(samples, classes):
@@ -121,31 +136,39 @@ def infer_video(
     output_dir: str = 'outputs/inference',
     frame_stride = 'auto',
     max_dim: int = MAX_SIDE_PX,
-    temporal_window: int = 5,
+    temporal_window: int = 1,
+    extract_frames: bool = True,
+    extract_fps: float = 1.0,
     model=None,
     device=None,
     progress_callback=None,
 ) -> dict:
-    """Process video, estimating continuous multi-class crowd density with high throughput.
+    """Process video, estimating crowd density and extracting key frames with image head counting.
 
     Args:
         video_path: Path to source video.
         model_path: Path to trained PyTorch weights.
-        output_dir: Destination folder for output video and JSON metrics.
-        frame_stride: 'auto' (e.g. ~2 FPS sampling for fast real-time counting), or integer stride.
-        max_dim: Maximum resolution boundary for inference (default 1000, matching images).
-        temporal_window: Odd-numbered history length used to stabilize sampled counts.
+        output_dir: Destination folder for output video, extracted frames, and JSON metrics.
+        frame_stride: 'auto' (e.g. ~2-3 FPS sampling for fast real-time counting), or integer stride.
+        max_dim: Maximum resolution boundary for inference (default 1000, exactly matching images).
+        temporal_window: History length for median smoothing (default 1: disabled, true instantaneous count).
+        extract_frames: Whether to extract sampled frames and generate individual image results.
+        extract_fps: Frequency of extracted frames (default 1.0 = 1 frame per second).
         model: Optional pre-loaded CSRNet instance.
         device: Optional torch.device.
         progress_callback: Optional callable receiving progress dictionary.
 
     Returns:
-        Dictionary containing paths, time-series telemetry, and summary statistics.
+        Dictionary containing paths, time-series telemetry, extracted frames gallery, and summary statistics.
     """
     if not os.path.exists(video_path):
         raise FileNotFoundError(f"Video file not found: {video_path}")
 
     ensure_dir(output_dir)
+    frames_dir = os.path.join(output_dir, 'frames')
+    if extract_frames:
+        ensure_dir(frames_dir)
+
     if device is None:
         device = get_device()
 
@@ -163,8 +186,8 @@ def infer_video(
 
     model.eval()
     headgear_supported = getattr(getattr(model, 'output_layer', None), 'out_channels', 0) == len(CLASSES)
-    temporal_window = max(1, int(temporal_window))
-    if temporal_window % 2 == 0:
+    use_smoothing = temporal_window > 1
+    if use_smoothing and temporal_window % 2 == 0:
         temporal_window += 1
 
     cap = cv2.VideoCapture(video_path)
@@ -177,15 +200,24 @@ def infer_video(
     width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
-    # Determine numeric frame stride
+    # Determine numeric frame stride for video HUD inference
     if frame_stride == 'auto' or frame_stride is None:
-        # Sample at ~2 FPS by default for fast real-time counting
         stride = max(1, int(round(fps / 2.0)))
     else:
         try:
             stride = max(1, int(frame_stride))
         except (ValueError, TypeError):
             stride = max(1, int(round(fps / 2.0)))
+
+    # Determine frame extraction stride
+    if extract_fps and extract_fps > 0:
+        extract_stride = max(1, int(round(fps / extract_fps)))
+    else:
+        extract_stride = stride
+
+    # Prevent saving an excessive number of frame images on very long videos (cap ~60 frames)
+    if total_frames > 0 and (total_frames // max(1, extract_stride)) > 60:
+        extract_stride = max(extract_stride, total_frames // 60)
 
     stem = os.path.splitext(os.path.basename(video_path))[0]
     out_video_name = f"result_{stem}.mp4"
@@ -195,6 +227,7 @@ def infer_video(
     writer = cv2.VideoWriter(out_video_path, fourcc, fps, (width, height))
 
     telemetry = []
+    extracted_frames = []
     zone_counts = {'SAFE': 0, 'NORMAL': 0, 'CRITICAL': 0}
     peak_count = 0.0
     peak_time_sec = 0.0
@@ -205,7 +238,7 @@ def infer_video(
     last_per_class = {c: 0.0 for c in CLASSES}
     last_zone = 'SAFE'
     cached_heatmap = None
-    count_history = deque(maxlen=temporal_window)
+    count_history = deque(maxlen=temporal_window if use_smoothing else 1)
 
     frame_idx = 0
     t_start = time.time()
@@ -218,10 +251,15 @@ def infer_video(
                     break
 
                 frame_idx += 1
-                should_infer = (frame_idx % stride == 0) or (frame_idx == 1)
+                is_extract_target = extract_frames and (
+                    (frame_idx % extract_stride == 0) or (frame_idx == 1) or (frame_idx == total_frames)
+                )
+                should_infer = (frame_idx % stride == 0) or (frame_idx == 1) or is_extract_target
 
                 if should_infer:
-                    tensor, (rh, rw) = _preprocess_frame(frame, device, max_dim=max_dim)
+                    # Preprocess frame using exact PIL image pipeline
+                    pil_frame = _frame_to_pil(frame)
+                    tensor, resized_frame = _preprocess_frame_image(pil_frame, device, max_dim=max_dim)
                     output = model(tensor)  # (1, C, H_feat, W_feat)
 
                     out_c = output.shape[1]
@@ -233,8 +271,12 @@ def infer_video(
                     else:
                         raw_per_class = {'head count': raw_total_count}
 
-                    count_history.append({'total': raw_total_count, 'classes': raw_per_class})
-                    total_count, per_class = _temporal_median(count_history, raw_per_class.keys())
+                    if use_smoothing:
+                        count_history.append({'total': raw_total_count, 'classes': raw_per_class})
+                        total_count, per_class = _temporal_median(count_history, raw_per_class.keys())
+                    else:
+                        total_count = raw_total_count
+                        per_class = raw_per_class
 
                     zone = get_zone(total_count)
                     raw_density = output[0].sum(dim=0).cpu().numpy()
@@ -244,6 +286,32 @@ def infer_video(
                     last_per_class = per_class
                     last_zone = zone
                     cached_heatmap = None  # Re-render on new density
+
+                    # If this is an extraction target, save the frame and result heatmap
+                    if is_extract_target:
+                        frame_img_name = f"{stem}_frame_{frame_idx:05d}.jpg"
+                        frame_img_path = os.path.join(frames_dir, frame_img_name)
+                        try:
+                            pil_frame.save(frame_img_path, quality=90)
+                            res_img_path = _save_result(
+                                resized_frame, raw_density, frame_img_name,
+                                total_count, class_counts, frames_dir
+                            )
+                            res_img_name = os.path.basename(res_img_path)
+                            extracted_frames.append({
+                                'frame': frame_idx,
+                                'time_sec': round(frame_idx / fps, 2),
+                                'count': round(total_count, 1),
+                                'zone': zone,
+                                'per_class': {k: round(v, 1) for k, v in per_class.items()},
+                                'image_name': frame_img_name,
+                                'image_url': f"/outputs/frames/{frame_img_name}",
+                                'result_name': res_img_name,
+                                'result_url': f"/outputs/frames/{res_img_name}",
+                                'view_url': f"/analysis/frames/{res_img_name}",
+                            })
+                        except Exception as save_err:
+                            print(f"[WARN] Failed to save extracted frame #{frame_idx}: {save_err}")
                 else:
                     total_count = last_count
                     per_class = last_per_class
@@ -294,6 +362,8 @@ def infer_video(
                         'eta_sec': round(eta, 1),
                         'is_inferred': should_infer,
                         'headgear_supported': headgear_supported,
+                        'extracted_count': len(extracted_frames),
+                        'latest_extracted': extracted_frames[-1] if extracted_frames else None,
                     }
                     try:
                         progress_callback(cb_payload)
@@ -320,6 +390,7 @@ def infer_video(
         'average_count': avg_count,
         'temporal_window': temporal_window,
         'inference_max_dimension': max_dim,
+        'extracted_frames_count': len(extracted_frames),
         'zone_distribution': {
             'safe_frames': zone_counts['SAFE'],
             'normal_frames': zone_counts['NORMAL'],
@@ -328,6 +399,7 @@ def infer_video(
             'normal_pct': round(zone_counts['NORMAL'] / max(frame_idx, 1) * 100, 1),
             'critical_pct': round(zone_counts['CRITICAL'] / max(frame_idx, 1) * 100, 1),
         },
+        'extracted_frames': extracted_frames,
         'telemetry': telemetry
     }
 
@@ -346,5 +418,6 @@ def infer_video(
         'avg_count': avg_count,
         'zone': get_zone(peak_count),
         'zone_stats': summary_payload['zone_distribution'],
+        'extracted_frames': extracted_frames,
         'telemetry': telemetry,
     }

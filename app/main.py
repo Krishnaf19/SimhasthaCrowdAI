@@ -213,8 +213,8 @@ def index():
     )
 
 
-def start_video_processing(file_path: str, filename: str, unique_name: str, speed_mode: str = 'balanced') -> str:
-    """Launch background video inference with continuous live telemetry."""
+def start_video_processing(file_path: str, filename: str, unique_name: str, speed_mode: str = 'balanced', extract_fps: float = 1.0) -> str:
+    """Launch background video inference with frame extraction and continuous live telemetry."""
     task_id = uuid.uuid4().hex
 
     # Read quick video properties
@@ -224,18 +224,16 @@ def start_video_processing(file_path: str, filename: str, unique_name: str, spee
     fps = orig_fps if orig_fps > 0 else 25.0
     cap.release()
 
-    # Preset configurations
+    # Preset configurations - always preserve 1000px max_dim to match image model accuracy
+    max_dim = 1000
     if speed_mode == 'fast':
-        # ~2 FPS sampling (e.g. stride 12-15 for 25-30fps video)
-        stride = max(1, int(round(fps / 2.0)))
-        max_dim = 768
+        # High speed: ~1-2 FPS sampling while preserving full image model resolution
+        stride = max(1, int(round(fps / 1.5)))
     elif speed_mode == 'balanced':
-        # Accuracy-first default: match still-image resolution at ~5 FPS.
-        stride = max(1, int(round(fps / 5.0)))
-        max_dim = 1000
+        # Balanced: ~3-4 FPS sampling for responsive counting
+        stride = max(1, int(round(fps / 3.0)))
     else:  # precision
-        stride = 1
-        max_dim = 1000
+        stride = max(1, int(round(fps / 6.0)))
 
     orig_url = f"/uploads/{unique_name}"
 
@@ -257,6 +255,8 @@ def start_video_processing(file_path: str, filename: str, unique_name: str, spee
         'elapsed_sec': 0.0,
         'eta_sec': 0.0,
         'recent_counts': [],
+        'extracted_count': 0,
+        'latest_extracted': None,
         'result': None,
         'error': None,
         'created_at': time.time(),
@@ -285,6 +285,8 @@ def start_video_processing(file_path: str, filename: str, unique_name: str, spee
                             t['elapsed_sec'] = p['elapsed_sec']
                             t['eta_sec'] = p['eta_sec']
                             t['time_sec'] = p['time_sec']
+                            t['extracted_count'] = p.get('extracted_count', 0)
+                            t['latest_extracted'] = p.get('latest_extracted')
                             t['recent_counts'].append({
                                 'time_sec': p['time_sec'],
                                 'frame': p['current_frame'],
@@ -300,6 +302,9 @@ def start_video_processing(file_path: str, filename: str, unique_name: str, spee
                     output_dir=str(OUTPUT_DIR),
                     frame_stride=stride,
                     max_dim=max_dim,
+                    temporal_window=1,
+                    extract_frames=True,
+                    extract_fps=extract_fps,
                     model=model,
                     device=device,
                     progress_callback=_on_progress,
@@ -321,6 +326,7 @@ def start_video_processing(file_path: str, filename: str, unique_name: str, spee
                             'avg_count': v_res['avg_count'],
                             'zone': v_res['zone'],
                             'zone_stats': v_res['zone_stats'],
+                            'extracted_frames': v_res.get('extracted_frames', []),
                             'telemetry': v_res['telemetry'],
                         }
             except Exception as ex:
@@ -359,14 +365,19 @@ def upload():
                     file.save(file_path)
 
                     speed_mode = request.form.get('speed_mode', 'balanced')
+                    try:
+                        extract_fps = float(request.form.get('extract_fps', 1.0) or 1.0)
+                    except (ValueError, TypeError):
+                        extract_fps = 1.0
 
                     if is_video_file(filename):
-                        # Start continuous live counting task in background
+                        # Start continuous live counting and frame extraction task in background
                         task_id = start_video_processing(
                             file_path=file_path,
                             filename=filename,
                             unique_name=unique_name,
                             speed_mode=speed_mode,
+                            extract_fps=extract_fps,
                         )
 
                         # Return JSON if called from modern JS fetch
@@ -448,7 +459,18 @@ def api_video_upload():
     file.save(file_path)
 
     speed_mode = request.form.get('speed_mode', 'balanced')
-    task_id = start_video_processing(file_path, filename, unique_name, speed_mode=speed_mode)
+    try:
+        extract_fps = float(request.form.get('extract_fps', 1.0) or 1.0)
+    except (ValueError, TypeError):
+        extract_fps = 1.0
+
+    task_id = start_video_processing(
+        file_path,
+        filename,
+        unique_name,
+        speed_mode=speed_mode,
+        extract_fps=extract_fps,
+    )
 
     return jsonify({
         'status': 'started',
@@ -504,15 +526,18 @@ def model_info():
 @app.route('/analysis/<path:filename>')
 def analysis_view(filename):
     """Show an inference density map within the SATARK interface."""
-    safe_filename = os.path.basename(filename)
-    if not (OUTPUT_DIR / safe_filename).is_file():
+    target_path = OUTPUT_DIR / filename
+    if not target_path.is_file():
+        target_path = OUTPUT_DIR / os.path.basename(filename)
+    if not target_path.is_file():
         return 'Analysis image not found.', 404
+    rel_path = target_path.relative_to(OUTPUT_DIR).as_posix()
     scene = request.args.get('scene', type=int)
     scene_name = f'Simhastha Crowd Scene {scene:02d}' if scene else 'Crowd Density Analysis'
     return render_template(
         'analysis.html',
         scene_name=scene_name,
-        image_url=url_for('output_image', filename=safe_filename),
+        image_url=url_for('output_image', filename=rel_path),
     )
 
 

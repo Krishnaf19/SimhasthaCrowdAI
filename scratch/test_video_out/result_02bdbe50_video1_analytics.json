@@ -1,0 +1,423 @@
+{
+  "video": "02bdbe50_video1.mp4",
+  "output_video": "result_02bdbe50_video1.mp4",
+  "total_frames": 679,
+  "fps": 30.0,
+  "duration_seconds": 22.63,
+  "peak_count": 165.3,
+  "peak_timestamp_seconds": 19.0,
+  "average_count": 137.2,
+  "temporal_window": 1,
+  "inference_max_dimension": 1000,
+  "extracted_frames_count": 13,
+  "zone_distribution": {
+    "safe_frames": 0,
+    "normal_frames": 529,
+    "critical_frames": 150,
+    "safe_pct": 0.0,
+    "normal_pct": 77.9,
+    "critical_pct": 22.1
+  },
+  "extracted_frames": [
+    {
+      "frame": 1,
+      "time_sec": 0.03,
+      "count": 164.0,
+      "zone": "CRITICAL",
+      "per_class": {
+        "head count": 164.0
+      },
+      "image_name": "02bdbe50_video1_frame_00001.jpg",
+      "image_url": "/outputs/frames/02bdbe50_video1_frame_00001.jpg",
+      "result_name": "result_02bdbe50_video1_frame_00001.png",
+      "result_url": "/outputs/frames/result_02bdbe50_video1_frame_00001.png",
+      "view_url": "/analysis/frames/result_02bdbe50_video1_frame_00001.png"
+    },
+    {
+      "frame": 60,
+      "time_sec": 2.0,
+      "count": 144.1,
+      "zone": "NORMAL",
+      "per_class": {
+        "head count": 144.1
+      },
+      "image_name": "02bdbe50_video1_frame_00060.jpg",
+      "image_url": "/outputs/frames/02bdbe50_video1_frame_00060.jpg",
+      "result_name": "result_02bdbe50_video1_frame_00060.png",
+      "result_url": "/outputs/frames/result_02bdbe50_video1_frame_00060.png",
+      "view_url": "/analysis/frames/result_02bdbe50_video1_frame_00060.png"
+    },
+    {
+      "frame": 120,
+      "time_sec": 4.0,
+      "count": 133.4,
+      "zone": "NORMAL",
+      "per_class": {
+        "head count": 133.4
+      },
+      "image_name": "02bdbe50_video1_frame_00120.jpg",
+      "image_url": "/outputs/frames/02bdbe50_video1_frame_00120.jpg",
+      "result_name": "result_02bdbe50_video1_frame_00120.png",
+      "result_url": "/outputs/frames/result_02bdbe50_video1_frame_00120.png",
+      "view_url": "/analysis/frames/result_02bdbe50_video1_frame_00120.png"
+    },
+    {
+      "frame": 180,
+      "time_sec": 6.0,
+      "count": 111.0,
+      "zone": "NORMAL",
+      "per_class": {
+        "head count": 111.0
+      },
+      "image_name": "02bdbe50_video1_frame_00180.jpg",
+      "image_url": "/outputs/frames/02bdbe50_video1_frame_00180.jpg",
+      "result_name": "result_02bdbe50_video1_frame_00180.png",
+      "result_url": "/outputs/frames/result_02bdbe50_video1_frame_00180.png",
+      "view_url": "/analysis/frames/result_02bdbe50_video1_frame_00180.png"
+    },
+    {
+      "frame": 240,
+      "time_sec": 8.0,
+      "count": 61.4,
+      "zone": "NORMAL",
+      "per_class": {
+        "head count": 61.4
+      },
+      "image_name": "02bdbe50_video1_frame_00240.jpg",
+      "image_url": "/outputs/frames/02bdbe50_video1_frame_00240.jpg",
+      "result_name": "result_02bdbe50_video1_frame_00240.png",
+      "result_url": "/outputs/frames/result_02bdbe50_video1_frame_00240.png",
+      "view_url": "/analysis/frames/result_02bdbe50_video1_frame_00240.png"
+    },
+    {
+      "frame": 300,
+      "time_sec": 10.0,
+      "count": 148.4,
+      "zone": "NORMAL",
+      "per_class": {
+        "head count": 148.4
+      },
+      "image_name": "02bdbe50_video1_frame_00300.jpg",
+      "image_url": "/outputs/frames/02bdbe50_video1_frame_00300.jpg",
+      "result_name": "result_02bdbe50_video1_frame_00300.png",
+      "result_url": "/outputs/frames/result_02bdbe50_video1_frame_00300.png",
+      "view_url": "/analysis/frames/result_02bdbe50_video1_frame_00300.png"
+    },
+    {
+      "frame": 360,
+      "time_sec": 12.0,
+      "count": 140.3,
+      "zone": "NORMAL",
+      "per_class": {
+        "head count": 140.3
+      },
+      "image_name": "02bdbe50_video1_frame_00360.jpg",
+      "image_url": "/outputs/frames/02bdbe50_video1_frame_00360.jpg",
+      "result_name": "result_02bdbe50_video1_frame_00360.png",
+      "result_url": "/outputs/frames/result_02bdbe50_video1_frame_00360.png",
+      "view_url": "/analysis/frames/result_02bdbe50_video1_frame_00360.png"
+    },
+    {
+      "frame": 420,
+      "time_sec": 14.0,
+      "count": 141.4,
+      "zone": "NORMAL",
+      "per_class": {
+        "head count": 141.4
+      },
+      "image_name": "02bdbe50_video1_frame_00420.jpg",
+      "image_url": "/outputs/frames/02bdbe50_video1_frame_00420.jpg",
+      "result_name": "result_02bdbe50_video1_frame_00420.png",
+      "result_url": "/outputs/frames/result_02bdbe50_video1_frame_00420.png",
+      "view_url": "/analysis/frames/result_02bdbe50_video1_frame_00420.png"
+    },
+    {
+      "frame": 480,
+      "time_sec": 16.0,
+      "count": 141.1,
+      "zone": "NORMAL",
+      "per_class": {
+        "head count": 141.1
+      },
+      "image_name": "02bdbe50_video1_frame_00480.jpg",
+      "image_url": "/outputs/frames/02bdbe50_video1_frame_00480.jpg",
+      "result_name": "result_02bdbe50_video1_frame_00480.png",
+      "result_url": "/outputs/frames/result_02bdbe50_video1_frame_00480.png",
+      "view_url": "/analysis/frames/result_02bdbe50_video1_frame_00480.png"
+    },
+    {
+      "frame": 540,
+      "time_sec": 18.0,
+      "count": 147.9,
+      "zone": "NORMAL",
+      "per_class": {
+        "head count": 147.9
+      },
+      "image_name": "02bdbe50_video1_frame_00540.jpg",
+      "image_url": "/outputs/frames/02bdbe50_video1_frame_00540.jpg",
+      "result_name": "result_02bdbe50_video1_frame_00540.png",
+      "result_url": "/outputs/frames/result_02bdbe50_video1_frame_00540.png",
+      "view_url": "/analysis/frames/result_02bdbe50_video1_frame_00540.png"
+    },
+    {
+      "frame": 600,
+      "time_sec": 20.0,
+      "count": 161.6,
+      "zone": "CRITICAL",
+      "per_class": {
+        "head count": 161.6
+      },
+      "image_name": "02bdbe50_video1_frame_00600.jpg",
+      "image_url": "/outputs/frames/02bdbe50_video1_frame_00600.jpg",
+      "result_name": "result_02bdbe50_video1_frame_00600.png",
+      "result_url": "/outputs/frames/result_02bdbe50_video1_frame_00600.png",
+      "view_url": "/analysis/frames/result_02bdbe50_video1_frame_00600.png"
+    },
+    {
+      "frame": 660,
+      "time_sec": 22.0,
+      "count": 148.3,
+      "zone": "NORMAL",
+      "per_class": {
+        "head count": 148.3
+      },
+      "image_name": "02bdbe50_video1_frame_00660.jpg",
+      "image_url": "/outputs/frames/02bdbe50_video1_frame_00660.jpg",
+      "result_name": "result_02bdbe50_video1_frame_00660.png",
+      "result_url": "/outputs/frames/result_02bdbe50_video1_frame_00660.png",
+      "view_url": "/analysis/frames/result_02bdbe50_video1_frame_00660.png"
+    },
+    {
+      "frame": 679,
+      "time_sec": 22.63,
+      "count": 158.7,
+      "zone": "CRITICAL",
+      "per_class": {
+        "head count": 158.7
+      },
+      "image_name": "02bdbe50_video1_frame_00679.jpg",
+      "image_url": "/outputs/frames/02bdbe50_video1_frame_00679.jpg",
+      "result_name": "result_02bdbe50_video1_frame_00679.png",
+      "result_url": "/outputs/frames/result_02bdbe50_video1_frame_00679.png",
+      "view_url": "/analysis/frames/result_02bdbe50_video1_frame_00679.png"
+    }
+  ],
+  "telemetry": [
+    {
+      "frame": 1,
+      "time_sec": 0.03,
+      "total_count": 164.0,
+      "zone": "CRITICAL",
+      "classes": {
+        "head count": 164.0
+      }
+    },
+    {
+      "frame": 30,
+      "time_sec": 1.0,
+      "total_count": 134.9,
+      "zone": "NORMAL",
+      "classes": {
+        "head count": 134.9
+      }
+    },
+    {
+      "frame": 60,
+      "time_sec": 2.0,
+      "total_count": 144.1,
+      "zone": "NORMAL",
+      "classes": {
+        "head count": 144.1
+      }
+    },
+    {
+      "frame": 90,
+      "time_sec": 3.0,
+      "total_count": 135.7,
+      "zone": "NORMAL",
+      "classes": {
+        "head count": 135.7
+      }
+    },
+    {
+      "frame": 120,
+      "time_sec": 4.0,
+      "total_count": 133.4,
+      "zone": "NORMAL",
+      "classes": {
+        "head count": 133.4
+      }
+    },
+    {
+      "frame": 150,
+      "time_sec": 5.0,
+      "total_count": 121.3,
+      "zone": "NORMAL",
+      "classes": {
+        "head count": 121.3
+      }
+    },
+    {
+      "frame": 180,
+      "time_sec": 6.0,
+      "total_count": 111.0,
+      "zone": "NORMAL",
+      "classes": {
+        "head count": 111.0
+      }
+    },
+    {
+      "frame": 210,
+      "time_sec": 7.0,
+      "total_count": 84.5,
+      "zone": "NORMAL",
+      "classes": {
+        "head count": 84.5
+      }
+    },
+    {
+      "frame": 240,
+      "time_sec": 8.0,
+      "total_count": 61.4,
+      "zone": "NORMAL",
+      "classes": {
+        "head count": 61.4
+      }
+    },
+    {
+      "frame": 270,
+      "time_sec": 9.0,
+      "total_count": 141.0,
+      "zone": "NORMAL",
+      "classes": {
+        "head count": 141.0
+      }
+    },
+    {
+      "frame": 300,
+      "time_sec": 10.0,
+      "total_count": 148.4,
+      "zone": "NORMAL",
+      "classes": {
+        "head count": 148.4
+      }
+    },
+    {
+      "frame": 330,
+      "time_sec": 11.0,
+      "total_count": 151.5,
+      "zone": "CRITICAL",
+      "classes": {
+        "head count": 151.5
+      }
+    },
+    {
+      "frame": 360,
+      "time_sec": 12.0,
+      "total_count": 140.3,
+      "zone": "NORMAL",
+      "classes": {
+        "head count": 140.3
+      }
+    },
+    {
+      "frame": 390,
+      "time_sec": 13.0,
+      "total_count": 137.0,
+      "zone": "NORMAL",
+      "classes": {
+        "head count": 137.0
+      }
+    },
+    {
+      "frame": 420,
+      "time_sec": 14.0,
+      "total_count": 141.4,
+      "zone": "NORMAL",
+      "classes": {
+        "head count": 141.4
+      }
+    },
+    {
+      "frame": 450,
+      "time_sec": 15.0,
+      "total_count": 149.2,
+      "zone": "NORMAL",
+      "classes": {
+        "head count": 149.2
+      }
+    },
+    {
+      "frame": 480,
+      "time_sec": 16.0,
+      "total_count": 141.1,
+      "zone": "NORMAL",
+      "classes": {
+        "head count": 141.1
+      }
+    },
+    {
+      "frame": 510,
+      "time_sec": 17.0,
+      "total_count": 142.7,
+      "zone": "NORMAL",
+      "classes": {
+        "head count": 142.7
+      }
+    },
+    {
+      "frame": 540,
+      "time_sec": 18.0,
+      "total_count": 147.9,
+      "zone": "NORMAL",
+      "classes": {
+        "head count": 147.9
+      }
+    },
+    {
+      "frame": 570,
+      "time_sec": 19.0,
+      "total_count": 165.3,
+      "zone": "CRITICAL",
+      "classes": {
+        "head count": 165.3
+      }
+    },
+    {
+      "frame": 600,
+      "time_sec": 20.0,
+      "total_count": 161.6,
+      "zone": "CRITICAL",
+      "classes": {
+        "head count": 161.6
+      }
+    },
+    {
+      "frame": 630,
+      "time_sec": 21.0,
+      "total_count": 153.1,
+      "zone": "CRITICAL",
+      "classes": {
+        "head count": 153.1
+      }
+    },
+    {
+      "frame": 660,
+      "time_sec": 22.0,
+      "total_count": 148.3,
+      "zone": "NORMAL",
+      "classes": {
+        "head count": 148.3
+      }
+    },
+    {
+      "frame": 679,
+      "time_sec": 22.63,
+      "total_count": 158.7,
+      "zone": "CRITICAL",
+      "classes": {
+        "head count": 158.7
+      }
+    }
+  ]
+}
