@@ -1,3 +1,7 @@
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 import argparse
 from satark.data.builder import build_master_index
 from satark.data.heatmap  import generate_heatmaps, split_data

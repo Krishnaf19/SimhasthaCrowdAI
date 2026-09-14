@@ -1,5 +1,5 @@
-# SATARK — Headgear-Aware Crowd Counting System
-SATARK is an AI crowd-counter that accurately counts people at large cultural gatherings by recognizing turbans, veils, caps, and bare heads as separate classes instead of missing them like standard models do.
+# SATARK - Headgear Aware Crowd Counting System
+#### SATARK is an AI crowd-counter that accurately counts people at large cultural gatherings by recognizing turbans, veils, caps, and bare heads as separate classes instead of missing them like standard models do.
 ---
 
 ##  Executive Summary
@@ -121,11 +121,13 @@ SimhasthaCrowdAI/
 │   │   └── evaluator.py        # Validation, MAE, and RMSE metrics
 │   └── utils/
 │       ├── common.py           # Constants, classes, and path utilities
-│       └── inference.py        # Inference pipeline & zone classification
+│       ├── inference.py        # Single & batch image inference pipeline
+│       └── video.py            # Continuous video crowd engine & HUD overlay
 ├── scripts/                    # Command-Line Entry Points
 │   ├── build_dataset.py        # Dataset preparation & heatmap builder
 │   ├── train.py                # Model training script
-│   └── evaluate.py             # Evaluation on test splits
+│   ├── evaluate.py             # Evaluation on test splits
+│   └── process_video.py        # Continuous video crowd counter with HUD
 ├── app/                        # Production Web Dashboard
 │   ├── main.py                 # Flask server & inference endpoints
 │   ├── templates/              # Web UI templates
@@ -146,7 +148,7 @@ SimhasthaCrowdAI/
 
 ---
 
-##  Quick Start Guide
+## 🚀 Quick Start Guide
 
 ### 1. Installation & Environment Setup
 ```bash
@@ -180,11 +182,20 @@ python scripts/train.py --epochs 80 --lr 5e-5 --batch-size 1
 python scripts/evaluate.py --split test
 ```
 
-### 5. Launch Web Dashboard
+### 5. Continuous Video Crowd Counting (CLI)
+```bash
+python scripts/process_video.py --video-path path/to/crowd.mp4 --stride 1
+```
+Generates:
+- `outputs/inference/result_<name>.mp4`: Full annotated video with live counter HUD, safety zone badges, and heatmap overlays.
+- `outputs/inference/result_<name>_analytics.json`: Complete time-series telemetry with peak counts and timestamps.
+
+### 6. Launch Web Dashboard (Image & Video Uploads)
 ```bash
 python app/main.py
 ```
-Open **`http://localhost:5000`** in your browser to inspect images, upload new crowd photos, and view real-time per-class breakdowns and alert levels.
+Open **`http://localhost:5000`** in your browser to analyze images or videos with real-time video playback and continuous count graphs.
+
 
 ---
 

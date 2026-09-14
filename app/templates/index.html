@@ -34,9 +34,9 @@
     </header>
 
     <section class="control-panel card">
-      <form method="post">
+      <form method="get">
         <div class="button-row">
-          <button type="submit" name="action" value="refresh">Reload dashboard</button>
+          <button type="submit" name="reloaded" value="1">Reload dashboard</button>
           <a class="model-guide-button" href="{{ url_for('model_info') }}">View model guide</a>
         </div>
       </form>

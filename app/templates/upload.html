@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SATARK — Analyze an image</title>
+  <title>SATARK — Analyze image or video</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
@@ -12,8 +12,7 @@
       <a href="{{ url_for('index') }}" class="nav-brand">SATARK</a>
       <ul class="nav-links">
         <li><a href="{{ url_for('index') }}">Dashboard</a></li>
-        <li><a href="{{ url_for('upload') }}" class="active">Analyze image</a></li>
-        <li><a href="{{ url_for('model_info') }}">Model guide</a></li>
+        <li><a href="{{ url_for('upload') }}" class="active">Analyze media</a></li>
       </ul>
     </div>
   </nav>
@@ -21,43 +20,81 @@
   <main class="dashboard">
     <header>
       <div>
-        <h1>Bring any crowd image into focus.</h1>
-        <p class="subtitle">Upload a scene and receive a density map, estimated head count, and clear safety assessment in one place.</p>
+        <h1>Continuous Crowd Intelligence.</h1>
+        <p class="subtitle">Upload crowd photos or videos to receive real-time density heatmaps, continuous head counts, and cultural headgear telemetry.</p>
       </div>
       <div class="info-row">
-        <div><strong>Accepted files</strong><br>{{ allowed_extensions }}</div>
-        <div><strong>Maximum size</strong><br>{{ max_file_size|round(1) }} MB</div>
+        <div><strong>Accepted files</strong><br>Images (JPG, PNG) & Videos (MP4, AVI, MOV)</div>
+        <div><strong>Maximum size</strong><br>{{ max_file_size|round(0) }} MB</div>
       </div>
     </header>
 
     <section class="upload-section card">
       <div class="tabs">
-        <button type="button" class="tab-btn active" data-tab="upload">Upload image</button>
+        <button type="button" class="tab-btn active" data-tab="upload">Upload media</button>
         <button type="button" class="tab-btn" data-tab="info">Model details</button>
       </div>
 
       <div id="upload" class="tab-content active">
         <div class="headgear-info">
-          <h4>Built for varied gathering conditions</h4>
-          <p>The model accounts for common religious and cultural headwear in Simhastha crowd scenes.</p>
-          <ol class="headgear-list"><li>Saffron turbans</li><li>Religious veils</li><li>Traditional caps</li><li>Cloth coverings</li><li>Bare heads</li><li>Mixed crowds</li></ol>
+          <h4>Cultural Headgear Awareness</h4>
+          <p>SATARK detects and classifies 4 distinct headgear channels simultaneously:</p>
+          <ol class="headgear-list">
+            <li>👤 Bare heads</li>
+            <li>👳 Turbans (Pagri, Dastar)</li>
+            <li>🧕 Religious veils & Dupattas</li>
+            <li>🧢 Traditional & Modern caps</li>
+            <li>✨ Upward hair buns (Jataa)</li>
+          </ol>
         </div>
 
         {% if message %}
-          <div class="message-card {{ 'alert-success' if 'Analyzed!' in message else 'alert-error' }}">{{ message }}</div>
+          <div class="message-card {{ 'alert-success' if 'successfully' in message or 'Analyzed' in message else 'alert-error' }}">{{ message }}</div>
         {% endif %}
 
-        <form method="post" enctype="multipart/form-data">
+        <form id="uploadForm" method="post" enctype="multipart/form-data">
           <div class="upload-area" id="uploadArea" role="button" tabindex="0">
-            <h3>Drop an image here, or click to browse</h3>
-            <p>PNG, JPG, WEBP, AVIF and other supported image formats</p>
-            <input type="file" id="fileInput" name="file" class="file-input" accept="image/*">
+            <h3>Drop an image or video here, or click to browse</h3>
+            <p>Supports MP4, AVI, MOV, WEBM, JPG, PNG, WEBP and more</p>
+            <input type="file" id="fileInput" name="file" class="file-input" accept="image/*,video/*">
             <p class="file-list" id="fileName"></p>
           </div>
-          <div class="upload-action-row">
-            <button type="submit" class="upload-btn" id="submitBtn" disabled>Analyze image</button>
-            <a class="model-guide-button" href="{{ url_for('model_info') }}">How the model works</a>
-            <p class="model-note"><span>Powered by</span><strong>CSRNet + SE blocks</strong><br>Density estimation · MAE 9.86</p>
+
+          <div id="speedPresetContainer" class="preset-selector" style="margin-top:16px; padding:16px; background:#f4f6fa; border-radius:9px; border:1px solid var(--line);">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+              <span style="font-size:12px; font-weight:700; color:var(--ink); text-transform:uppercase; letter-spacing:0.04em;">⚡ Video Processing Speed:</span>
+              <span style="font-size:11px; color:var(--blue); font-family:'DM Mono',monospace;">High-Throughput Mode</span>
+            </div>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(210px, 1fr)); gap:10px;">
+              <label class="preset-label active" style="display:flex; align-items:flex-start; gap:10px; background:#fff; padding:12px; border-radius:7px; border:1.5px solid var(--blue); cursor:pointer;">
+                <input type="radio" name="speed_mode" value="fast" style="margin-top:3px; accent-color:var(--blue);">
+                <div>
+                  <strong style="display:block; font-size:13px; color:var(--ink);">Real-Time Fast</strong>
+                  <span style="display:block; font-size:11px; color:var(--muted); margin-top:2px;">~2 FPS sampling · faster, lower detail</span>
+                </div>
+              </label>
+              <label class="preset-label active" style="display:flex; align-items:flex-start; gap:10px; background:#fff; padding:12px; border-radius:7px; border:1.5px solid var(--blue); cursor:pointer;">
+                <input type="radio" name="speed_mode" value="balanced" checked style="margin-top:3px; accent-color:var(--blue);">
+                <div>
+                  <strong style="display:block; font-size:13px; color:var(--ink);">Balanced Accuracy (Recommended)</strong>
+                  <span style="display:block; font-size:11px; color:var(--muted); margin-top:2px;">1000 px · ~5 FPS · stabilized counts</span>
+                </div>
+              </label>
+              <label class="preset-label" style="display:flex; align-items:flex-start; gap:10px; background:#fff; padding:12px; border-radius:7px; border:1px solid var(--line); cursor:pointer;">
+                <input type="radio" name="speed_mode" value="precision" style="margin-top:3px; accent-color:var(--blue);">
+                <div>
+                  <strong style="display:block; font-size:13px; color:var(--ink);">Full Precision</strong>
+                  <span style="display:block; font-size:11px; color:var(--muted); margin-top:2px;">Every frame (CPU heavy)</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <div class="upload-action-row" style="display:flex; align-items:center; gap:16px; margin-top:16px;">
+            <button type="submit" class="upload-btn" id="submitBtn" disabled>Run Analysis</button>
+            <p class="model-note" style="margin:0; font-size:12px; color:var(--muted);">
+              <strong>Continuous Video & Image Inference</strong> · CSRNet + SE attention
+            </p>
           </div>
         </form>
       </div>
@@ -65,45 +102,836 @@
       <div id="info" class="tab-content">
         <div class="info-box">
           <h3>Model architecture</h3>
-          <ul><li><strong>Model:</strong> CSRNet crowd scene recognition network</li><li><strong>Backbone:</strong> ImageNet pre-trained VGG16</li><li><strong>Enhancement:</strong> Squeeze-and-Excitation blocks</li><li><strong>Output:</strong> Density map and head count</li></ul>
-          <h3>Performance</h3>
-          <ul><li><strong>Mean absolute error:</strong> ~9.86 people</li><li><strong>RMSE:</strong> ~15 people</li><li><strong>Inference speed:</strong> ~67 FPS on RTX 3080</li><li><strong>Training data:</strong> 63 labeled images</li></ul>
+          <ul>
+            <li><strong>Backbone:</strong> ImageNet pre-trained VGG-16 (First 13 conv layers)</li>
+            <li><strong>Backend:</strong> 6 Dilated convolutions (Rate = 2) for multi-scale context</li>
+            <li><strong>Attention:</strong> Squeeze-and-Excitation channel recalibration</li>
+            <li><strong>Output:</strong> 4 Dedicated Density Channels (Head, Turban, Veil, Cap)</li>
+            <li><strong>Video Engine:</strong> Continuous frame-by-frame inference with live HUD overlays</li>
+          </ul>
+          <h3>Safety Zone Benchmarks</h3>
+          <ul>
+            <li><strong style="color: var(--safe);">SAFE (≤ 50):</strong> Normal free-flowing movement</li>
+            <li><strong style="color: var(--warning);">NORMAL (51–150):</strong> Dense gathering, monitor exits</li>
+            <li><strong style="color: var(--critical);">CRITICAL (> 150):</strong> High congestion alert, deploy crowd control</li>
+          </ul>
         </div>
       </div>
     </section>
 
     {% if result %}
       <section class="result-card card">
-        <h2>Analysis complete</h2>
+        <h2>Image Analysis Complete</h2>
         <div class="result-grid">
           <div>
-            <div class="metric"><span>Uploaded image</span><strong>{{ result.image }}</strong></div>
-            <div class="metric"><span>Detected heads</span><strong>{{ result.count | round(1) }}</strong></div>
-            <div class="metric"><span>Safety assessment</span><div class="status status-{{ result.zone|lower }}">{{ result.zone }} zone</div></div>
-            <div class="metric"><span>Model confidence</span><strong>{{ ((result.count / (result.count + 5)) * 100) | round(1) }}%</strong></div>
+            <div class="metric"><span>Image Source</span><strong>{{ result.image }}</strong></div>
+            <div class="metric"><span>Total Head Count</span><strong>{{ result.count | round(1) }} people</strong></div>
+            <div class="metric">
+              <span>Safety Assessment</span>
+              <div class="status status-{{ result.zone|lower }}">{{ result.zone }} zone</div>
+            </div>
+            {% if result.per_class %}
+              <div class="metric" style="margin-bottom:0;">
+                <span>Headgear Breakdown</span>
+                <div style="font-size:13px; margin-top:6px; line-height:1.6;">
+                  {% for k, v in result.per_class.items() %}
+                    <div><strong>{{ k.capitalize() }}:</strong> {{ v | round(1) }}</div>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
           </div>
           <div class="preview">
-            {% if uploaded_image_url %}<div><strong>Original image</strong><img src="{{ uploaded_image_url }}" alt="Uploaded image"></div>{% endif %}
-            <div><strong>Density map and prediction</strong><img src="{{ result.url }}" alt="Analysis result"></div>
+            {% if uploaded_media_url %}
+              <div><strong>Original Image</strong><img src="{{ uploaded_media_url }}" alt="Uploaded image"></div>
+            {% endif %}
+            <div><strong>Density Heatmap & Prediction</strong><img src="{{ result.url }}" alt="Analysis result"></div>
           </div>
         </div>
       </section>
     {% endif %}
-    <footer><p><strong>SATARK</strong> — Simhastha Crowd AI Research Kit</p><p>Advanced crowd counting for public safety.</p></footer>
+
+    <!-- Real-Time Continuous Crowd Streaming HUD Monitor -->
+    <section id="liveMonitorSection" class="card" style="display:none; border:2px solid var(--blue); background: linear-gradient(180deg, #f8faff 0%, #ffffff 100%);">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px; margin-bottom:18px;">
+        <div>
+          <div style="display:inline-flex; align-items:center; gap:8px; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--blue);">
+            <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#22c55e; animation:livePulse 1.4s infinite ease-in-out;"></span>
+            LIVE CONTINUOUS CROWD STREAMING
+          </div>
+          <h2 id="liveVideoTitle" style="margin:4px 0 0; font-size:22px; color:var(--ink);">Processing Video...</h2>
+        </div>
+        <div id="liveZoneBadge" class="status status-safe" style="font-size:12px; font-weight:700; padding:6px 14px; border-radius:20px; text-transform:uppercase; letter-spacing:0.04em; background:#eafaf1; color:#176342; border:1px solid #ccebd9;">
+          SAFE ZONE
+        </div>
+      </div>
+
+      <!-- Live Side-by-Side Grid: Video on Left, Continuous AI Telemetry on Right -->
+      <div class="live-stream-grid" style="display:grid; grid-template-columns: minmax(320px, 1.15fr) minmax(300px, 1fr); gap: 20px; align-items: start; margin-bottom: 20px;">
+        
+        <!-- Left: Live Video Feed Playing Side-by-Side -->
+        <div style="background:#0b0f19; border-radius:10px; padding:14px; border:1px solid #1e293b; box-shadow:0 4px 20px rgba(0,0,0,0.12);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#ef4444; animation:livePulse 1.2s infinite ease-in-out;"></span>
+              <span style="color:#f8fafc; font-size:12px; font-weight:700; font-family:'DM Mono',monospace; letter-spacing:0.04em;">LIVE VIDEO FEED</span>
+            </div>
+            <span id="liveTimestampBadge" style="font-size:11px; background:#1e293b; color:#38bdf8; padding:3px 9px; border-radius:4px; font-family:'DM Mono',monospace; font-weight:600;">T: 0.00s</span>
+          </div>
+          
+          <div style="position:relative; border-radius:8px; overflow:hidden; background:#000; aspect-ratio:16/9; display:flex; align-items:center; justify-content:center;">
+            <video id="liveSourceVideo" autoplay muted loop playsinline controls style="width:100%; height:100%; object-fit:contain;">
+              Your browser does not support video playback.
+            </video>
+            <div id="liveScanningOverlay" style="position:absolute; bottom:12px; left:12px; background:rgba(15,23,42,0.85); backdrop-filter:blur(6px); border:1px solid rgba(255,255,255,0.15); border-radius:6px; padding:4px 10px; display:flex; align-items:center; gap:6px; font-size:11px; color:#e2e8f0; pointer-events:none;">
+              <span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:#22c55e;"></span>
+              <span id="liveOverlayText">AI Engine Active · Scanning Real-Time</span>
+            </div>
+          </div>
+
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px; font-size:11px; color:#94a3b8;">
+            <span>Live playback auto-synced with AI frames</span>
+            <button type="button" id="liveTogglePlayBtn" style="background:none; border:none; color:#38bdf8; font-size:11px; font-weight:600; cursor:pointer; padding:0; text-decoration:underline;">Pause / Play Video</button>
+          </div>
+        </div>
+
+        <!-- Right: Continuous Telemetry & Headgear Counts -->
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          <!-- Real-Time Large Count Box -->
+          <div style="background:#fff; border:1px solid var(--line); border-radius:10px; padding:20px; text-align:center; box-shadow:0 2px 10px rgba(49,94,251,0.06);">
+            <span style="font-size:11px; color:var(--muted); text-transform:uppercase; font-family:'DM Mono',monospace; letter-spacing:0.06em;">Real-Time Crowd Count</span>
+            <div id="liveCountNumber" style="font-size:52px; font-weight:800; color:var(--blue); line-height:1.05; margin:8px 0; font-family:'DM Mono',monospace; letter-spacing:-0.03em;">0</div>
+            <div id="liveSubCountText" style="font-size:12px; color:var(--muted);">continuous count streaming...</div>
+          </div>
+
+          <!-- Live Cultural Headgear Telemetry -->
+          <div style="background:#fff; border:1px solid var(--line); border-radius:10px; padding:16px 18px; box-shadow:0 2px 10px rgba(0,0,0,0.02);">
+            <span id="liveHeadgearTitle" style="font-size:11px; color:var(--muted); text-transform:uppercase; font-family:'DM Mono',monospace; letter-spacing:0.06em;">Live Headgear Channels</span>
+            <div id="liveHeadgearStatus" style="display:none; margin-top:6px; color:var(--muted); font-size:11px; line-height:1.4;"></div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:10px;">
+              <div style="background:#f8f9fa; padding:10px 14px; border-radius:8px; border:1px solid var(--line); font-size:13px;">
+                <div style="color:var(--muted); font-size:11px;">👤 Bare Head</div>
+                <strong id="liveHgHead" style="color:var(--ink); font-size:18px; font-family:'DM Mono',monospace;">0</strong>
+              </div>
+              <div style="background:#f8f9fa; padding:10px 14px; border-radius:8px; border:1px solid var(--line); font-size:13px;">
+                <div style="color:var(--muted); font-size:11px;">👳 Turban</div>
+                <strong id="liveHgTurban" style="color:var(--ink); font-size:18px; font-family:'DM Mono',monospace;">0</strong>
+              </div>
+              <div style="background:#f8f9fa; padding:10px 14px; border-radius:8px; border:1px solid var(--line); font-size:13px;">
+                <div style="color:var(--muted); font-size:11px;">🧕 Religious Veil</div>
+                <strong id="liveHgVeil" style="color:var(--ink); font-size:18px; font-family:'DM Mono',monospace;">0</strong>
+              </div>
+              <div style="background:#f8f9fa; padding:10px 14px; border-radius:8px; border:1px solid var(--line); font-size:13px;">
+                <div style="color:var(--muted); font-size:11px;">🧢 Cap</div>
+                <strong id="liveHgCap" style="color:var(--ink); font-size:18px; font-family:'DM Mono',monospace;">0</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Real-Time Progress Bar & Processing Stats -->
+      <div style="margin-bottom:14px; background:#fff; border:1px solid var(--line); border-radius:10px; padding:16px;">
+        <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; font-size:12px; color:var(--muted); margin-bottom:8px; font-family:'DM Mono',monospace;">
+          <strong id="liveProgressPercent" style="color:var(--ink);">Progress: 0%</strong>
+          <span id="liveFrameStatus">Frame 0 / 0 · Speed: 0.0 fps</span>
+          <span id="liveEtaStatus" style="color:var(--blue); font-weight:600;">ETA: calculating...</span>
+        </div>
+        <div style="width:100%; height:10px; background:#e9edf5; border-radius:999px; overflow:hidden;">
+          <div id="liveProgressBar" style="width:0%; height:100%; background:linear-gradient(90deg, #315efb, #06b6d4); transition:width 0.15s ease;"></div>
+        </div>
+      </div>
+
+      <!-- Mini Sparkline Graph of continuous count -->
+      <div style="background:#fff; border:1px solid var(--line); border-radius:10px; padding:14px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+          <span style="font-size:11px; color:var(--muted); text-transform:uppercase; font-family:'DM Mono',monospace;">
+            📈 Real-Time Crowd Fluctuation Curve
+          </span>
+          <span id="sparklinePeakLabel" style="font-size:11px; color:var(--muted); font-family:'DM Mono',monospace;">Peak: 0</span>
+        </div>
+        <div style="height:65px; width:100%; position:relative; overflow:hidden;">
+          <svg id="liveSparkline" width="100%" height="100%" viewBox="0 0 500 65" preserveAspectRatio="none" style="display:block;">
+            <defs>
+              <linearGradient id="curveGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#315efb" stop-opacity="0.35"/>
+                <stop offset="100%" stop-color="#315efb" stop-opacity="0.0"/>
+              </linearGradient>
+            </defs>
+            <path id="sparklineArea" d="" fill="url(#curveGrad)"/>
+            <path id="sparklineLine" d="" fill="none" stroke="#315efb" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final Video Result Section: Dual Synchronized Video Comparison -->
+    <div id="videoResultWrapper">
+      {% if video_result %}
+        <section class="result-card card" id="videoResultSection">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:20px;">
+            <h2>Continuous Video Crowd Analysis Complete</h2>
+            <div id="resZoneBadge" class="status status-{{ video_result.zone|lower }}" style="font-size:12px; font-weight:700; padding:6px 14px; border-radius:20px;">
+              {{ video_result.zone }} Zone
+            </div>
+          </div>
+
+          <!-- Video Metrics Summary Row -->
+          <div class="summary-row" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin-bottom: 24px;">
+            <div>
+              <div>Peak Crowd Count</div>
+              <strong id="resPeakCount">{{ video_result.peak_count }}</strong>
+              <div style="font-size:11px; color:var(--muted); margin-top:2px;">at {{ video_result.peak_time_sec }}s</div>
+            </div>
+            <div>
+              <div>Average Crowd Count</div>
+              <strong id="resAvgCount">{{ video_result.avg_count }}</strong>
+              <div style="font-size:11px; color:var(--muted); margin-top:2px;">people / frame</div>
+            </div>
+            <div>
+              <div>Duration & Frames</div>
+              <strong id="resDurationFrames">{{ video_result.duration_sec }}s</strong>
+              <div style="font-size:11px; color:var(--muted); margin-top:2px;">{{ video_result.total_frames }} frames</div>
+            </div>
+            <div>
+              <div>Zone Distribution</div>
+              <div id="resZoneStats" style="font-size: 12px; font-weight:600; margin-top:4px;">
+                <span style="color: var(--safe);">🟢 {{ video_result.zone_stats.safe_pct }}%</span> · 
+                <span style="color: var(--warning);">🟡 {{ video_result.zone_stats.normal_pct }}%</span> · 
+                <span style="color: var(--critical);">🔴 {{ video_result.zone_stats.critical_pct }}%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Side-by-Side Dual Synchronized Video Player -->
+          <div style="margin-top: 10px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="margin: 0; font-size: 15px; color: var(--ink); display: flex; align-items: center; gap: 8px;">
+              <span>⚡ Side-by-Side Comparison Feed</span>
+              <span style="font-size: 11px; background: var(--blue-soft); color: var(--blue); padding: 3px 8px; border-radius: 4px; font-weight: 600;">Synchronized Playback</span>
+            </h3>
+          </div>
+
+          <div class="dual-video-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin-bottom: 16px;">
+            <!-- Left: Original Video -->
+            <div style="background: #0f172a; border-radius: 10px; padding: 12px; border: 1px solid #334155;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; color: #fff; font-size: 12px; font-weight: 700;">
+                <span>📹 ORIGINAL FOOTAGE</span>
+                <span style="font-size: 10px; background: #1e293b; padding: 2px 8px; border-radius: 4px; color: #94a3b8;">Source Video</span>
+              </div>
+              <video id="resOriginalVideo" controls playsinline muted style="width: 100%; border-radius: 6px; background: #000; aspect-ratio: 16/9; object-fit: contain;">
+                <source src="{{ video_result.original_video_url or uploaded_media_url }}" type="video/mp4">
+                Your browser does not support video playback.
+              </video>
+            </div>
+
+            <!-- Right: AI HUD & Density Map -->
+            <div style="background: #0f172a; border-radius: 10px; padding: 12px; border: 1px solid #2563eb; box-shadow: 0 0 16px rgba(37,99,235,0.15);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; color: #fff; font-size: 12px; font-weight: 700;">
+                <span style="color: #60a5fa;">🧠 AI CROWD DENSITY & HUD FEED</span>
+                <span style="font-size: 10px; background: #1e3a8a; padding: 2px 8px; border-radius: 4px; color: #93c5fd;">CSRNet AI</span>
+              </div>
+              <video id="resHudVideo" controls playsinline muted style="width: 100%; border-radius: 6px; background: #000; aspect-ratio: 16/9; object-fit: contain;">
+                <source src="{{ video_result.output_video_url }}" type="video/mp4">
+                Your browser does not support video playback.
+              </video>
+            </div>
+          </div>
+
+          <!-- Synchronized Playback Control Toolbar -->
+          <div class="sync-controls-bar" style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; padding: 12px 16px; background: #f8fafc; border-radius: 8px; border: 1px solid var(--line);">
+            <button type="button" class="upload-btn sync-play-btn" style="padding: 7px 16px; font-size: 12px;">▶ Play Both</button>
+            <button type="button" class="upload-btn sync-pause-btn" style="padding: 7px 16px; font-size: 12px; background: #475569;">⏸ Pause</button>
+            <button type="button" class="upload-btn sync-restart-btn" style="padding: 7px 16px; font-size: 12px; background: #64748b;">🔄 Restart Both</button>
+            <span style="font-size: 12px; color: var(--muted); margin-left: 6px;">Scrubbing either video player automatically synchronizes the other!</span>
+          </div>
+
+          {% if video_result.telemetry %}
+            <h3 style="margin-top: 32px; margin-bottom: 12px;">Continuous Timeline Telemetry</h3>
+            <div class="table-wrapper">
+              <table id="resTelemetryTable">
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>Frame</th>
+                    <th>Total Count</th>
+                    <th>Head</th>
+                    <th>Turban</th>
+                    <th>Veil</th>
+                    <th>Cap</th>
+                    <th>Safety Zone</th>
+                  </tr>
+                </thead>
+                <tbody id="resTelemetryBody">
+                  {% for item in video_result.telemetry %}
+                    <tr>
+                      <td><strong>{{ item.time_sec }}s</strong></td>
+                      <td>#{{ item.frame }}</td>
+                      <td><strong style="color: var(--ink);">{{ item.total_count }}</strong></td>
+                      <td>{{ item.classes.head if item.classes and 'head' in item.classes else '-' }}</td>
+                      <td>{{ item.classes.turban if item.classes and 'turban' in item.classes else '-' }}</td>
+                      <td>{{ item.classes.veil if item.classes and 'veil' in item.classes else '-' }}</td>
+                      <td>{{ item.classes.cap if item.classes and 'cap' in item.classes else '-' }}</td>
+                      <td><span class="status status-{{ item.zone|lower }}">{{ item.zone }}</span></td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          {% endif %}
+        </section>
+      {% endif %}
+    </div>
+
+    <footer>
+      <p><strong>SATARK</strong> — Simhastha Crowd AI Research Kit</p>
+      <p>Advanced continuous crowd counting and public safety analytics.</p>
+    </footer>
   </main>
+
+  <style>
+    @keyframes livePulse {
+      0% { transform: scale(0.95); opacity: 0.8; box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+      70% { transform: scale(1.15); opacity: 1; box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+      100% { transform: scale(0.95); opacity: 0.8; box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    }
+    .live-stream-grid, .dual-video-container {
+      display: grid;
+      grid-template-columns: minmax(320px, 1.15fr) minmax(300px, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 860px) {
+      .live-stream-grid, .dual-video-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
   <script>
     const uploadArea = document.getElementById('uploadArea');
     const fileInput = document.getElementById('fileInput');
     const fileName = document.getElementById('fileName');
     const submitBtn = document.getElementById('submitBtn');
+    const uploadForm = document.getElementById('uploadForm');
+    const speedPresetContainer = document.getElementById('speedPresetContainer');
+
+    const liveMonitorSection = document.getElementById('liveMonitorSection');
+    const liveVideoTitle = document.getElementById('liveVideoTitle');
+    const liveCountNumber = document.getElementById('liveCountNumber');
+    const liveSubCountText = document.getElementById('liveSubCountText');
+    const liveZoneBadge = document.getElementById('liveZoneBadge');
+    const liveSourceVideo = document.getElementById('liveSourceVideo');
+    const liveTimestampBadge = document.getElementById('liveTimestampBadge');
+    const liveOverlayText = document.getElementById('liveOverlayText');
+    const liveTogglePlayBtn = document.getElementById('liveTogglePlayBtn');
+    const liveHgHead = document.getElementById('liveHgHead');
+    const liveHgTurban = document.getElementById('liveHgTurban');
+    const liveHgVeil = document.getElementById('liveHgVeil');
+    const liveHgCap = document.getElementById('liveHgCap');
+    const liveProgressPercent = document.getElementById('liveProgressPercent');
+    const liveFrameStatus = document.getElementById('liveFrameStatus');
+    const liveEtaStatus = document.getElementById('liveEtaStatus');
+    const liveProgressBar = document.getElementById('liveProgressBar');
+    const sparklineArea = document.getElementById('sparklineArea');
+    const sparklineLine = document.getElementById('sparklineLine');
+    const sparklinePeakLabel = document.getElementById('sparklinePeakLabel');
+    const videoResultWrapper = document.getElementById('videoResultWrapper');
+
+    let currentSelectedFile = null;
+    let currentLocalVideoUrl = null;
+
     const chooseFile = () => fileInput.click();
     uploadArea.addEventListener('click', chooseFile);
     uploadArea.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); chooseFile(); } });
-    fileInput.addEventListener('change', function () { if (this.files.length) { const file = this.files[0]; fileName.textContent = `${file.name} · ${(file.size / 1024 / 1024).toFixed(2)} MB`; submitBtn.disabled = false; } });
+
+    // Handle speed preset option selection UI
+    document.querySelectorAll('.preset-label').forEach(label => {
+      label.addEventListener('click', () => {
+        document.querySelectorAll('.preset-label').forEach(l => {
+          l.style.borderColor = 'var(--line)';
+          l.classList.remove('active');
+        });
+        label.style.borderColor = 'var(--blue)';
+        label.classList.add('active');
+      });
+    });
+
+    fileInput.addEventListener('change', function () {
+      if (this.files.length) {
+        currentSelectedFile = this.files[0];
+        const sizeMb = (currentSelectedFile.size / (1024 * 1024)).toFixed(2);
+        fileName.textContent = `${currentSelectedFile.name} · ${sizeMb} MB`;
+        submitBtn.disabled = false;
+
+        const isVideo = currentSelectedFile.name.match(/\.(mp4|avi|mov|mkv|webm)$/i);
+        if (speedPresetContainer) {
+          speedPresetContainer.style.display = isVideo ? 'block' : 'none';
+        }
+
+        if (isVideo) {
+          if (currentLocalVideoUrl) {
+            URL.revokeObjectURL(currentLocalVideoUrl);
+          }
+          currentLocalVideoUrl = URL.createObjectURL(currentSelectedFile);
+        }
+      }
+    });
+
     uploadArea.addEventListener('dragover', e => { e.preventDefault(); uploadArea.classList.add('drag-over'); });
     uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('drag-over'));
-    uploadArea.addEventListener('drop', e => { e.preventDefault(); uploadArea.classList.remove('drag-over'); fileInput.files = e.dataTransfer.files; fileInput.dispatchEvent(new Event('change', { bubbles: true })); });
-    document.querySelectorAll('.tab-btn').forEach(button => button.addEventListener('click', () => { document.querySelectorAll('.tab-btn,.tab-content').forEach(item => item.classList.remove('active')); button.classList.add('active'); document.getElementById(button.dataset.tab).classList.add('active'); }));
+    uploadArea.addEventListener('drop', e => {
+      e.preventDefault();
+      uploadArea.classList.remove('drag-over');
+      fileInput.files = e.dataTransfer.files;
+      fileInput.dispatchEvent(new Event('change', { bubbles: true }));
+    });
+
+    document.querySelectorAll('.tab-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn,.tab-content').forEach(item => item.classList.remove('active'));
+        button.classList.add('active');
+        document.getElementById(button.dataset.tab).classList.add('active');
+      });
+    });
+
+    if (liveTogglePlayBtn && liveSourceVideo) {
+      liveTogglePlayBtn.addEventListener('click', () => {
+        if (liveSourceVideo.paused) {
+          liveSourceVideo.play();
+        } else {
+          liveSourceVideo.pause();
+        }
+      });
+    }
+
+    // Synchronize two video elements for side-by-side comparison
+    function setupSynchronizedPlayback(video1, video2, container) {
+      if (!video1 || !video2) return;
+
+      let isSyncing = false;
+
+      const syncPlay = (source, target) => {
+        if (!isSyncing && target.paused) {
+          isSyncing = true;
+          target.play().catch(() => {}).finally(() => { isSyncing = false; });
+        }
+      };
+
+      const syncPause = (source, target) => {
+        if (!isSyncing && !target.paused) {
+          isSyncing = true;
+          target.pause();
+          isSyncing = false;
+        }
+      };
+
+      const syncTime = (source, target) => {
+        if (isSyncing) return;
+        if (Math.abs(source.currentTime - target.currentTime) > 0.18) {
+          isSyncing = true;
+          target.currentTime = source.currentTime;
+          setTimeout(() => { isSyncing = false; }, 60);
+        }
+      };
+
+      video1.addEventListener('play', () => syncPlay(video1, video2));
+      video2.addEventListener('play', () => syncPlay(video2, video1));
+      video1.addEventListener('pause', () => syncPause(video1, video2));
+      video2.addEventListener('pause', () => syncPause(video2, video1));
+      video1.addEventListener('seeking', () => syncTime(video1, video2));
+      video2.addEventListener('seeking', () => syncTime(video2, video1));
+      video1.addEventListener('seeked', () => syncTime(video1, video2));
+      video2.addEventListener('seeked', () => syncTime(video2, video1));
+
+      // Hook up toolbar buttons
+      if (container) {
+        const playBtn = container.querySelector('.sync-play-btn');
+        const pauseBtn = container.querySelector('.sync-pause-btn');
+        const restartBtn = container.querySelector('.sync-restart-btn');
+
+        if (playBtn) {
+          playBtn.onclick = () => {
+            video1.play().catch(() => {});
+            video2.play().catch(() => {});
+          };
+        }
+        if (pauseBtn) {
+          pauseBtn.onclick = () => {
+            video1.pause();
+            video2.pause();
+          };
+        }
+        if (restartBtn) {
+          restartBtn.onclick = () => {
+            video1.currentTime = 0;
+            video2.currentTime = 0;
+            video1.play().catch(() => {});
+            video2.play().catch(() => {});
+          };
+        }
+      }
+    }
+
+    // Draw real-time sparkline graph
+    function drawSparkline(points) {
+      if (!points || points.length < 2) return;
+      const W = 500;
+      const H = 60;
+      const counts = points.map(p => p.count);
+      const maxC = Math.max(...counts, 10);
+      const minC = Math.min(...counts, 0);
+      const range = maxC - minC || 1;
+
+      if (sparklinePeakLabel) {
+        sparklinePeakLabel.textContent = `Peak: ${maxC.toFixed(1)} people`;
+      }
+
+      const coords = points.map((p, i) => {
+        const x = (i / (points.length - 1)) * W;
+        const y = H - ((p.count - minC) / range) * (H - 10) - 5;
+        return [x, y];
+      });
+
+      const lineD = 'M ' + coords.map(c => `${c[0].toFixed(1)},${c[1].toFixed(1)}`).join(' L ');
+      const areaD = `${lineD} L ${W},${H} L 0,${H} Z`;
+
+      if (sparklineLine) sparklineLine.setAttribute('d', lineD);
+      if (sparklineArea) sparklineArea.setAttribute('d', areaD);
+    }
+
+    // Set safety zone styling dynamically
+    function updateZoneBadge(zone) {
+      if (!liveZoneBadge) return;
+      liveZoneBadge.textContent = `${zone} ZONE`;
+      if (zone === 'CRITICAL') {
+        liveZoneBadge.style.background = '#fff1f1';
+        liveZoneBadge.style.color = '#dc2626';
+        liveZoneBadge.style.borderColor = '#fca5a5';
+      } else if (zone === 'NORMAL') {
+        liveZoneBadge.style.background = '#fffbeb';
+        liveZoneBadge.style.color = '#d97706';
+        liveZoneBadge.style.borderColor = '#fde68a';
+      } else {
+        liveZoneBadge.style.background = '#eafaf1';
+        liveZoneBadge.style.color = '#176342';
+        liveZoneBadge.style.borderColor = '#ccebd9';
+      }
+    }
+
+    // Render full final result with Side-by-Side dual players
+    function renderCompletedVideoResult(task, fallbackOriginalUrl) {
+      const res = task.result;
+      if (!res) return;
+
+      const originalUrl = res.original_video_url || fallbackOriginalUrl || currentLocalVideoUrl;
+      const outputUrl = res.output_video_url;
+
+      let telemetryRows = '';
+      if (res.telemetry && res.telemetry.length) {
+        telemetryRows = res.telemetry.map(item => `
+          <tr>
+            <td><strong>${item.time_sec}s</strong></td>
+            <td>#${item.frame}</td>
+            <td><strong style="color: var(--ink);">${item.total_count}</strong></td>
+            <td>${item.classes && item.classes.head !== undefined ? item.classes.head : '-'}</td>
+            <td>${item.classes && item.classes.turban !== undefined ? item.classes.turban : '-'}</td>
+            <td>${item.classes && item.classes.veil !== undefined ? item.classes.veil : '-'}</td>
+            <td>${item.classes && item.classes.cap !== undefined ? item.classes.cap : '-'}</td>
+            <td><span class="status status-${(item.zone || '').toLowerCase()}">${item.zone}</span></td>
+          </tr>
+        `).join('');
+      }
+
+      const html = `
+        <section class="result-card card" id="videoResultSection">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:20px;">
+            <h2>Continuous Video Crowd Analysis Complete</h2>
+            <div class="status status-${(res.zone || '').toLowerCase()}" style="font-size:12px; font-weight:700; padding:6px 14px; border-radius:20px;">
+              ${res.zone} Zone
+            </div>
+          </div>
+
+          <div class="summary-row" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin-bottom: 24px;">
+            <div>
+              <div>Peak Crowd Count</div>
+              <strong>${res.peak_count}</strong>
+              <div style="font-size:11px; color:var(--muted); margin-top:2px;">at ${res.peak_time_sec || 0}s</div>
+            </div>
+            <div>
+              <div>Average Crowd Count</div>
+              <strong>${res.avg_count}</strong>
+              <div style="font-size:11px; color:var(--muted); margin-top:2px;">people / frame</div>
+            </div>
+            <div>
+              <div>Duration & Frames</div>
+              <strong>${res.duration_sec}s</strong>
+              <div style="font-size:11px; color:var(--muted); margin-top:2px;">${res.total_frames} frames</div>
+            </div>
+            <div>
+              <div>Zone Distribution</div>
+              <div style="font-size: 12px; font-weight:600; margin-top:4px;">
+                <span style="color: var(--safe);">🟢 ${res.zone_stats.safe_pct}%</span> · 
+                <span style="color: var(--warning);">🟡 ${res.zone_stats.normal_pct}%</span> · 
+                <span style="color: var(--critical);">🔴 ${res.zone_stats.critical_pct}%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Side-by-Side Dual Synchronized Video Player -->
+          <div style="margin-top: 10px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="margin: 0; font-size: 15px; color: var(--ink); display: flex; align-items: center; gap: 8px;">
+              <span>⚡ Side-by-Side Comparison Feed</span>
+              <span style="font-size: 11px; background: var(--blue-soft); color: var(--blue); padding: 3px 8px; border-radius: 4px; font-weight: 600;">Synchronized Playback</span>
+            </h3>
+          </div>
+
+          <div class="dual-video-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin-bottom: 16px;">
+            <!-- Left: Original Video -->
+            <div style="background: #0f172a; border-radius: 10px; padding: 12px; border: 1px solid #334155;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; color: #fff; font-size: 12px; font-weight: 700;">
+                <span>📹 ORIGINAL FOOTAGE</span>
+                <span style="font-size: 10px; background: #1e293b; padding: 2px 8px; border-radius: 4px; color: #94a3b8;">Source Video</span>
+              </div>
+              <video id="resOriginalVideoDynamic" controls playsinline muted style="width: 100%; border-radius: 6px; background: #000; aspect-ratio: 16/9; object-fit: contain;">
+                <source src="${originalUrl}" type="video/mp4">
+                Your browser does not support video playback.
+              </video>
+            </div>
+
+            <!-- Right: AI HUD & Density Map -->
+            <div style="background: #0f172a; border-radius: 10px; padding: 12px; border: 1px solid #2563eb; box-shadow: 0 0 16px rgba(37,99,235,0.15);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; color: #fff; font-size: 12px; font-weight: 700;">
+                <span style="color: #60a5fa;">🧠 AI CROWD DENSITY & HUD FEED</span>
+                <span style="font-size: 10px; background: #1e3a8a; padding: 2px 8px; border-radius: 4px; color: #93c5fd;">CSRNet AI</span>
+              </div>
+              <video id="resHudVideoDynamic" controls playsinline muted style="width: 100%; border-radius: 6px; background: #000; aspect-ratio: 16/9; object-fit: contain;">
+                <source src="${outputUrl}" type="video/mp4">
+                Your browser does not support video playback.
+              </video>
+            </div>
+          </div>
+
+          <!-- Synchronized Playback Control Toolbar -->
+          <div class="sync-controls-bar" style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; padding: 12px 16px; background: #f8fafc; border-radius: 8px; border: 1px solid var(--line);">
+            <button type="button" class="upload-btn sync-play-btn" style="padding: 7px 16px; font-size: 12px;">▶ Play Both</button>
+            <button type="button" class="upload-btn sync-pause-btn" style="padding: 7px 16px; font-size: 12px; background: #475569;">⏸ Pause</button>
+            <button type="button" class="upload-btn sync-restart-btn" style="padding: 7px 16px; font-size: 12px; background: #64748b;">🔄 Restart Both</button>
+            <span style="font-size: 12px; color: var(--muted); margin-left: 6px;">Scrubbing either video player automatically synchronizes the other!</span>
+          </div>
+
+          ${res.telemetry && res.telemetry.length ? `
+            <h3 style="margin-top: 32px; margin-bottom: 12px;">Continuous Timeline Telemetry</h3>
+            <div class="table-wrapper">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>Frame</th>
+                    <th>Total Count</th>
+                    <th>Head</th>
+                    <th>Turban</th>
+                    <th>Veil</th>
+                    <th>Cap</th>
+                    <th>Safety Zone</th>
+                  </tr>
+                </thead>
+                <tbody>${telemetryRows}</tbody>
+              </table>
+            </div>
+          ` : ''}
+        </section>
+      `;
+
+      if (videoResultWrapper) {
+        videoResultWrapper.innerHTML = html;
+        videoResultWrapper.scrollIntoView({ behavior: 'smooth' });
+
+        const v1 = document.getElementById('resOriginalVideoDynamic');
+        const v2 = document.getElementById('resHudVideoDynamic');
+        const section = document.getElementById('videoResultSection');
+        setupSynchronizedPlayback(v1, v2, section);
+      }
+    }
+
+    // Connect to SSE stream or polling for live updates
+    function trackVideoTask(taskId, fileNameStr, videoSourceUrl) {
+      if (liveMonitorSection) {
+        liveMonitorSection.style.display = 'block';
+        liveMonitorSection.scrollIntoView({ behavior: 'smooth' });
+      }
+      if (liveVideoTitle) {
+        liveVideoTitle.textContent = `Analyzing "${fileNameStr || 'Video'}"...`;
+      }
+
+      // Start the live source video running side-by-side
+      if (liveSourceVideo) {
+        const streamSrc = videoSourceUrl || currentLocalVideoUrl;
+        if (streamSrc && liveSourceVideo.src !== streamSrc) {
+          liveSourceVideo.src = streamSrc;
+        }
+        liveSourceVideo.play().catch(() => {});
+      }
+
+      const streamUrl = `/api/video/stream/${taskId}`;
+      let eventSource = null;
+
+      function handleUpdate(task) {
+        if (!task) return;
+
+        const count = task.current_count || 0;
+        if (liveCountNumber) liveCountNumber.textContent = Math.round(count);
+        if (liveSubCountText) liveSubCountText.textContent = `live count at frame #${task.current_frame || 0}`;
+
+        updateZoneBadge(task.zone || 'SAFE');
+
+        // Sync live video running side-by-side
+        if (task.time_sec !== undefined) {
+          if (liveTimestampBadge) {
+            liveTimestampBadge.textContent = `T: ${task.time_sec.toFixed(2)}s`;
+          }
+          if (liveOverlayText) {
+            liveOverlayText.textContent = `AI Frame #${task.current_frame || 0} · ${Math.round(count)} people`;
+          }
+          if (liveSourceVideo && !liveSourceVideo.seeking) {
+            // If the video falls behind or jumps ahead of AI inference, sync it smoothly
+            const diff = Math.abs(liveSourceVideo.currentTime - task.time_sec);
+            if (diff > 0.55) {
+              liveSourceVideo.currentTime = task.time_sec;
+            }
+          }
+        }
+
+        const classes = task.per_class || {};
+        const headgearAvailable = task.headgear_supported !== false && !Object.prototype.hasOwnProperty.call(classes, 'head count');
+        const headgearTitle = document.getElementById('liveHeadgearTitle');
+        const headgearStatus = document.getElementById('liveHeadgearStatus');
+        if (headgearAvailable) {
+          if (liveHgHead) liveHgHead.textContent = Math.round(classes.head || 0);
+          if (liveHgTurban) liveHgTurban.textContent = Math.round(classes.turban || 0);
+          if (liveHgVeil) liveHgVeil.textContent = Math.round(classes.veil || 0);
+          if (liveHgCap) liveHgCap.textContent = Math.round(classes.cap || 0);
+          if (headgearStatus) headgearStatus.style.display = 'none';
+        } else {
+          if (liveHgHead) liveHgHead.textContent = '—';
+          if (liveHgTurban) liveHgTurban.textContent = '—';
+          if (liveHgVeil) liveHgVeil.textContent = '—';
+          if (liveHgCap) liveHgCap.textContent = '—';
+          if (headgearTitle) headgearTitle.textContent = 'Headgear channels unavailable';
+          if (headgearStatus) {
+            headgearStatus.textContent = 'The current checkpoint predicts a total crowd-density map only.';
+            headgearStatus.style.display = 'block';
+          }
+        }
+
+        const pct = task.progress_pct || 0;
+        if (liveProgressPercent) liveProgressPercent.textContent = `Progress: ${pct.toFixed(1)}%`;
+        if (liveProgressBar) liveProgressBar.style.width = `${pct}%`;
+        if (liveFrameStatus) {
+          liveFrameStatus.textContent = `Frame ${task.current_frame || 0} / ${task.total_frames || 0} · Speed: ${(task.fps_processed || 0).toFixed(1)} fps`;
+        }
+        if (liveEtaStatus) {
+          const eta = task.eta_sec || 0;
+          liveEtaStatus.textContent = eta > 0 ? `ETA: ~${Math.round(eta)}s remaining` : 'Finalizing video...';
+        }
+
+        if (task.recent_counts && task.recent_counts.length) {
+          drawSparkline(task.recent_counts);
+        }
+
+        if (task.status === 'completed') {
+          if (liveProgressPercent) liveProgressPercent.textContent = 'Progress: 100% Completed!';
+          if (liveProgressBar) liveProgressBar.style.width = '100%';
+          if (liveEtaStatus) liveEtaStatus.textContent = 'Analysis Complete!';
+          if (eventSource) eventSource.close();
+          renderCompletedVideoResult(task, videoSourceUrl);
+        } else if (task.status === 'error') {
+          if (liveEtaStatus) liveEtaStatus.textContent = `Error: ${task.error || 'Failed'}`;
+          if (eventSource) eventSource.close();
+        }
+      }
+
+      // Try SSE first
+      if (window.EventSource) {
+        eventSource = new EventSource(streamUrl);
+        eventSource.onmessage = e => {
+          try {
+            const task = JSON.parse(e.data);
+            handleUpdate(task);
+          } catch (err) {}
+        };
+        eventSource.onerror = () => {
+          eventSource.close();
+          // Fallback to polling
+          pollFallback(taskId);
+        };
+      } else {
+        pollFallback(taskId);
+      }
+
+      function pollFallback(id) {
+        const interval = setInterval(async () => {
+          try {
+            const resp = await fetch(`/api/video/status/${id}`);
+            const task = await resp.json();
+            handleUpdate(task);
+            if (task.status === 'completed' || task.status === 'error') {
+              clearInterval(interval);
+            }
+          } catch (e) {
+            clearInterval(interval);
+          }
+        }, 350);
+      }
+    }
+
+    // Intercept form submit for instant continuous streaming
+    uploadForm.addEventListener('submit', async function (e) {
+      if (!fileInput.files.length) return;
+      const file = fileInput.files[0];
+      const isVideo = file.name.match(/\.(mp4|avi|mov|mkv|webm)$/i);
+
+      if (isVideo) {
+        e.preventDefault();
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Uploading & Analyzing...';
+
+        const formData = new FormData(uploadForm);
+        try {
+          const resp = await fetch('/api/video/upload', {
+            method: 'POST',
+            body: formData,
+          });
+          const data = await resp.json();
+          if (data.task_id) {
+            submitBtn.textContent = 'Processing Live Feed...';
+            trackVideoTask(data.task_id, file.name, data.uploaded_media_url || currentLocalVideoUrl);
+          } else {
+            alert(data.error || 'Failed to start video processing');
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Run Analysis';
+          }
+        } catch (err) {
+          // If fetch fails, fallback to traditional submit
+          uploadForm.submit();
+        }
+      } else {
+        // Image submission: standard submit
+        submitBtn.textContent = 'Analyzing Image...';
+      }
+    });
+
+    // Check if server rendered completed video with dual players
+    const initialV1 = document.getElementById('resOriginalVideo');
+    const initialV2 = document.getElementById('resHudVideo');
+    const initialSection = document.getElementById('videoResultSection');
+    if (initialV1 && initialV2) {
+      setupSynchronizedPlayback(initialV1, initialV2, initialSection);
+    }
+
+    // Check if server rendered an active task on page load
+    {% if active_task_id and (not video_result) %}
+      trackVideoTask("{{ active_task_id }}", "{{ active_task.filename if active_task else 'Uploaded Video' }}", "{{ uploaded_media_url or '' }}");
+    {% endif %}
   </script>
 </body>
 </html>
+

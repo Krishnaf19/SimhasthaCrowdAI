@@ -1,30 +1,73 @@
 import json
 import os
-from collections import Counter
-from pathlib import Path
-from werkzeug.utils import secure_filename
 import uuid
+import sys
+import threading
+import time
+from pathlib import Path
 
-from flask import Flask, render_template, request, send_from_directory, url_for
+BASE_DIR = Path(__file__).resolve().parent.parent
+if str(BASE_DIR) not in sys.path:
+    sys.path.insert(0, str(BASE_DIR))
 
-from satark.utils.inference import infer_image, infer_images
+import cv2
+import torch
+from werkzeug.utils import secure_filename
+from flask import Flask, render_template, request, send_from_directory, url_for, jsonify, Response, redirect
+
+from satark.utils.inference import infer_image, infer_images, _checkpoint_output_channels
+from satark.utils.video import infer_video
 from satark.utils.common import list_image_files, ensure_dir
+from satark.models.csrnet import CSRNet, get_device
+from satark.engine.evaluator import load_checkpoint
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 MODEL_PATH = BASE_DIR / 'checkpoints' / 'satark_best.pth'
 OUTPUT_DIR = BASE_DIR / 'outputs' / 'inference'
 UPLOAD_DIR = BASE_DIR / 'uploads'
 RESULTS_CACHE = OUTPUT_DIR / 'dashboard_results.json'
+NAME_MAP_PATH = BASE_DIR / 'configs' / 'dataset_name_map.json'
 
-# Prefer the combined dataset image folder if available.
+# Global Model Singleton
+_MODEL_LOCK = threading.Lock()
+_CACHED_MODEL = None
+_CACHED_DEVICE = None
+
+
+def get_shared_model():
+    global _CACHED_MODEL, _CACHED_DEVICE
+    with _MODEL_LOCK:
+        if _CACHED_MODEL is None:
+            _CACHED_DEVICE = get_device()
+            if _CACHED_DEVICE.type == 'cpu':
+                cores = os.cpu_count() or 4
+                torch.set_num_threads(min(8, cores))
+            out_channels = _checkpoint_output_channels(str(MODEL_PATH), _CACHED_DEVICE)
+            _CACHED_MODEL = CSRNet(load_weights=False, freeze_frontend=False, output_channels=out_channels).to(_CACHED_DEVICE)
+            if not load_checkpoint(str(MODEL_PATH), _CACHED_MODEL, _CACHED_DEVICE):
+                print(f"[WARN] Failed to load checkpoint {MODEL_PATH}")
+            _CACHED_MODEL.eval()
+        return _CACHED_MODEL, _CACHED_DEVICE
+
+
+# Asynchronous Video Task Registry
+VIDEO_TASKS = {}
+VIDEO_TASKS_LOCK = threading.Lock()
+
+# Search candidates for dataset images
 CANDIDATE_IMAGE_DIRS = [
+    BASE_DIR / 'data' / 'processed' / 'images',
+    BASE_DIR / 'data' / 'splits' / 'train' / 'images',
     BASE_DIR / 'data' / 'images',
     BASE_DIR / 'data' / 'Train' / 'images',
     BASE_DIR / 'data' / 'Test' / 'images',
 ]
 
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', 'bmp', 'tiff', 'webp', 'avif'}
-MAX_FILE_SIZE = 50 * 1024 * 1024  # 50MB
+IMAGE_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', 'bmp', 'tiff', 'webp', 'avif'}
+VIDEO_EXTENSIONS = {'mp4', 'avi', 'mov', 'mkv', 'webm'}
+ALLOWED_EXTENSIONS = IMAGE_EXTENSIONS | VIDEO_EXTENSIONS
+MAX_FILE_SIZE = 150 * 1024 * 1024  # 150MB
 
 ensure_dir(str(OUTPUT_DIR))
 ensure_dir(str(UPLOAD_DIR))
@@ -35,38 +78,62 @@ app.config['MAX_CONTENT_LENGTH'] = MAX_FILE_SIZE
 app.secret_key = 'satark_secret_key_2025'
 
 
+def load_dataset_name_map():
+    """Load names used to render legacy cached inference results cleanly."""
+    try:
+        with open(NAME_MAP_PATH, 'r', encoding='utf-8') as f:
+            values = json.load(f)
+        return values if isinstance(values, dict) else {}
+    except (OSError, ValueError):
+        return {}
+
+
+DATASET_NAME_MAP = load_dataset_name_map()
+
+
+def display_dataset_name(value: str) -> str:
+    filename = os.path.basename(value or '')
+    return DATASET_NAME_MAP.get(filename, filename or 'Unknown image')
+
+
 def allowed_file(filename: str) -> bool:
-    """Check if file extension is allowed."""
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
+def is_video_file(filename: str) -> bool:
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in VIDEO_EXTENSIONS
+
+
 def find_image_dir():
-    """Find the primary image directory."""
     for path in CANDIDATE_IMAGE_DIRS:
         if path.exists() and list_image_files(str(path)):
             return path
     return None
 
 
-def build_image_list():
-    """Build list of available images from dataset."""
-    image_dir = find_image_dir()
-    return list_image_files(str(image_dir)) if image_dir else []
+def _enrich_dashboard_row(row):
+    # The cache may predate a dataset rename.  Always derive the label from the
+    # canonical name map instead of preserving an old, random source filename.
+    row['display_name'] = display_dataset_name(row.get('image') or row.get('display_name') or row.get('path', ''))
+    row['view_url'] = row.get('view_url') or url_for('analysis_view', filename=os.path.basename(row.get('path', '')))
+    row['image_url'] = row.get('image_url') or url_for('output_image', filename=os.path.basename(row.get('path', '')))
+    return row
 
 
 def load_cached_results():
-    """Load cached dashboard results."""
     if RESULTS_CACHE.exists():
         try:
             with open(RESULTS_CACHE, 'r', encoding='utf-8') as f:
-                return json.load(f)
+                cached = json.load(f)
+            if isinstance(cached, dict) and isinstance(cached.get('results'), list):
+                cached['results'] = [_enrich_dashboard_row(r) for r in cached['results'] if isinstance(r, dict)]
+                return cached
         except Exception:
             return None
     return None
 
 
 def save_cached_results(data):
-    """Save dashboard results to cache."""
     try:
         with open(RESULTS_CACHE, 'w', encoding='utf-8') as f:
             json.dump(data, f, indent=2)
@@ -75,7 +142,6 @@ def save_cached_results(data):
 
 
 def compute_dashboard_results(force_refresh=False):
-    """Compute or retrieve cached dashboard results."""
     if not force_refresh:
         cached = load_cached_results()
         if cached:
@@ -89,7 +155,7 @@ def compute_dashboard_results(force_refresh=False):
             'safe_count': 0,
             'normal_count': 0,
             'critical_count': 0,
-            'message': 'No image directory found. Please place images in data/images or data/Train/images.',
+            'message': 'No dataset image directory found in data/.',
         }
 
     batch_results = infer_images(
@@ -104,73 +170,177 @@ def compute_dashboard_results(force_refresh=False):
             'safe_count': 0,
             'normal_count': 0,
             'critical_count': 0,
-            'message': 'Inference failed or no images were processed.',
+            'message': 'Failed to process images with model.',
         }
 
-    zone_counts = Counter(row.get('zone', 'UNKNOWN') for row in batch_results['results'])
-    batch_results['total_images'] = len(batch_results['results'])
-    batch_results['safe_count'] = zone_counts.get('SAFE', 0)
-    batch_results['normal_count'] = zone_counts.get('NORMAL', 0)
-    batch_results['critical_count'] = zone_counts.get('CRITICAL', 0)
-    save_cached_results(batch_results)
-    return batch_results
+    for row in batch_results['results']:
+        row['display_name'] = display_dataset_name(row.get('image') or row.get('display_name') or row.get('path', ''))
+        row['view_url'] = row.get('view_url') or url_for('analysis_view', filename=os.path.basename(row.get('path', '')))
+        row['image_url'] = row.get('image_url') or url_for('output_image', filename=os.path.basename(row.get('path', '')))
+        row['url'] = row.get('url') or row['image_url']
+
+    counts = [r['count'] for r in batch_results['results']]
+    avg_count = sum(counts) / max(len(counts), 1)
+
+    payload = {
+        'results': batch_results['results'],
+        'total_images': len(batch_results['results']),
+        'safe_count': batch_results.get('SAFE', 0),
+        'normal_count': batch_results.get('NORMAL', 0),
+        'critical_count': batch_results.get('CRITICAL', 0),
+        'avg_count': round(avg_count, 1),
+    }
+    save_cached_results(payload)
+    return payload
 
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    """Main dashboard page with dataset inference."""
-    images = build_image_list()
-    result = None
-    dashboard_results = None
-    message = None
-    refresh = False
-
+    # A dashboard reload should use the saved results.  Earlier versions treated
+    # this as a request to run inference on every dataset image, which kept the
+    # browser loading for a long time and allowed form resubmission loops.
     if request.method == 'POST':
-        action = request.form.get('action')
-        selected_image = request.form.get('image_name')
-        if action == 'infer' and selected_image:
-            image_dir = find_image_dir()
-            img_path = image_dir / selected_image if image_dir else None
-            if img_path is None or not img_path.exists():
-                message = f"Image not found: {selected_image}"
-            else:
-                result = infer_image(
-                    str(img_path),
-                    model_path=str(MODEL_PATH),
-                    output_dir=str(OUTPUT_DIR),
-                )
-                if result:
-                    result['url'] = url_for('output_image', filename=os.path.basename(result['path']))
-        elif action == 'refresh':
-            message = 'Dashboard refreshed. Your existing dataset results have not been changed.'
-        else:
-            message = 'Dashboard updated automatically. Use refresh to recompute results.'
+        return redirect(url_for('index', reloaded='1'), code=303)
 
-    dashboard_results = compute_dashboard_results(force_refresh=refresh)
-    if dashboard_results and 'results' in dashboard_results:
-        for index, row in enumerate(dashboard_results['results'], start=1):
-            output_filename = os.path.basename(row['path'])
-            row['url'] = url_for('output_image', filename=output_filename)
-            row['display_name'] = f'Simhastha Crowd Scene {index:02d}'
-            row['view_url'] = url_for('analysis_view', filename=output_filename, scene=index)
-
+    message = 'Dashboard reloaded.' if request.args.get('reloaded') == '1' else None
+    result = None
+    dashboard_results = compute_dashboard_results()
     return render_template(
         'index.html',
-        images=images,
-        result=result,
         dashboard_results=dashboard_results,
         message=message,
-        inference_dir=str(find_image_dir().relative_to(BASE_DIR)) if find_image_dir() else 'data/images',
-        output_dir=str(OUTPUT_DIR.relative_to(BASE_DIR)),
+        result=result,
     )
+
+
+def start_video_processing(file_path: str, filename: str, unique_name: str, speed_mode: str = 'balanced') -> str:
+    """Launch background video inference with continuous live telemetry."""
+    task_id = uuid.uuid4().hex
+
+    # Read quick video properties
+    cap = cv2.VideoCapture(file_path)
+    total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT)) or 0
+    orig_fps = cap.get(cv2.CAP_PROP_FPS) or 25.0
+    fps = orig_fps if orig_fps > 0 else 25.0
+    cap.release()
+
+    # Preset configurations
+    if speed_mode == 'fast':
+        # ~2 FPS sampling (e.g. stride 12-15 for 25-30fps video)
+        stride = max(1, int(round(fps / 2.0)))
+        max_dim = 768
+    elif speed_mode == 'balanced':
+        # Accuracy-first default: match still-image resolution at ~5 FPS.
+        stride = max(1, int(round(fps / 5.0)))
+        max_dim = 1000
+    else:  # precision
+        stride = 1
+        max_dim = 1000
+
+    orig_url = f"/uploads/{unique_name}"
+
+    task_payload = {
+        'task_id': task_id,
+        'status': 'processing',
+        'speed_mode': speed_mode,
+        'filename': filename,
+        'unique_name': unique_name,
+        'uploaded_media_url': orig_url,
+        'progress_pct': 0.0,
+        'current_frame': 0,
+        'total_frames': total_frames,
+        'current_count': 0.0,
+        'per_class': {},
+        'headgear_supported': None,
+        'zone': 'SAFE',
+        'fps_processed': 0.0,
+        'elapsed_sec': 0.0,
+        'eta_sec': 0.0,
+        'recent_counts': [],
+        'result': None,
+        'error': None,
+        'created_at': time.time(),
+    }
+
+    with VIDEO_TASKS_LOCK:
+        VIDEO_TASKS[task_id] = task_payload
+
+    def _worker():
+        with app.app_context():
+            try:
+                model, device = get_shared_model()
+
+                def _on_progress(p):
+                    with VIDEO_TASKS_LOCK:
+                        t = VIDEO_TASKS.get(task_id)
+                        if t:
+                            t['current_frame'] = p['current_frame']
+                            t['total_frames'] = p['total_frames']
+                            t['progress_pct'] = p['progress_pct']
+                            t['current_count'] = p['current_count']
+                            t['per_class'] = p['per_class']
+                            t['headgear_supported'] = p.get('headgear_supported')
+                            t['zone'] = p['zone']
+                            t['fps_processed'] = p['fps_processed']
+                            t['elapsed_sec'] = p['elapsed_sec']
+                            t['eta_sec'] = p['eta_sec']
+                            t['time_sec'] = p['time_sec']
+                            t['recent_counts'].append({
+                                'time_sec': p['time_sec'],
+                                'frame': p['current_frame'],
+                                'count': p['current_count'],
+                                'zone': p['zone']
+                            })
+                            if len(t['recent_counts']) > 30:
+                                t['recent_counts'] = t['recent_counts'][-30:]
+
+                v_res = infer_video(
+                    file_path,
+                    model_path=str(MODEL_PATH),
+                    output_dir=str(OUTPUT_DIR),
+                    frame_stride=stride,
+                    max_dim=max_dim,
+                    model=model,
+                    device=device,
+                    progress_callback=_on_progress,
+                )
+
+                with VIDEO_TASKS_LOCK:
+                    t = VIDEO_TASKS.get(task_id)
+                    if t:
+                        t['status'] = 'completed'
+                        t['progress_pct'] = 100.0
+                        t['result'] = {
+                            'filename': filename,
+                            'original_video_url': orig_url,
+                            'output_video_url': f"/outputs/{v_res['output_video']}",
+                            'total_frames': v_res['total_frames'],
+                            'duration_sec': v_res['duration_sec'],
+                            'peak_count': v_res['peak_count'],
+                            'peak_time_sec': v_res['peak_time_sec'],
+                            'avg_count': v_res['avg_count'],
+                            'zone': v_res['zone'],
+                            'zone_stats': v_res['zone_stats'],
+                            'telemetry': v_res['telemetry'],
+                        }
+            except Exception as ex:
+                with VIDEO_TASKS_LOCK:
+                    t = VIDEO_TASKS.get(task_id)
+                    if t:
+                        t['status'] = 'error'
+                        t['error'] = str(ex)
+
+    threading.Thread(target=_worker, daemon=True).start()
+    return task_id
 
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
-    """Upload and test page for custom images."""
     result = None
+    video_result = None
     message = None
-    uploaded_image_url = None
+    uploaded_media_url = None
+    active_task_id = request.args.get('task_id')
 
     if request.method == 'POST':
         if 'file' not in request.files:
@@ -180,60 +350,155 @@ def upload():
             if file.filename == '':
                 message = 'No file selected for uploading'
             elif not allowed_file(file.filename):
-                message = f'File type not allowed. Allowed types: {", ".join(ALLOWED_EXTENSIONS)}'
-            elif file.content_length and file.content_length > MAX_FILE_SIZE:
-                message = f'File size exceeds maximum limit of {MAX_FILE_SIZE / (1024*1024):.1f}MB'
+                message = f'File type not allowed. Supported formats: {", ".join(ALLOWED_EXTENSIONS)}'
             else:
                 try:
-                    # Save uploaded file
                     filename = secure_filename(file.filename)
-                    # Add timestamp to avoid overwrites
-                    filename = f"{uuid.uuid4()}_{filename}"
-                    file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                    unique_name = f"{uuid.uuid4().hex[:8]}_{filename}"
+                    file_path = os.path.join(app.config['UPLOAD_FOLDER'], unique_name)
                     file.save(file_path)
 
-                    # Run inference
-                    result = infer_image(
-                        file_path,
-                        model_path=str(MODEL_PATH),
-                        output_dir=str(OUTPUT_DIR),
-                    )
+                    speed_mode = request.form.get('speed_mode', 'balanced')
 
-                    if result:
-                        result['url'] = url_for('output_image', filename=os.path.basename(result['path']))
-                        uploaded_image_url = url_for('uploaded_file', filename=filename)
-                        pc = result.get('per_class', {})
-                        breakdown = ', '.join('{}: {}'.format(k, int(round(v))) for k, v in pc.items()) if pc else ''
-                        message = 'Analyzed! Total count: {} | {}'.format(int(round(result.get('count', 0))), breakdown)
+                    if is_video_file(filename):
+                        # Start continuous live counting task in background
+                        task_id = start_video_processing(
+                            file_path=file_path,
+                            filename=filename,
+                            unique_name=unique_name,
+                            speed_mode=speed_mode,
+                        )
+
+                        # Return JSON if called from modern JS fetch
+                        if (
+                            request.headers.get('X-Requested-With') == 'XMLHttpRequest'
+                            or 'application/json' in request.headers.get('Accept', '')
+                        ):
+                            return jsonify({
+                                'status': 'started',
+                                'task_id': task_id,
+                                'status_url': url_for('video_task_status', task_id=task_id),
+                                'stream_url': url_for('video_task_stream', task_id=task_id),
+                            })
+
+                        # Standard form POST: render with active_task_id for live updates
+                        active_task_id = task_id
+                        uploaded_media_url = url_for('uploaded_file', filename=unique_name)
                     else:
-                        message = 'Inference failed. Please try with a different image.'
-                        # Clean up failed upload
-                        if os.path.exists(file_path):
-                            os.remove(file_path)
+                        # Image inference with cached model
+                        model, device = get_shared_model()
+                        img_res = infer_image(
+                            file_path,
+                            model_path=str(MODEL_PATH),
+                            output_dir=str(OUTPUT_DIR),
+                            model=model,
+                            device=device,
+                        )
+                        if img_res:
+                            img_res['url'] = url_for('output_image', filename=os.path.basename(img_res['path']))
+                            uploaded_media_url = url_for('uploaded_file', filename=unique_name)
+                            pc = img_res.get('per_class', {})
+                            breakdown = ', '.join(f"{k.capitalize()}: {int(round(v))}" for k, v in pc.items()) if pc else ''
+                            message = f"Image analyzed! Total count: {int(round(img_res.get('count', 0)))} | {breakdown}"
+                            result = img_res
+                        else:
+                            message = 'Inference failed. Please try with another image.'
+                            if os.path.exists(file_path):
+                                os.remove(file_path)
 
                 except Exception as e:
                     message = f'Error processing file: {str(e)}'
 
+    # Check active task state if present
+    active_task = None
+    if active_task_id:
+        with VIDEO_TASKS_LOCK:
+            active_task = VIDEO_TASKS.get(active_task_id)
+        if active_task and active_task.get('status') == 'completed':
+            video_result = active_task.get('result')
+            uploaded_media_url = active_task.get('uploaded_media_url')
+
     return render_template(
         'upload.html',
         result=result,
+        video_result=video_result,
+        active_task_id=active_task_id,
+        active_task=active_task,
         message=message,
-        uploaded_image_url=uploaded_image_url,
-        max_file_size=MAX_FILE_SIZE / (1024*1024),
+        uploaded_media_url=uploaded_media_url,
+        max_file_size=MAX_FILE_SIZE / (1024 * 1024),
         allowed_extensions=", ".join(ALLOWED_EXTENSIONS),
     )
+
+
+@app.route('/api/video/upload', methods=['POST'])
+def api_video_upload():
+    """JSON API for uploading a video and starting continuous counting."""
+    if 'file' not in request.files:
+        return jsonify({'error': 'No file part in request'}), 400
+    file = request.files['file']
+    if file.filename == '':
+        return jsonify({'error': 'No file selected'}), 400
+    if not is_video_file(file.filename):
+        return jsonify({'error': 'File is not a supported video format'}), 400
+
+    filename = secure_filename(file.filename)
+    unique_name = f"{uuid.uuid4().hex[:8]}_{filename}"
+    file_path = os.path.join(app.config['UPLOAD_FOLDER'], unique_name)
+    file.save(file_path)
+
+    speed_mode = request.form.get('speed_mode', 'balanced')
+    task_id = start_video_processing(file_path, filename, unique_name, speed_mode=speed_mode)
+
+    return jsonify({
+        'status': 'started',
+        'task_id': task_id,
+        'filename': filename,
+        'uploaded_media_url': url_for('uploaded_file', filename=unique_name),
+        'status_url': url_for('video_task_status', task_id=task_id),
+        'stream_url': url_for('video_task_stream', task_id=task_id),
+    })
+
+
+@app.route('/api/video/status/<task_id>')
+def video_task_status(task_id):
+    """Poll current status, real-time count, and telemetry for a video task."""
+    with VIDEO_TASKS_LOCK:
+        task = VIDEO_TASKS.get(task_id)
+    if not task:
+        return jsonify({'error': 'Task not found'}), 404
+    return jsonify(task)
+
+
+@app.route('/api/video/stream/<task_id>')
+def video_task_stream(task_id):
+    """Server-Sent Events (SSE) stream delivering live count continuously."""
+    def event_generator():
+        while True:
+            with VIDEO_TASKS_LOCK:
+                task = VIDEO_TASKS.get(task_id)
+            if not task:
+                yield f"data: {json.dumps({'status': 'not_found'})}\n\n"
+                break
+
+            status = task.get('status', 'processing')
+            yield f"data: {json.dumps(task)}\n\n"
+
+            if status in ('completed', 'error'):
+                break
+
+            time.sleep(0.18)
+
+    return Response(event_generator(), mimetype='text/event-stream', headers={
+        'Cache-Control': 'no-cache',
+        'X-Accel-Buffering': 'no',
+    })
 
 
 @app.route('/model')
 def model_info():
     """Explain the crowd-counting model and analysis workflow."""
     return render_template('model.html')
-
-
-@app.route('/outputs/<path:filename>')
-def output_image(filename):
-    """Serve inference output images."""
-    return send_from_directory(str(OUTPUT_DIR), filename)
 
 
 @app.route('/analysis/<path:filename>')
@@ -251,34 +516,33 @@ def analysis_view(filename):
     )
 
 
+@app.route('/outputs/<path:filename>')
+def output_image(filename):
+    return send_from_directory(str(OUTPUT_DIR), filename)
+
+
 @app.route('/uploads/<path:filename>')
 def uploaded_file(filename):
-    """Serve uploaded user images."""
     return send_from_directory(str(UPLOAD_DIR), filename)
 
 
 @app.route('/api/info')
 def api_info():
-    """API endpoint for model and system information."""
-    return json.dumps({
-        'model': 'CSRNet with Squeeze-and-Excitation blocks',
-        'backend': 'VGG16 (ImageNet pre-trained)',
-        'framework': 'PyTorch',
-        'focus': 'Crowd counting with cultural headgear diversity',
-        'training_data': 'Simhastha Kumbh Mela religious gathering',
-        'headgear_types': [
-            'Saffron turbans',
-            'Religious veils',
-            'Traditional caps',
-            'Various cloth headwear',
-            'Bare heads'
+    return jsonify({
+        'model': 'CSRNet with Squeeze-and-Excitation attention',
+        'features': [
+            'Multi-class headgear density estimation',
+            'Continuous real-time video crowd counting',
+            'Live HUD overlays',
+            'Adaptive temporal sampling engine'
         ],
-        'metrics': {
-            'MAE': '9.86 people',
-            'RMSE': '~15 people',
-        }
+        'classes': ['head', 'turban', 'veil', 'cap'],
+        'framework': 'PyTorch',
     })
 
 
 if __name__ == '__main__':
+    # Pre-warm model in background
+    threading.Thread(target=get_shared_model, daemon=True).start()
     app.run(debug=True, host='0.0.0.0', port=5000)
+
