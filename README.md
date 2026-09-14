@@ -28,34 +28,6 @@ Instead of a single density map, SATARK outputs **4 specialized density channels
 
 ---
 
-##  End-to-End Model Working Flow
-
-```mermaid
-flowchart TD
-    A[Raw Input Image\nCultural Crowd Scene] --> B[Preprocessing & Standardization\nResize max 1000px, ImageNet Normalization]
-    B --> C[VGG-16 Backbone\nFirst 13 Conv Layers - Shallow & Mid Features]
-    C --> D[Dilated Conv Backend\n6 Dilated Layers - Expanded Receptive Field]
-    D --> E[Squeeze-and-Excitation SE Block\nChannel Recalibration & Feature Attention]
-    E --> F[Output 1x1 Convolution\nConv2d: 64 channels to 4 channels]
-    
-    F --> G1[Channel 0: Head Density Map]
-    F --> G2[Channel 1: Turban Density Map]
-    F --> G3[Channel 2: Veil Density Map]
-    F --> G4[Channel 3: Cap Density Map]
-    
-    G1 & G2 & G3 & G4 --> H[Integral Summation\nsum over spatial grid & channels]
-    
-    H --> I[Detailed Breakdown Output\nHead: N1 | Turban: N2 | Veil: N3 | Cap: N4]
-    H --> J[Total Crowd Count\nTotal = N1 + N2 + N3 + N4]
-    
-    J --> K{Safety Zone Evaluator}
-    K -->|Count <= 50| L1[ SAFE Zone]
-    K -->|51 to 150| L2[ NORMAL Zone]
-    K -->|Count > 150| L3[ CRITICAL Zone Alert]
-```
-
----
-
 ##  Step-by-Step Architecture Breakdown
 
 ```text
