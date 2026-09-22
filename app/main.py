@@ -142,12 +142,14 @@ def save_cached_results(data):
 
 
 def compute_dashboard_results(force_refresh=False):
+    image_dir = find_image_dir()
+    total_on_disk = len(list_image_files(str(image_dir))) if image_dir else 0
+
     if not force_refresh:
         cached = load_cached_results()
-        if cached:
+        if cached and cached.get('total_images') == total_on_disk and len(cached.get('results', [])) == total_on_disk:
             return cached
 
-    image_dir = find_image_dir()
     if image_dir is None:
         return {
             'results': [],
@@ -196,15 +198,13 @@ def compute_dashboard_results(force_refresh=False):
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    # A dashboard reload should use the saved results.  Earlier versions treated
-    # this as a request to run inference on every dataset image, which kept the
-    # browser loading for a long time and allowed form resubmission loops.
     if request.method == 'POST':
         return redirect(url_for('index', reloaded='1'), code=303)
 
-    message = 'Dashboard reloaded.' if request.args.get('reloaded') == '1' else None
+    is_reloaded = (request.args.get('reloaded') == '1')
+    message = 'Dashboard reloaded.' if is_reloaded else None
     result = None
-    dashboard_results = compute_dashboard_results()
+    dashboard_results = compute_dashboard_results(force_refresh=is_reloaded)
     return render_template(
         'index.html',
         dashboard_results=dashboard_results,

@@ -22,14 +22,14 @@
   <div class="dashboard">
     <header>
       <div>
-      <h1>Crowd Count Dashboard</h1>
-      <p class="subtitle">Track crowd density and estimated head counts across Simhastha monitoring scenes.</p>
-      <a class="header-model-button" href="{{ url_for('model_info') }}">Visit model page <span aria-hidden="true">&#8594;</span></a>
+        <h1>Crowd Count Dashboard</h1>
+        <p class="subtitle">Track crowd density and estimated head counts across Simhastha monitoring scenes.</p>
+        <a class="header-model-button" href="{{ url_for('model_info') }}">Visit model page <span aria-hidden="true">&#8594;</span></a>
       </div>
       <div class="info-row">
         <div><strong>Model</strong><br>CSRNet + SE blocks</div>
-        <div><strong>Accuracy</strong><br>MAE of 9.86 people</div>
-        <div><strong>Dataset</strong><br>63 labeled images</div>
+        <div><strong>Accuracy</strong><br>MAE of 12.15 people</div>
+        <div><strong>Dataset</strong><br>{{ dashboard_results.total_images if (dashboard_results and dashboard_results.total_images) else 103 }} labeled images</div>
       </div>
     </header>
 

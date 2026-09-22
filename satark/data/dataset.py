@@ -12,11 +12,12 @@ STD  = [0.229, 0.224, 0.225]
 
 
 class SimhasthaDataset(Dataset):
-    def __init__(self, root_dir='data', split='train', crop_size=512, downsample=8):
+    def __init__(self, root_dir='data', split='train', crop_size=512, downsample=8, single_channel=False):
         self.root_dir   = root_dir
         self.split      = split
         self.crop_size  = crop_size
         self.downsample = downsample
+        self.single_channel = single_channel
         self.color_jitter  = T.ColorJitter(0.3, 0.3, 0.3, 0.05)
         self.gaussian_blur = T.GaussianBlur(3, sigma=(0.1, 2.0))
         self.samples = []
@@ -41,9 +42,11 @@ class SimhasthaDataset(Dataset):
         return len(self.samples)
 
     def _load_target(self, heat_dir, stem):
-        maps = []
         combined_path = os.path.join(heat_dir, stem + '.npy')
         combined = np.load(combined_path).astype(np.float32)
+        if self.single_channel:
+            return torch.from_numpy(combined).unsqueeze(0)
+        maps = []
         for cls in CLASSES:
             p = os.path.join(heat_dir, stem + '_' + cls + '.npy')
             maps.append(torch.from_numpy(np.load(p).astype(np.float32)) if os.path.exists(p)

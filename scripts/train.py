@@ -8,7 +8,10 @@ from satark.engine.trainer import train_satark
 
 def main():
     p = argparse.ArgumentParser(description='Train SATARK headgear-aware crowd counter.')
-    p.add_argument('--weights-path',    default='checkpoints/baseline_weights.pth')
+    default_weights = 'checkpoints/satark_best_backup.pth' if Path('checkpoints/satark_best_backup.pth').exists() else (
+        'checkpoints/satark_best.pth' if Path('checkpoints/satark_best.pth').exists() else 'checkpoints/baseline_weights.pth'
+    )
+    p.add_argument('--weights-path',    default=default_weights)
     p.add_argument('--data-root',       default='data')
     p.add_argument('--checkpoint-dir',  default='checkpoints')
     p.add_argument('--epochs',          type=int,   default=80)
@@ -16,6 +19,8 @@ def main():
     p.add_argument('--lr',              type=float, default=5e-5)
     p.add_argument('--unfreeze-after',  type=int,   default=15)
     p.add_argument('--early-stop',      type=int,   default=15, dest='early_stopping_patience')
+    p.add_argument('--num-workers',     type=int,   default=None)
+    p.add_argument('--output-channels', type=int,   default=None)
     args = p.parse_args()
     train_satark(
         weights_path=args.weights_path,
@@ -26,6 +31,8 @@ def main():
         batch_size=args.batch_size,
         unfreeze_after=args.unfreeze_after,
         early_stopping_patience=args.early_stopping_patience,
+        num_workers=args.num_workers,
+        output_channels=args.output_channels,
     )
 
 

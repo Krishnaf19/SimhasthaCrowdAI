@@ -3,6 +3,7 @@ from torch.utils.data import DataLoader
 from ..data.dataset   import SimhasthaDataset
 from ..engine.evaluator import load_checkpoint
 from ..models.csrnet  import CSRNet, get_device, clear_device_cache
+from ..utils.inference import _checkpoint_output_channels
 
 
 class DensityMSELoss(nn.Module):
@@ -54,6 +55,8 @@ def train_satark(
     min_lr=1e-7,
     early_stopping_patience=15,
     grad_clip=1.0,
+    num_workers=None,
+    output_channels=None,
 ):
     print('SATARK Training — Headgear-Aware Crowd Counting')
     print('=' * 52)
@@ -61,19 +64,28 @@ def train_satark(
     print('  Device:', device)
     os.makedirs(checkpoint_dir, exist_ok=True)
 
-    model = CSRNet(load_weights=True, freeze_frontend=True, use_se=use_se).to(device)
-    if os.path.exists(weights_path):
+    if weights_path and os.path.exists(weights_path) and output_channels is None:
+        output_channels = _checkpoint_output_channels(weights_path, device)
+    if output_channels is None:
+        output_channels = 1 if os.path.exists(os.path.join(checkpoint_dir, 'satark_best.pth')) else 4
+
+    single_channel = (output_channels == 1)
+    print(f'  Model output channels: {output_channels} (single_channel={single_channel})')
+
+    model = CSRNet(load_weights=True, freeze_frontend=True, use_se=use_se, output_channels=output_channels).to(device)
+    if weights_path and os.path.exists(weights_path):
         load_checkpoint(weights_path, model, device)
 
     try:
-        train_ds = SimhasthaDataset(root_dir=data_root, split='train')
-        val_ds   = SimhasthaDataset(root_dir=data_root, split='all')
+        train_ds = SimhasthaDataset(root_dir=data_root, split='train', single_channel=single_channel)
+        val_ds   = SimhasthaDataset(root_dir=data_root, split='all', single_channel=single_channel)
     except Exception as e:
         print('Dataset error:', e); return
 
     pin = device.type != 'cpu'
-    train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True,  num_workers=2, pin_memory=pin)
-    val_loader   = DataLoader(val_ds,   batch_size=1,          shuffle=False, num_workers=2, pin_memory=pin)
+    workers = num_workers if num_workers is not None else (0 if os.name == 'nt' else 2)
+    train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True,  num_workers=workers, pin_memory=pin)
+    val_loader   = DataLoader(val_ds,   batch_size=1,          shuffle=False, num_workers=workers, pin_memory=pin)
 
     criterion = DensityMSELoss(density_threshold, penalty)
     optimizer = optim.AdamW(model.trainable_parameters(), lr=lr, weight_decay=weight_decay)
@@ -98,20 +110,20 @@ def train_satark(
         scheduler.step(vm)
 
         print('Ep {}/{} | Train loss={:.4f} MAE={:.1f} RMSE={:.1f} | Val loss={:.4f} MAE={:.1f} RMSE={:.1f}'.format(
-            epoch, num_epochs, tl, tm, tr, vl, vm, vr))
+            epoch, num_epochs, tl, tm, tr, vl, vm, vr), flush=True)
 
         if vm < best_mae:
             best_mae, no_improve = vm, 0
             best_path = os.path.join(checkpoint_dir, 'satark_best.pth')
             torch.save(model.state_dict(), best_path)
-            print('  * Best MAE {:.2f} -> {}'.format(best_mae, best_path))
+            print('  * Best MAE {:.2f} -> {}'.format(best_mae, best_path), flush=True)
         else:
             no_improve += 1
             if no_improve >= early_stopping_patience:
-                print('  Early stop at epoch', epoch); break
+                print('  Early stop at epoch', epoch, flush=True); break
 
         if epoch % save_every == 0:
             torch.save(model.state_dict(), os.path.join(checkpoint_dir, 'satark_e{}.pth'.format(epoch)))
 
     torch.save(model.state_dict(), os.path.join(checkpoint_dir, 'satark_final.pth'))
-    print('Training complete. Best MAE:', round(best_mae, 2))
+    print('Training complete. Best MAE:', round(best_mae, 2), flush=True)

@@ -1,0 +1,90 @@
+image_name,status,head_count,turban_count,veil_count,cap_count,source_xml,width,height,split_assignment
+sadhu1.jpg,labeled,110,0,0,0,annotations_label000.xml,1200,800,train
+sadhu10.jpg,labeled,8,0,0,0,annotations_label000.xml,1200,798,train
+sadhu11.jpg,labeled,63,0,0,0,annotations_label000.xml,612,453,train
+sadhu12.jpg,labeled,13,0,0,0,annotations_label000.xml,1280,720,test
+sadhu13.jpg,labeled,19,0,0,0,annotations_label000.xml,612,408,test
+sadhu14.jpg,labeled,105,0,0,0,annotations_label000.xml,679,451,train
+sadhu15.jpg,labeled,15,0,0,0,annotations_label000.xml,1300,954,train
+sadhu16.jpg,labeled,18,0,0,0,annotations_label000.xml,1080,720,train
+sadhu17.jpg,labeled,119,0,0,0,annotations_label000.xml,766,504,train
+sadhu18.jpg,labeled,40,0,0,0,annotations_label000.xml,557,550,train
+sadhu19.jpg,labeled,248,0,0,0,annotations_label000.xml,1300,955,train
+sadhu2.jpg,labeled,104,0,0,0,annotations_label000.xml,547,365,test
+sadhu20.jpg,labeled,12,0,0,0,annotations_label000.xml,678,452,train
+sadhu21.jpg,labeled,257,0,0,0,annotations_label001.xml,548,364,test
+sadhu22.jpg,labeled,19,0,0,0,annotations_label001.xml,612,408,test
+sadhu23.jpg,labeled,9,0,0,0,annotations_label001.xml,684,448,train
+sadhu24.jpg,labeled,29,0,0,0,annotations_label001.xml,875,583,train
+sadhu25.jpg,labeled,63,0,0,0,annotations_label001.xml,399,501,test
+sadhu26.jpg,labeled,90,0,0,0,annotations_label001.xml,399,501,train
+sadhu27.jpg,labeled,72,0,0,0,annotations_label001.xml,678,452,train
+sadhu28.jpg,labeled,21,0,0,0,annotations_label001.xml,600,450,train
+sadhu29.jpg,labeled,12,0,0,0,annotations_label001.xml,556,359,train
+sadhu3.jpg,labeled,44,0,0,0,annotations_label000.xml,399,501,train
+sadhu30.jpg,labeled,16,0,0,0,annotations_label001.xml,460,316,train
+sadhu31.jpg,labeled,14,0,0,0,annotations_label001.xml,500,453,train
+sadhu32.jpg,labeled,89,0,0,0,annotations_label001.xml,600,315,train
+sadhu33.jpg,labeled,8,0,0,0,annotations_label001.xml,678,452,train
+sadhu34.jpg,labeled,5,0,0,0,annotations_label001.xml,681,450,test
+sadhu35.jpg,labeled,81,0,0,0,annotations_label001.xml,680,451,test
+sadhu36.jpg,labeled,78,0,0,0,annotations_label001.xml,684,449,test
+sadhu37.jpg,labeled,17,0,0,0,annotations_label001.xml,547,365,train
+sadhu38.jpg,labeled,5,0,0,0,annotations_label001.xml,1280,960,test
+sadhu39.jpg,labeled,1,0,0,0,annotations_label001.xml,1024,967,train
+sadhu4.jpg,labeled,34,0,0,0,annotations_label000.xml,630,630,train
+sadhu40.jpg,labeled,50,0,0,0,annotations_label001.xml,598,519,train
+sadhu5.jpg,labeled,111,0,0,0,annotations_label000.xml,600,400,test
+sadhu6.jpg,labeled,42,0,0,0,annotations_label000.xml,640,480,train
+sadhu7.jpg,labeled,93,0,0,0,annotations_label000.xml,900,600,train
+sadhu8.jpg,labeled,16,0,0,0,annotations_label000.xml,410,260,train
+sadhu9.jpeg,labeled,303,0,0,0,annotations_label000.xml,1336,888,train
+simhastha-001-saffron-sadhus-group.jpg,labeled,27,0,0,0,annotations 7.xml,1600,1068,train
+simhastha-003-sadhus-at-festival-gate.jpg,labeled,57,0,0,0,annotations 5.xml,640,420,train
+simhastha-004-garlanded-sadhus-procession.jpg,labeled,21,0,0,0,annotations 2.xml,3963,2642,train
+simhastha-008-women-sadhus-procession.jpg,labeled,8,0,0,0,annotations 7.xml,1300,1033,train
+simhastha-009-devotees-walking-in-water.jpg,labeled,73,0,0,0,annotations 6.xml,1200,900,train
+simhastha-010-garlanded-sadhus-portrait.jpg,unlabeled,0,0,0,0,none,0,0,inference
+simhastha-011-devotee-crowd-closeup.jpg,labeled,66,0,0,0,annotations 2.xml,612,408,train
+simhastha-012-dense-ash-covered-sadhus.jpg,labeled,240,0,0,0,annotations 1.xml,612,408,train
+simhastha-013-dense-festival-crowd.jpg,labeled,312,0,0,0,annotations 1.xml,612,408,train
+simhastha-014-devotees-at-barricade.jpg,unlabeled,0,0,0,0,none,0,0,inference
+simhastha-015-river-bathing-crowd.jpg,labeled,190,0,0,0,annotations 1.xml,612,408,train
+simhastha-016-sadhus-in-ceremonial-tent.jpg,labeled,92,0,0,0,annotations 1.xml,612,409,train
+simhastha-017-garlanded-sadhu-closeup.jpg,labeled,38,0,0,0,annotations 2.xml,612,408,train
+simhastha-018-sadhu-procession-with-banner.jpg,labeled,38,0,0,0,annotations 2.xml,612,409,train
+simhastha-019-ash-covered-sadhus-line.jpg,labeled,56,0,0,0,annotations 2.xml,612,453,train
+simhastha-020-sadhus-in-temple-interior.jpg,unlabeled,0,0,0,0,none,0,0,inference
+simhastha-021-sadhus-walking-procession.jpg,labeled,72,0,0,0,annotations 2.xml,612,408,train
+simhastha-022-blue-tinted-devotee-crowd.jpg,labeled,142,0,0,0,annotations 1.xml,612,407,test
+simhastha-023-seated-sadhu-with-garlands.jpg,labeled,37,0,0,0,annotations 4.xml,612,408,train
+simhastha-024-pilgrims-in-river-crowd.jpg,labeled,27,0,0,0,annotations 2.xml,612,408,train
+simhastha-025-bathing-devotees-overhead.jpg,labeled,201,0,0,0,annotations 2.xml,612,363,train
+simhastha-026-riverside-crowd-line.jpg,labeled,101,0,0,0,annotations 1.xml,612,378,train
+simhastha-027-saffron-sadhu-group.jpg,unlabeled,0,0,0,0,none,0,0,inference
+simhastha-028-sadhus-walking-in-crowd.jpg,labeled,47,0,0,0,annotations 7.xml,612,407,train
+simhastha-029-garlanded-sadhus-closeup.jpg,labeled,38,0,0,0,annotations 7.xml,612,323,train
+simhastha-032-pilgrims-bathing-in-river.jpg,labeled,46,0,0,0,annotations 6.xml,686,386,train
+simhastha-033-saffron-sadhu-portrait.jpg,labeled,16,0,0,0,annotations 2.xml,253,199,train
+simhastha-034-garlanded-sadhu-closeup.jpg,labeled,9,0,0,0,annotations 2.xml,276,182,train
+simhastha-035-garlanded-sadhu-with-devotees.jpg,labeled,11,0,0,0,annotations 7.xml,275,183,test
+simhastha-036-riverside-pilgrims.jpg,unlabeled,0,0,0,0,none,0,0,inference
+simhastha-037-devotees-at-festival-entry.jpg,labeled,18,0,0,0,annotations 6.xml,299,168,train
+simhastha-038-dense-pilgrim-crowd.jpg,labeled,54,0,0,0,annotations 6.xml,275,183,train
+simhastha-039-white-clad-devotee-group.jpg,labeled,18,0,0,0,annotations 7.xml,275,183,train
+simhastha-040-saffron-sadhus-seated.jpg,labeled,27,0,0,0,annotations 7.xml,300,168,train
+simhastha-041-saffron-sadhus-group-duplicate.jpg,labeled,22,0,0,0,annotations 2.xml,275,183,test
+simhastha-042-pilgrim-crowd-wide.jpg,labeled,43,0,0,0,annotations 7.xml,612,408,train
+simhastha-043-pilgrim-crowd-wide-copy.jpg,unlabeled,0,0,0,0,none,0,0,inference
+simhastha-044-pilgrim-crowd-wide-source.jpg,labeled,50,0,0,0,annotations 2.xml,612,408,train
+simhastha-045-river-bathing-pilgrims.jpg,labeled,251,0,0,0,annotations 5.xml,408,612,train
+simhastha-047-devotees-at-snaan-ground.jpg,labeled,116,0,0,0,annotations 7.xml,700,467,test
+simhastha-050-riverbank-pilgrim-crowd.jpg,labeled,239,0,0,0,annotations 2.xml,1450,1087,train
+simhastha-051-dense-pilgrim-gathering.jpg,labeled,166,0,0,0,annotations 6.xml,700,467,train
+simhastha-055-sadhus-procession-crowd.jpg,labeled,37,0,0,0,annotations 2.xml,911,683,train
+simhastha-056-akhara-sadhu-procession.jpg,labeled,27,0,0,0,annotations 7.xml,1300,956,train
+simhastha-057-pilgrim-crowd-street-view.jpg,labeled,123,0,0,0,annotations 6.xml,730,487,train
+simhastha-058-ujjain-temple-crowd.jpg,labeled,82,0,0,0,annotations 6.xml,650,400,train
+simhastha-059-nashik-festival-crowd.jpg,labeled,1050,0,0,0,annotations 5.xml,6016,4016,test
+simhastha-060-tourist-photographing-sadhus.jpg,labeled,40,0,0,0,annotations 7.xml,1300,956,test
+simhastha-061-ujjain-pilgrim-crowd.jpg,labeled,79,0,0,0,annotations 6.xml,550,413,train
